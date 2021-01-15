@@ -1,6 +1,7 @@
 import AppLayout from "../componentes/AppLayout";
 import Image from "next/image";
-import { Container } from 'react-bootstrap/Container';
+import { Container } from 'react-bootstrap';
+
 
 const PageError = () => {
     return (
@@ -8,10 +9,13 @@ const PageError = () => {
             <Container className="container-ganga fade-in animated ">
                 <div className="bg-error">
                     <div className="img-bg-error">
+                        <div className="img-error">
                         <Image
                           src="/images/error.svg"
-                          className="img-error"
+                          height="500"
+                          width="500"
                         />
+                        </div>
                     </div>
                 </div>
             </Container>
