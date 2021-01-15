@@ -107,7 +107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Footer */ "./componentes/Footer.js");
 /* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Header/Header */ "./componentes/Header/Header.js");
 
-var _jsxFileName = "C:\\Users\\jcqui\\OneDrive\\Escritorio\\henri_barrett\\La_ganga\\laGanga_next\\componentes\\AppLayout\\index.js";
+var _jsxFileName = "D:\\Isaac\\HenrriBarrett\\git\\laGanga_next\\componentes\\AppLayout\\index.js";
 
 
 
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-var _jsxFileName = "C:\\Users\\jcqui\\OneDrive\\Escritorio\\henri_barrett\\La_ganga\\laGanga_next\\componentes\\Footer.js";
+var _jsxFileName = "D:\\Isaac\\HenrriBarrett\\git\\laGanga_next\\componentes\\Footer.js";
 
 const Footer = () => {
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {}, void 0, false, {
@@ -179,7 +179,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "react/jsx-dev-runtime");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-var _jsxFileName = "C:\\Users\\jcqui\\OneDrive\\Escritorio\\henri_barrett\\La_ganga\\laGanga_next\\componentes\\Header\\Header.js";
+var _jsxFileName = "D:\\Isaac\\HenrriBarrett\\git\\laGanga_next\\componentes\\Header\\Header.js";
 
 const Header = () => {
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxDEV"])("div", {}, void 0, false, {
@@ -206,7 +206,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _componentes_AppLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../componentes/AppLayout */ "./componentes/AppLayout/index.js");
 
-var _jsxFileName = "C:\\Users\\jcqui\\OneDrive\\Escritorio\\henri_barrett\\La_ganga\\laGanga_next\\pages\\index.js";
+var _jsxFileName = "D:\\Isaac\\HenrriBarrett\\git\\laGanga_next\\pages\\index.js";
 
 
 const Home = () => {
