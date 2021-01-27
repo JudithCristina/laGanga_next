@@ -1,10 +1,10 @@
 import Footer from "./../Footer";
 import Header from "./../Header/Header";
 
-const AppLayout = ({ children }) => {
+const AppLayout = ({ children, promotionsData }) => {
   return (
     <div>
-      <Header></Header>
+      <Header  promotionsData={ promotionsData } ></Header>
       <main>{children}</main>
       <Footer></Footer>
       <style jsx global>
