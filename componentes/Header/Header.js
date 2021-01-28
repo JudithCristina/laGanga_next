@@ -24,26 +24,9 @@ const Header = (props) => {
   const filterForm = (e) => {
     e.preventDefault();
     const searchFilter = searchWord.toLowerCase();
-    console.log(searchFilter, "buscador");
-    const dataInput = products;
-    console.log(dataInput, "dataiinput judith");
     if (searchFilter === "") {
       return router.push("/");
     } else {
-      const newData = dataInput.filter((item) => {
-        const matchName = item.promocion.nombre
-          .toLowerCase()
-          .includes(searchFilter);
-        const matchCategory = item.promocion.categoria
-          .toLowerCase()
-          .includes(searchFilter);
-        const matchDescription = item.promocion.descripcion
-          .toLowerCase()
-          .includes(searchFilter);
-        return matchName || matchCategory || matchDescription;
-      });
-      localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData));
-      //  functionFilterSearch(newData);
       router.push("/buscar/" + searchFilter);
     }
   };
@@ -53,27 +36,7 @@ const Header = (props) => {
     return history.push("/interest");
   };
 
-  const getProducts = async () => {
-    let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion-all/user`;
-    await fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
-          setProducts([]);
-        } else {
-          setProducts(data);
-        }
-      })
-      .catch((e) => {
-        console.log(e, "error:)");
-      });
-  };
 
-  useEffect(() => {
-    getProducts();
-  }, []);
   // const width = window.innerWidth;
   // const breakpoint = 768;
 

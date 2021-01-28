@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useRouter } from "next/router";
 import AppLayout from "../../componentes/AppLayout";
 import CardPromotion from "../../componentes/Promotions/CardPromotion"
 
+
 const wordSearch = () => {
   const router = useRouter();
+  const [products, setProducts] = useState([]);
   // console.log(localStorage.getItem("searchFilterLocalStorage"));
   // console.log(router, "pruebita");
+  const getProducts = async () => {
+    let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/search/user?search=${router.query.wordSearch}`;
+    await fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
+          setProducts([]);
+        } else {
+          setProducts(data);
+        }
+      })
+      .catch((e) => {
+        console.log(e, "error:)");
+      });
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, [router.query.wordSearch]);
 
   return (
     <AppLayout>
@@ -15,10 +38,10 @@ const wordSearch = () => {
         <div className="box-search">
           <h4>Resultados de búsqueda: {router.query.wordSearch}</h4>
         </div>
-        {JSON.parse(localStorage.getItem("searchFilterLocalStorage")).length !==
+        {products.length !==
         0 ? (
           <Row className="justify-content-md-center ">
-            {JSON.parse(localStorage.getItem("searchFilterLocalStorage")).map(
+            {products.map(
               (product) => (
                 <CardPromotion product={product} key={product._id} />
               )
