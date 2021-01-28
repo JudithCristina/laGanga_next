@@ -4,5 +4,5 @@
   "/_error": "pages/_error.js",
   "/": "pages/index.js",
   "/buscar/[wordSearch]": "pages/buscar/[wordSearch].js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
+  "/404": "pages/404.js"
 }

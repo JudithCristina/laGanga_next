@@ -1,10 +1,12 @@
 import Footer from "./../Footer";
 import Header from "./../Header/Header";
+import FilterCategory from "./../FilterCategory/FilterCategory"
 
 const AppLayout = ({ children, promotionsData }) => {
   return (
     <div>
       <Header  promotionsData={ promotionsData } ></Header>
+      <FilterCategory/>
       <main>{children}</main>
       <Footer></Footer>
       <style jsx global>
