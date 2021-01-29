@@ -47,25 +47,22 @@ const FilterCategory = () => {
         }
       })
      .catch((e) => {
-      console.log(e, "error:)");
+      console.log(e, "error");
     });
   };
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
     setValueMarca(`marca=${selectedOption.label}`);
-    console.log(`Option selected:`, selectedOption);
-  };
-  console.log(`value:`, valueMarca);
-
-  const sendFilter = (e) => {
-    e.preventDefault();
-    router.push(`/category/${valueCategory}&${valueMarca}`);
-    setValueCategory("category=''");
-    setValueMarca("marca=''");
-    handleClose();
   };
   const handleInputChangeCategory = (e) => {
     setValueCategory(`category=${e.target.value}`);
+  };
+  const sendFilter = (e) => {
+    e.preventDefault();
+    router.push(`/CategoryAndMarca/${valueCategory}/${valueMarca}`);
+    setValueCategory("category=''");
+    setValueMarca("marca=''");
+    handleClose();
   };
   // const handleInputChangeMarca = (e) => {
   //     setValueMarca(`marca=${e.target.value}`);
