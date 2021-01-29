@@ -389,8 +389,10 @@ const Header = (props) => {
             display: none;
           }
 
-          .navbar-desktop {
+         :global(.navbar-desktop) {
             display: block;
+            display:flex!important;
+            justify-content:flex-end
           }
 
           .navbar-mobile {
