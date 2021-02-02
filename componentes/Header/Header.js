@@ -42,8 +42,8 @@ const Header = (props) => {
 
   return (
     <>
-      <div className="container-ganga">
-        <Navbar bg="light" expand="lg">
+      <div className="container-ganga ">
+        <Navbar bg="light" expand="xl">
           <Link href="/" className="box-logo">
             <a className="logo-ganga">
               <Image
