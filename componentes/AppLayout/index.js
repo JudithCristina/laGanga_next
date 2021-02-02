@@ -1,15 +1,15 @@
 import Footer from "./../Footer";
 import Header from "./../Header/Header";
-import FilterCategory from "./../FilterCategory/FilterCategory"
+import FilterCategory from "./../FilterCategory/FilterCategory";
 import HeaderNuevo from "../Header/HeaderNuevo";
 
 const AppLayout = ({ children, promotionsData }) => {
   return (
-    <div>
+    <div className="container-ganga">
       {/* <Header  promotionsData={ promotionsData } ></Header> */}
-      <HeaderNuevo promotionsData={ promotionsData } ></HeaderNuevo>
-      <FilterCategory/>
-      <main>{children}</main>
+      <HeaderNuevo promotionsData={promotionsData}></HeaderNuevo>
+      <FilterCategory />
+      <main className="margin-top-4">{children}</main>
       <Footer></Footer>
       <style jsx global>
         {`
@@ -17,7 +17,9 @@ const AppLayout = ({ children, promotionsData }) => {
             font-family: "made-tomy-sof-regular";
             src: url(fonts/made-tommy.otf);
           }
-
+          .margin-top-4 {
+            margin-top: 4rem;
+          }
           .font-made-tomy-sof-regular {
             font-family: "made-tomy-sof-regular";
           }
@@ -108,6 +110,9 @@ const AppLayout = ({ children, promotionsData }) => {
             html {
               font-size: 4.6vw;
             }
+            .margin-top-4 {
+            margin-top: 0rem;
+          }
             .margin-box {
               padding: 0rem 1rem !important;
             }
