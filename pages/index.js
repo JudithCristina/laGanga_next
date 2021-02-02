@@ -1,8 +1,9 @@
 import AppLayout from "../componentes/AppLayout";
+import CarouselBanner from "../componentes/CarouselBanner/CarouselBanner"
 const Home = () => {
   return (
     <AppLayout>
-      <p>Hola Isaac</p>
+      <CarouselBanner/>
     </AppLayout>
   );
 };
