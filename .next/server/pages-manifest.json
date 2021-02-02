@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/buscar/[wordSearch]": "pages/buscar/[wordSearch].js",
-  "/CategoryAndMarca/[categoria]/[marca]": "pages/CategoryAndMarca/[categoria]/[marca].js"
+  "/CategoryAndMarca/[categoria]/[marca]": "pages/CategoryAndMarca/[categoria]/[marca].js",
+  "/buscar/[wordSearch]": "pages/buscar/[wordSearch].js"
 }
