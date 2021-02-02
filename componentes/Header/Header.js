@@ -42,8 +42,8 @@ const Header = (props) => {
 
   return (
     <>
-      <div className="container-ganga">
-        <Navbar bg="light" expand="lg">
+      <div className="container-ganga ">
+        <Navbar bg="light" expand="xl">
           <Link href="/" className="box-logo">
             <a className="logo-ganga">
               <Image
@@ -389,8 +389,10 @@ const Header = (props) => {
             display: none;
           }
 
-          .navbar-desktop {
+         :global(.navbar-desktop) {
             display: block;
+            display:flex!important;
+            justify-content:flex-end
           }
 
           .navbar-mobile {

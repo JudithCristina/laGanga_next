@@ -1,0 +1,239 @@
+import React, { useEffect, useState, useMemo } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import ActiveLink from "../ActiveLink";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+
+const HeaderNuevo = () => {
+  const [searchWord, setSearchWord] = useState("");
+  const [products, setProducts] = useState([]);
+  const router = useRouter();
+
+  const filterForm = (e) => {
+    e.preventDefault();
+    const searchFilter = searchWord.toLowerCase();
+    if (searchFilter === "") {
+      return router.push("/");
+    } else {
+      router.push("/buscar/" + searchFilter);
+    }
+  };
+
+  const goToRoute = (e) => {
+    e.preventDefault();
+    return history.push("/interest");
+  };
+  return (
+    <div className="">
+      <nav className="navbar-ganga">
+        <Link href="/" prefetch>
+          <a className="logo-ganga">
+            <Image
+              src="/images/logo-ganga.svg"
+              alt="logo la ganga"
+              width={120}
+              height={50}
+            />
+          </a>
+        </Link>
+
+        {/* <div className="burger-yesmom">
+          <Image
+            src="/images/menu-icons/burger-menu.svg"
+            alt="burger yesmom"
+            width={40}
+            height={40}
+          />
+        </div> */}
+        <div>
+          <form
+            className="search-container "
+            onSubmit={filterForm}
+          >
+            <input
+              type="text"
+              type="search"
+              placeholder="Ingresa lo que estas buscando"
+              aria-label="Search"
+              onChange={(e) => setSearchWord(e.target.value)}
+              value={searchWord}
+              autoComplete="off"
+              autoCorrect="off"
+              maxLength="100"
+              className="form-control input-search-menu"
+            />
+            <button
+              type="button"
+              className="btn btn-outline-success btn-search-menu"
+            >
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </form>
+        </div>
+
+        <div className="box-search-container">
+          <ActiveLink href="/" activeClassName="is-active">
+            <a className="btn-like-menu">
+              <FontAwesomeIcon icon={faHeart} />
+            </a>
+          </ActiveLink>
+          <ActiveLink href="/" activeClassName="is-active">
+            <a className="btn-like-menu">
+              <FontAwesomeIcon icon={faUserCircle} />
+            </a>
+          </ActiveLink>
+        </div>
+      </nav>
+      <style jsx>
+        {`
+          .navbar-ganga {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0.3rem 2rem;
+            background: #fff;
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            max-width: inherit;
+            box-shadow: 0px 1px 10px #999;
+            justify-content: space-between;
+            top:0
+          }
+          .is-active .btn-like-menu {
+            animation: animateHeart 0.3s linear forwards;
+            color: #f31454;
+          }
+          .btn-like-menu {
+            cursor: pointer;
+            transition: all 0.3s;
+            transform-origin: center;
+            color: #8c8c8c;
+            display: block;
+            font-size: 1.4rem;
+            margin:0rem .5rem
+          }
+          .btn-like-menu:hover,
+          .btn-like-menu:focus {
+            transform: scale(1.2);
+          }
+          @keyframes animateHeart {
+            0% {
+              transform: scale(0.2);
+            }
+            40% {
+              transform: scale(1.2);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+
+          /* Buscador */
+          .search-container {
+            width: 20rem;
+            display: flex;
+            margin: 0 auto;
+          }
+          input.search-bar {
+            margin: 0 auto;
+            width: 100%;
+            height: 45px;
+            padding: 0 20px;
+            font-size: 1rem;
+            border: 1px solid #d0cfce;
+            outline: none;
+            border-radius: 0.25rem 0rem 0rem 0.25rem !important;
+            display: block;
+          }
+
+          input.search-bar:focus {
+            border: 1px solid #c6c6c6;
+            transition: 0.4s ease;
+            color: #0f0e0e;
+          }
+
+          input.search-bar:focus::-webkit-input-placeholder {
+            transition: opacity 0.45s ease;
+            opacity: 0;
+          }
+
+         
+
+          /* Firefox < 19 */
+          input.search-bar:focus:-moz-placeholder {
+            transition: opacity 0.45s ease;
+            opacity: 0;
+          }
+
+          /* Firefox > 19 */
+          input.search-bar:focus::-moz-placeholder {
+            transition: opacity 0.45s ease;
+            opacity: 0;
+          }
+
+          /* Internet Explorer 10 */
+          input.search-bar:focus:-ms-input-placeholder {
+            transition: opacity 0.45s ease;
+            opacity: 0;
+          }
+
+          .search-icon {
+            color: #f31454 !important;
+            background-color: #e9e9e9 !important;
+            border: 1px solid #c6c6c6 !important;
+            line-height: 1.5;
+            border-radius: 0rem 0.25rem 0.25rem 0rem !important;
+            transition: color 0.15s;
+            float: right !important;
+            width: 45px !important;
+            height: 45px !important;
+            display: block;
+          }
+
+          .search-icon:hover {
+            color: #e9e9e9 !important;
+            background-color: #f31454 !important;
+            border: 1px solid #f31454 !important;
+          }
+
+          .input-search-menu {
+            border-top-right-radius: 0% !important;
+            border-bottom-right-radius: 0% !important;
+          }
+
+          .form-control .input-search-menu:focus {
+            border-color: #f31454 !important;
+            box-shadow: 0 0 0 0.2rem rgb(241 195 211 / 25%) !important;
+          }
+
+          .btn-search-menu {
+            border-top-left-radius: 0% !important;
+            border-bottom-left-radius: 0% !important;
+          }
+
+          .btn-search-menu:hover {
+            background-color: #ebe2e2 !important;
+          }
+          .btn-outline-success:hover {
+            color: #fff;
+            background-color: #28a745 !important;
+            border-color: #28a745;
+          }
+
+          .box-search-container{
+            display: flex;
+            justify-content:space-between
+          }
+          
+        `}
+      </style>
+    </div>
+  );
+};
+
+export default HeaderNuevo;
