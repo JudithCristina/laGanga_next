@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
@@ -173,29 +174,32 @@ const CardPromotion = ({ products, product, addInterest }) => {
               }
             />
           </div>
-          <a
-            href={"/item-especific/" + product.promocion._id}
-            className="link body-card"
-          >
-            <div className="group-time-item">
-              <FontAwesomeIcon icon={faClock} />
-              {agotadoProduct === "" ? (
-                <div className=" item-chronometer">
-                  {timeDays}D {timeHours}H {timeMinutes}M
+
+            <Link  href={`/Promotion/[title]?id=${product.promocion._id}`}
+              as={product.promocion.nombre.charAt(product.promocion.nombre.length-1)==="?" ? `/Promotion/${product.promocion.nombre.replace("?", "")}-?id=${product.promocion._id}` : `/Promotion/${product.promocion.nombre}?id=${product.promocion._id}`}>
+              <a
+                className="link body-card"
+              >
+                <div className="group-time-item">
+                  <FontAwesomeIcon icon={faClock} />
+                  {agotadoProduct === "" ? (
+                    <div className=" item-chronometer">
+                      {timeDays}D {timeHours}H {timeMinutes}M
+                    </div>
+                  ) : (
+                    <div className=" item-chronometer">{agotadoProduct}</div>
+                  )}
                 </div>
-              ) : (
-                <div className=" item-chronometer">{agotadoProduct}</div>
-              )}
-            </div>
-            <Card.Body>
-              <Card.Title className="title-item">
-                {product.promocion.nombre}
-              </Card.Title>
-              <Card.Text className="subtitle-item">
-                {`${product.promocion.descripcion.substr(0, 70)}...`}
-              </Card.Text>
-            </Card.Body>
-          </a>
+                <Card.Body>
+                  <Card.Title className="title-item">
+                    {product.promocion.nombre}
+                  </Card.Title>
+                  <Card.Text className="subtitle-item">
+                    {`${product.promocion.descripcion.substr(0, 70)}...`}
+                  </Card.Text>
+                </Card.Body>
+              </a>
+            </Link>
         </Card>
       </div>
       <style jsx>
