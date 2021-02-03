@@ -1,9 +1,14 @@
 import AppLayout from "../componentes/AppLayout";
-import CarouselBanner from "../componentes/CarouselBanner/CarouselBanner"
+import Container from "react-bootstrap/Container";
+import CarouselBanner from "../componentes/CarouselBanner/CarouselBanner";
+import OfertasDelDia from '../componentes/Promotions/OfertasDelDia';
 const Home = () => {
   return (
     <AppLayout>
+      <Container className="container-ganga box-home fade-in animated">
       <CarouselBanner/>
+      <OfertasDelDia  />
+       </Container>
     </AppLayout>
   );
 };
