@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({Component, pageProps}) {
   const [filterSearch, setFilterSearch] = useState([]);
   const [products, setProducts] = useState([]);
   const [menuBurgerOpen, setmenuBurgerOpen] = React.useState(false);
