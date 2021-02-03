@@ -6,19 +6,19 @@ function MyApp({Component, pageProps}) {
   const [filterSearch, setFilterSearch] = useState([]);
   const [products, setProducts] = useState([]);
   const [menuBurgerOpen, setmenuBurgerOpen] = React.useState(false);
-  const [arrayInterest, setArrayInterest] = useState(
-    //   [() => {
-    //   try {
-    //     const item = window.localStorage.getItem("arrayInterestLocal");
-    //     return item ? JSON.parse(item) : [];
-    //   } catch (error) {
-    //     return [];
-    //   }
-    // }]
-    window.localStorage.getItem("arrayInterestLocal") == null
-      ? []
-      : JSON.parse(window.localStorage.getItem("arrayInterestLocal"))
-  );
+  // const [arrayInterest, setArrayInterest] = useState(
+  //   //   [() => {
+  //   //   try {
+  //   //     const item = window.localStorage.getItem("arrayInterestLocal");
+  //   //     return item ? JSON.parse(item) : [];
+  //   //   } catch (error) {
+  //   //     return [];
+  //   //   }
+  //   // }]
+  //   window.localStorage.getItem("arrayInterestLocal") == null
+  //     ? []
+  //     : JSON.parse(window.localStorage.getItem("arrayInterestLocal"))
+  // );
 
   const getProductsDay = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion-all/user`;
