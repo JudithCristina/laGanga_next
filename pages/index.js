@@ -1,14 +1,16 @@
 import AppLayout from "../componentes/AppLayout";
 import Container from "react-bootstrap/Container";
 import CarouselBanner from "../componentes/CarouselBanner/CarouselBanner";
-import OfertasDelDia from '../componentes/Promotions/OfertasDelDia';
+import OfertasDelDia from "../componentes/Promotions/OfertasDelDia";
+import GangaDelDia from '../componentes/Promotions/GangaDelDia';
 const Home = () => {
   return (
     <AppLayout>
       <Container className="container-ganga box-home fade-in animated">
-      <CarouselBanner/>
-      <OfertasDelDia  />
-       </Container>
+        <CarouselBanner />
+        <OfertasDelDia />
+        <GangaDelDia />
+      </Container>
     </AppLayout>
   );
 };
@@ -36,6 +38,5 @@ const Home = () => {
 //     },
 //   };
 // }
-
 
 export default Home;
