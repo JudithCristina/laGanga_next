@@ -28,7 +28,7 @@ const HeaderNuevo = () => {
     return history.push("/interest");
   };
   return (
-    <div className="">
+    <div className="container-ganga">
       <nav className="navbar-ganga">
         <Link href="/" prefetch>
           <a className="logo-ganga">
@@ -41,19 +41,16 @@ const HeaderNuevo = () => {
           </a>
         </Link>
 
-        {/* <div className="burger-yesmom">
+        <div className="burger-yesmom">
           <Image
             src="/images/menu-icons/burger-menu.svg"
             alt="burger yesmom"
             width={40}
             height={40}
           />
-        </div> */}
-        <div>
-          <form
-            className="search-container "
-            onSubmit={filterForm}
-          >
+        </div>
+        <div className="box-desktop-form">
+          <form className="search-container " onSubmit={filterForm}>
             <input
               type="text"
               type="search"
@@ -88,6 +85,27 @@ const HeaderNuevo = () => {
           </ActiveLink>
         </div>
       </nav>
+      <div className="box-search-mobile">
+        <form className="search-container" onSubmit={filterForm}>
+          <input
+            className="search-bar search-bar-mobile"
+            type="search"
+            placeholder="Ingresa lo que estas buscando"
+            aria-label="Search"
+            onChange={(e) => setSearchWord(e.target.value)}
+            value={searchWord}
+            autoComplete="off"
+            autoCorrect="off"
+            maxLength="100"
+          />
+          <button
+            className="btn  my-2 my-sm-0  search-icon search-icon-mobile"
+            type="submit"
+          >
+            <FontAwesomeIcon icon={faSearch} className="icon-searh-mobile" />
+          </button>
+        </form>
+      </div>
       <style jsx>
         {`
           .navbar-ganga {
@@ -102,7 +120,7 @@ const HeaderNuevo = () => {
             max-width: inherit;
             box-shadow: 0px 1px 10px #999;
             justify-content: space-between;
-            top:0
+            top: 0;
           }
           .is-active .btn-like-menu {
             animation: animateHeart 0.3s linear forwards;
@@ -115,7 +133,7 @@ const HeaderNuevo = () => {
             color: #8c8c8c;
             display: block;
             font-size: 1.4rem;
-            margin:0rem .5rem
+            margin: 0rem 0.5rem;
           }
           .btn-like-menu:hover,
           .btn-like-menu:focus {
@@ -161,8 +179,6 @@ const HeaderNuevo = () => {
             transition: opacity 0.45s ease;
             opacity: 0;
           }
-
-         
 
           /* Firefox < 19 */
           input.search-bar:focus:-moz-placeholder {
@@ -225,11 +241,84 @@ const HeaderNuevo = () => {
             border-color: #28a745;
           }
 
-          .box-search-container{
+          .box-search-container {
             display: flex;
-            justify-content:space-between
+            justify-content: space-between;
           }
-          
+
+          .box-search-mobile {
+            display: none;
+          }
+          .box-desktop-form {
+            display: none;
+          }
+
+          @media (max-width: 769px) {
+            .navbar-ganga{
+              position:relative
+            }
+            .btn-like-menu {
+              display: none;
+            }
+
+            .logo-ganga {
+              width: 7rem;
+            }
+
+            .search-container {
+              width: 100%;
+            }
+            .box-search-mobile {
+              display: block;
+              width: auto;
+              background-color: red;
+              padding: 0.2rem 0rem;
+            }
+            .box-search-mobile form {
+              width: 90%;
+              margin: auto;
+            }
+
+            input.search-bar-mobile {
+              position: relative;
+              display: block;
+              height: 2rem;
+              margin: auto;
+              padding: 0 20px;
+              font-size: 0.9rem;
+              border: 1px solid #d0cfce;
+              outline: none;
+              border-radius: 0.85rem 0rem 0rem 0.85rem !important;
+            }
+
+            .search-icon-mobile {
+              border-radius: 0rem 0.85rem 0.85rem 0rem !important;
+              height: 2rem !important;
+              position: relative;
+            }
+
+            .search-icon-mobile {
+              display: block;
+            }
+
+            .icon-searh-mobile {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .icon-searh-mobile {
+              display: block;
+            }
+
+            svg.svg-inline--fa.fa-search.fa-w-16.icon-searh-mobile {
+              position: relative;
+              left: -0.5rem;
+            }
+
+            .burger-menu {
+              width: 2rem;
+            }
+          }
         `}
       </style>
     </div>
