@@ -49,7 +49,7 @@ const HeaderNuevo = () => {
             height={40}
           />
         </div>
-        <div className="box-desktop-form">
+        <div className="box-search-desktop">
           <form className="search-container " onSubmit={filterForm}>
             <input
               type="text"
@@ -250,12 +250,15 @@ const HeaderNuevo = () => {
             display: none;
           }
           .box-desktop-form {
+            display: block;
+          }
+          .burger-yesmom {
             display: none;
           }
 
           @media (max-width: 769px) {
-            .navbar-ganga{
-              position:relative
+            .navbar-ganga {
+              position: relative;
             }
             .btn-like-menu {
               display: none;
@@ -315,8 +318,14 @@ const HeaderNuevo = () => {
               left: -0.5rem;
             }
 
-            .burger-menu {
-              width: 2rem;
+            .burger-yesmom {
+              display: block;
+            }
+            .box-search-desktop {
+              display: none;
+            }
+            .box-search-container{
+              display:none
             }
           }
         `}
