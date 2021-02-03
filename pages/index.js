@@ -3,13 +3,26 @@ import Container from "react-bootstrap/Container";
 import CarouselBanner from "../componentes/CarouselBanner/CarouselBanner";
 import OfertasDelDia from "../componentes/Promotions/OfertasDelDia";
 import GangaDelDia from '../componentes/Promotions/GangaDelDia';
-const Home = () => {
+import AllItems from '../componentes/Promotions/AllItems';
+import Image from "next/image";
+const Home = ({ products, addInterest }) => {
   return (
     <AppLayout>
       <Container className="container-ganga box-home fade-in animated">
         <CarouselBanner />
         <OfertasDelDia />
         <GangaDelDia />
+        <figure className="m-0 w-100">
+            <Image
+              src="/images/banner/banner-bottom.png"
+              alt="banner"
+              // layout="fill"
+              width={1500}
+              height={400}
+              //   layout="responsive"
+            />
+        </figure>
+         <AllItems products={products}/>
       </Container>
     </AppLayout>
   );

@@ -1,11 +1,55 @@
 // import App from 'next/app'
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function MyApp({ Component, pageProps }) {
+  const [filterSearch, setFilterSearch] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [menuBurgerOpen, setmenuBurgerOpen] = React.useState(false);
+  const [arrayInterest, setArrayInterest] = useState(
+    //   [() => {
+    //   try {
+    //     const item = window.localStorage.getItem("arrayInterestLocal");
+    //     return item ? JSON.parse(item) : [];
+    //   } catch (error) {
+    //     return [];
+    //   }
+    // }]
+    window.localStorage.getItem("arrayInterestLocal") == null
+      ? []
+      : JSON.parse(window.localStorage.getItem("arrayInterestLocal"))
+  );
+
+  const getProductsDay = async () => {
+    let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion-all/user`;
+    await fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
+          setProducts([]);
+          // setTotalPromotions(0)
+        } else {
+          // setProducts(res.data.promocionesGeneral);
+          // setProducts(res.data.promociones);
+          setProducts(data);
+          // setTotalPromotions(res.data.totalDePromociones)
+        }
+        // setLoading(false);
+      })
+      .catch((e) => {
+        console.log(e, "error:)");
+      });
+  };
+
+   useEffect(() => {
+    getProductsDay();
+  }, []);
+
   return (
     <>
-      <Component {...pageProps} />
+      <Component {...pageProps} products={products} />
        <style jsx global>
             {`
               @font-face {
