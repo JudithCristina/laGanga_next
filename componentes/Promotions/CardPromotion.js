@@ -75,7 +75,8 @@ const CardPromotion = ({ products, product, addInterest }) => {
 
   return (
     <>
-      <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
+    {/* <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4"> */}
+      <div className="card-promotion mb-4">
         <Card className={"border-" + product.promocion.categoria}>
           {/* <div className="tag-offer">
             -{product.descuento}%
@@ -199,6 +200,10 @@ const CardPromotion = ({ products, product, addInterest }) => {
       </div>
       <style jsx>
         {`
+
+        .card-promotion{
+          width:18rem
+        }
           .box-img-item {
             background: #f0f0f0;
             height: 50%;
@@ -243,7 +248,7 @@ const CardPromotion = ({ products, product, addInterest }) => {
             height: 19rem !important;
           }
 
-          .box-img-item img {
+          :global(.box-img-item img) {
             width: 30%;
             margin: auto;
             padding: 3.5rem 0rem 0rem 0rem;
@@ -562,7 +567,7 @@ const CardPromotion = ({ products, product, addInterest }) => {
               position: relative;
               left: 17%;
             }
-            .box-img-item img {
+            :global(.box-img-item img) {
               width: 40%;
               padding: 0rem;
               position: relative;
