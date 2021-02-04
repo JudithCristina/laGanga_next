@@ -70,20 +70,25 @@ const OfertasDelDia = (props) => {
         >
           {products.map((product) => (
             <div className="item-carousel" key={product._id}>
-              <CardPromotion
+               <div className="  mb-4">
+               <CardPromotion
                 product={product}
                 products={products}
                 addInterest={props.addInterest}
               />
+               </div>
+              
             </div>
           ))}
         </Carousel>
       </div>
       <style jsx>
         {`
-          :global (.item-carousel div) {
-            max-width: 100% !important;
+        
+        .item-carousel  {
+            width:18rem;
           }
+
         `}
       </style>
     </>

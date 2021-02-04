@@ -76,8 +76,8 @@ const CardPromotion = ({ products, product, addInterest }) => {
 
   return (
     <>
-      <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
-        {/* <div className="card-promotion mb-4"> */}
+      {/* <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4"> */}
+        <div className="card-promotion mb-4">
         <Card className={"border-" + product.promocion.categoria}>
           {/* <div className="tag-offer">
             -{product.descuento}%
