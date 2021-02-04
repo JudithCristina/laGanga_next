@@ -76,8 +76,8 @@ const CardPromotion = ({ products, product, addInterest }) => {
 
   return (
     <>
-    {/* <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4"> */}
-      <div className="card-promotion mb-4">
+      <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
+        {/* <div className="card-promotion mb-4"> */}
         <Card className={"border-" + product.promocion.categoria}>
           {/* <div className="tag-offer">
             -{product.descuento}%
@@ -175,39 +175,48 @@ const CardPromotion = ({ products, product, addInterest }) => {
             />
           </div>
 
-            <Link  href={`/Promotion/[title]?id=${product.promocion._id}`}
-              as={product.promocion.nombre.charAt(product.promocion.nombre.length-1)==="?" ? `/Promotion/${product.promocion.nombre.replace("?", "")}-?id=${product.promocion._id}` : `/Promotion/${product.promocion.nombre}?id=${product.promocion._id}`}>
-              <a
-                className="link body-card"
-              >
-                <div className="group-time-item">
-                  <FontAwesomeIcon icon={faClock} />
-                  {agotadoProduct === "" ? (
-                    <div className=" item-chronometer">
-                      {timeDays}D {timeHours}H {timeMinutes}M
-                    </div>
-                  ) : (
-                    <div className=" item-chronometer">{agotadoProduct}</div>
-                  )}
-                </div>
-                <Card.Body>
-                  <Card.Title className="title-item">
-                    {product.promocion.nombre}
-                  </Card.Title>
-                  <Card.Text className="subtitle-item">
-                    {`${product.promocion.descripcion.substr(0, 70)}...`}
-                  </Card.Text>
-                </Card.Body>
-              </a>
-            </Link>
+          <Link
+            href={`/Promotion/[title]?id=${product.promocion._id}`}
+            as={
+              product.promocion.nombre.charAt(
+                product.promocion.nombre.length - 1
+              ) === "?"
+                ? `/Promotion/${product.promocion.nombre.replace(
+                    "?",
+                    ""
+                  )}-?id=${product.promocion._id}`
+                : `/Promotion/${product.promocion.nombre}?id=${product.promocion._id}`
+            }
+          >
+            <a className="link body-card">
+              <div className="group-time-item">
+                <FontAwesomeIcon icon={faClock} />
+                {agotadoProduct === "" ? (
+                  <div className=" item-chronometer">
+                    {timeDays}D {timeHours}H {timeMinutes}M
+                  </div>
+                ) : (
+                  <div className=" item-chronometer">{agotadoProduct}</div>
+                )}
+              </div>
+              <Card.Body>
+                <Card.Title className="title-item">
+                  {product.promocion.nombre}
+                </Card.Title>
+                <Card.Text className="subtitle-item">
+                  {`${product.promocion.descripcion.substr(0, 70)}...`}
+                </Card.Text>
+              </Card.Body>
+            </a>
+          </Link>
         </Card>
       </div>
       <style jsx>
         {`
+          .item-carousel div {
+            max-width: 100% !important;
+          }
 
-        .card-promotion{
-          width:18rem
-        }
           .box-img-item {
             background: #f0f0f0;
             height: 50%;
@@ -216,38 +225,38 @@ const CardPromotion = ({ products, product, addInterest }) => {
             justify-content: center;
           }
 
-          .border-ropa {
+          :global(.border-ropa) {
             border: 2px solid #ff8629 !important;
           }
-          .border-deporte {
+          :global(.border-deporte) {
             border: 2px solid #ff003b !important;
           }
-          .border-tecnologia {
+          :global(.border-tecnologia) {
             border: 2px solid #a74fff !important;
           }
-          .border-calzado {
+          :global(.border-calzado) {
             border: 2px solid #a74fff !important;
           }
-          .border-hogar {
+          :global(.border-hogar) {
             border: 2px solid #2fc33a !important;
           }
-          .border-juguete {
+          :global(.border-juguete) {
             border: 2px solid #ff3552 !important;
           }
-          .border-electroHogar {
+          :global(.border-electroHogar) {
             border: 2px solid #3890e3 !important;
           }
-          .border-belleza {
+          :global(.border-belleza ){
             border: 2px solid #ff8dd1 !important;
           }
-          .border-nuevo {
+          :global(.border-nuevo) {
             border: 2px solid #ffdb40 !important;
           }
-          .border-escolarOficina {
+          :global(.border-escolarOficina) {
             border: 2px solid #7e4fff !important;
           }
 
-          .card {
+          :global(.card) {
             max-height: 20rem !important;
             height: 19rem !important;
           }
@@ -545,7 +554,7 @@ const CardPromotion = ({ products, product, addInterest }) => {
           }
 
           @media (max-width: 769px) {
-            .card {
+            :global(.card) {
               flex-direction: row !important;
               height: 9rem !important;
               width: 100%;
