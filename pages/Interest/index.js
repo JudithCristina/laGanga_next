@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import AppLayout from "../../componentes/AppLayout";
 import CardPromotion from "../../componentes/Promotions/CardPromotion";
 import Image from "next/image";
 const Interest = ({ addInterest }) => {
-  const arrayMeInterest = JSON.parse(
-    localStorage.getItem("arrayInterestLocal")
-  );
+  const [arrayMeInterest, setArrayMeInterest] = useState([])
+
+  useEffect(() => {
+      setArrayMeInterest(JSON.parse(
+      localStorage.getItem("arrayInterestLocal")
+    ));
+  }, [arrayMeInterest]);
+
+
 
   return (
     <>

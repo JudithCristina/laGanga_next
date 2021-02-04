@@ -49,8 +49,8 @@ function MyApp({ Component, pageProps }) {
         product.promocion.liked = false;
         return setArrayInterest(
           arrayInterest.filter(
-            (product) =>
-              product.promocion._id !== registerInterest.promocion._id
+            (productFilter) =>
+              productFilter.promocion._id !== registerInterest.promocion._id
           )
         );
       }
