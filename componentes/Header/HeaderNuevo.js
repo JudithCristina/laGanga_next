@@ -73,7 +73,7 @@ const HeaderNuevo = () => {
         </div>
 
         <div className="box-search-container">
-          <ActiveLink href="/" activeClassName="is-active">
+          <ActiveLink href="/Interest" activeClassName="is-active">
             <a className="btn-like-menu">
               <FontAwesomeIcon icon={faHeart} />
             </a>

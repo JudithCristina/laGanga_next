@@ -14,30 +14,25 @@ const CardPromotion = ({ products, product, addInterest }) => {
   const dateFuture = "2020/12/01";
 
   React.useEffect(() => {
-    // let arrayMeInteresa = JSON.parse(
-    //   localStorage.getItem("arrayInterestLocal")
-    // );
+    let arrayMeInteresa = JSON.parse(
+      localStorage.getItem("arrayInterestLocal")
+    );
 
-    // console.log(arrayMeInteresa, "arrayMeInteresa");
+    console.log(arrayMeInteresa, "arrayMeInteresa");
 
-    // // let suma = 0
-    // for (let i = 0; i < arrayMeInteresa.length; i++) {
-    //   if (product.promocion._id === arrayMeInteresa[i].promocion._id) {
-    //     product.promocion.liked = true;
-    //   }
-    // }
+    for (let i = 0; i < arrayMeInteresa.length; i++) {
+      if (product.promocion._id === arrayMeInteresa[i].promocion._id) {
+        product.promocion.liked = true;
+      }
+    }
 
-    // localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
-    // console.log(arrayMeInteresa, "array")y
-    // console.log(product, "editado :)")
-    // calculateTimeLeft(product.fechaFinOferta);
     const fechaFinalInputISOString = new Date(
       product.promocion.fechaFinOferta
     ).toISOString();
     const fechaFinalInputInstancia = new Date(fechaFinalInputISOString);
     const fechaFinalOutput = new Date(
       fechaFinalInputInstancia.getTime() +
-        fechaFinalInputInstancia.getTimezoneOffset() * 60000
+      fechaFinalInputInstancia.getTimezoneOffset() * 60000
     );
     const fechaInicioInputISOString = new Date(
       product.promocion.fechaInicioOferta
@@ -45,7 +40,7 @@ const CardPromotion = ({ products, product, addInterest }) => {
     const fechaInicioInputInstancia = new Date(fechaInicioInputISOString);
     const fechaInicioOutput = new Date(
       fechaInicioInputInstancia.getTime() +
-        fechaInicioInputInstancia.getTimezoneOffset() * 60000
+      fechaInicioInputInstancia.getTimezoneOffset() * 60000
     );
 
     if (fechaInicioOutput.getTime() > new Date()) {
@@ -76,7 +71,7 @@ const CardPromotion = ({ products, product, addInterest }) => {
 
   return (
     <>
-    {/* <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4"> */}
+      {/* <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4"> */}
       <div className="card-promotion mb-4">
         <Card className={"border-" + product.promocion.categoria}>
           {/* <div className="tag-offer">
@@ -139,19 +134,19 @@ const CardPromotion = ({ products, product, addInterest }) => {
               </div>
             </div>
           ) : (
-            <div className="box-tag-offer">
-              <div
-                className={
-                  "box-porcent" +
-                  " " +
-                  "box-porcent-" +
-                  product.promocion.categoria
-                }
-              >
-                -{product.promocion.descuento}%
+                    <div className="box-tag-offer">
+                      <div
+                        className={
+                          "box-porcent" +
+                          " " +
+                          "box-porcent-" +
+                          product.promocion.categoria
+                        }
+                      >
+                        -{product.promocion.descuento}%
               </div>
-            </div>
-          )}
+                    </div>
+                  )}
 
           <div className="group-btn-like">
             <a>
@@ -160,7 +155,7 @@ const CardPromotion = ({ products, product, addInterest }) => {
                 className={
                   product.promocion.liked ? "btn-like-active" : "btn-like"
                 }
-                onClick={() => addInterest(products, product)}
+              onClick={() => addInterest(products, product)}
               />
             </a>
           </div>
@@ -175,31 +170,31 @@ const CardPromotion = ({ products, product, addInterest }) => {
             />
           </div>
 
-            <Link  href={`/Promotion/[title]?id=${product.promocion._id}`}
-              as={product.promocion.nombre.charAt(product.promocion.nombre.length-1)==="?" ? `/Promotion/${product.promocion.nombre.replace("?", "")}-?id=${product.promocion._id}` : `/Promotion/${product.promocion.nombre}?id=${product.promocion._id}`}>
-              <a
-                className="link body-card"
-              >
-                <div className="group-time-item">
-                  <FontAwesomeIcon icon={faClock} />
-                  {agotadoProduct === "" ? (
-                    <div className=" item-chronometer">
-                      {timeDays}D {timeHours}H {timeMinutes}M
-                    </div>
-                  ) : (
+          <Link href={`/Promotion/[title]?id=${product.promocion._id}`}
+            as={product.promocion.nombre.charAt(product.promocion.nombre.length - 1) === "?" ? `/Promotion/${product.promocion.nombre.replace("?", "")}-?id=${product.promocion._id}` : `/Promotion/${product.promocion.nombre}?id=${product.promocion._id}`}>
+            <a
+              className="link body-card"
+            >
+              <div className="group-time-item">
+                <FontAwesomeIcon icon={faClock} />
+                {agotadoProduct === "" ? (
+                  <div className=" item-chronometer">
+                    {timeDays}D {timeHours}H {timeMinutes}M
+                  </div>
+                ) : (
                     <div className=" item-chronometer">{agotadoProduct}</div>
                   )}
-                </div>
-                <Card.Body>
-                  <Card.Title className="title-item">
-                    {product.promocion.nombre}
-                  </Card.Title>
-                  <Card.Text className="subtitle-item">
-                    {`${product.promocion.descripcion.substr(0, 70)}...`}
-                  </Card.Text>
-                </Card.Body>
-              </a>
-            </Link>
+              </div>
+              <Card.Body>
+                <Card.Title className="title-item">
+                  {product.promocion.nombre}
+                </Card.Title>
+                <Card.Text className="subtitle-item">
+                  {`${product.promocion.descripcion.substr(0, 70)}...`}
+                </Card.Text>
+              </Card.Body>
+            </a>
+          </Link>
         </Card>
       </div>
       <style jsx>

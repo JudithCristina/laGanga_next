@@ -10,8 +10,8 @@ const Home = ({ products, addInterest }) => {
     <AppLayout>
       <Container className="container-ganga box-home fade-in animated">
         <CarouselBanner />
-        <OfertasDelDia />
-        <GangaDelDia />
+        <OfertasDelDia addInterest={addInterest}/>
+        <GangaDelDia addInterest={addInterest} />
         <figure className="m-0 w-100">
             <Image
               src="/images/banner/banner-bottom.png"
@@ -22,7 +22,7 @@ const Home = ({ products, addInterest }) => {
               //   layout="responsive"
             />
         </figure>
-         <AllItems products={products}/>
+         <AllItems products={products} addInterest={addInterest}/>
       </Container>
     </AppLayout>
   );
