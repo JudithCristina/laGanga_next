@@ -72,7 +72,7 @@ const CardPromotion = ({ products, product, addInterest }) => {
   return (
     <>
       {/* <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4"> */}
-      <div className="card-promotion mb-4">
+        <div className="card-promotion mb-4">
         <Card className={"border-" + product.promocion.categoria}>
           {/* <div className="tag-offer">
             -{product.descuento}%
@@ -170,11 +170,20 @@ const CardPromotion = ({ products, product, addInterest }) => {
             />
           </div>
 
-          <Link href={`/Promotion/[title]?id=${product.promocion._id}`}
-            as={product.promocion.nombre.charAt(product.promocion.nombre.length - 1) === "?" ? `/Promotion/${product.promocion.nombre.replace("?", "")}-?id=${product.promocion._id}` : `/Promotion/${product.promocion.nombre}?id=${product.promocion._id}`}>
-            <a
-              className="link body-card"
-            >
+          <Link
+            href={`/Promotion/[title]?id=${product.promocion._id}`}
+            as={
+              product.promocion.nombre.charAt(
+                product.promocion.nombre.length - 1
+              ) === "?"
+                ? `/Promotion/${product.promocion.nombre.replace(
+                    "?",
+                    ""
+                  )}-?id=${product.promocion._id}`
+                : `/Promotion/${product.promocion.nombre}?id=${product.promocion._id}`
+            }
+          >
+            <a className="link body-card">
               <div className="group-time-item">
                 <FontAwesomeIcon icon={faClock} />
                 {agotadoProduct === "" ? (
@@ -182,8 +191,8 @@ const CardPromotion = ({ products, product, addInterest }) => {
                     {timeDays}D {timeHours}H {timeMinutes}M
                   </div>
                 ) : (
-                    <div className=" item-chronometer">{agotadoProduct}</div>
-                  )}
+                  <div className=" item-chronometer">{agotadoProduct}</div>
+                )}
               </div>
               <Card.Body>
                 <Card.Title className="title-item">
@@ -199,10 +208,10 @@ const CardPromotion = ({ products, product, addInterest }) => {
       </div>
       <style jsx>
         {`
+          .item-carousel div {
+            max-width: 100% !important;
+          }
 
-        .card-promotion{
-          width:18rem
-        }
           .box-img-item {
             background: #f0f0f0;
             height: 50%;
@@ -211,38 +220,38 @@ const CardPromotion = ({ products, product, addInterest }) => {
             justify-content: center;
           }
 
-          .border-ropa {
+          :global(.border-ropa) {
             border: 2px solid #ff8629 !important;
           }
-          .border-deporte {
+          :global(.border-deporte) {
             border: 2px solid #ff003b !important;
           }
-          .border-tecnologia {
+          :global(.border-tecnologia) {
             border: 2px solid #a74fff !important;
           }
-          .border-calzado {
+          :global(.border-calzado) {
             border: 2px solid #a74fff !important;
           }
-          .border-hogar {
+          :global(.border-hogar) {
             border: 2px solid #2fc33a !important;
           }
-          .border-juguete {
+          :global(.border-juguete) {
             border: 2px solid #ff3552 !important;
           }
-          .border-electroHogar {
+          :global(.border-electroHogar) {
             border: 2px solid #3890e3 !important;
           }
-          .border-belleza {
+          :global(.border-belleza ){
             border: 2px solid #ff8dd1 !important;
           }
-          .border-nuevo {
+          :global(.border-nuevo) {
             border: 2px solid #ffdb40 !important;
           }
-          .border-escolarOficina {
+          :global(.border-escolarOficina) {
             border: 2px solid #7e4fff !important;
           }
 
-          .card {
+          :global(.card) {
             max-height: 20rem !important;
             height: 19rem !important;
           }
@@ -330,217 +339,10 @@ const CardPromotion = ({ products, product, addInterest }) => {
             transform: translateX(-50%);
             top: 8%;
           }
-          .box-free-shipping {
-            width: auto;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            margin: auto;
-          }
 
-          .letter-free,
-          .box-letter-free {
-            text-transform: uppercase;
-            font-size: 1rem;
-            font-weight: 800;
-          }
-
-          .box-letter-free {
-            color: #fff;
-            padding: 0rem 0.3rem;
-            border-radius: 6%;
-          }
-
-          .letter-free-cl-ropa {
-            color: #ff8629;
-          }
-
-          .letter-free-cl-deporte {
-            color: #ff003b;
-          }
-
-          .letter-free-cl-tecnologia {
-            color: #a74fff;
-          }
-
-          .letter-free-cl-calzado {
-            color: #a74fff;
-          }
-
-          .letter-free-cl-hogar {
-            color: #2fc33a;
-          }
-
-          .letter-free-cl-juguete {
-            color: #ff3552;
-          }
-
-          .letter-free-cl-electroHogar {
-            color: #3890e3;
-          }
-
-          .letter-free-cl-belleza {
-            color: #ff8dd1;
-          }
-
-          .letter-free-cl-nuevo {
-            color: #ffdb40;
-          }
-
-          .letter-free-cl-escolarOficina {
-            color: #7e4fff;
-          }
-
-          .box-letter-free-bg-ropa {
-            background-color: #ff8629;
-          }
-
-          .box-letter-free-bg-deporte {
-            background-color: #ff003b;
-          }
-
-          .box-letter-free-bg-tecnologia {
-            background-color: #a74fff;
-          }
-
-          .box-letter-free-bg-calzado {
-            background-color: #a74fff;
-          }
-
-          .box-letter-free-bg-hogar {
-            background-color: #2fc33a;
-          }
-
-          .box-letter-free-bg-juguete {
-            background-color: #ff3552;
-          }
-
-          .box-letter-free-bg-electroHogar {
-            background-color: #3890e3;
-          }
-
-          .box-letter-free-bg-belleza {
-            background-color: #ff8dd1;
-          }
-
-          .box-letter-free-bg-nuevo {
-            background-color: #ffdb40;
-          }
-
-          .box-letter-free-bg-escolarOficina {
-            background-color: #7e4fff;
-          }
-
-          .box-x {
-            border-radius: 6%;
-            padding: 0.3rem 0.5rem;
-            font-weight: 800;
-            font-size: 1rem;
-            line-height: 1.05rem;
-            text-align: center;
-            color: red;
-            width: 100%;
-          }
-
-          .box-x-ropa {
-            color: #ff8629;
-            border: 2px solid #ff8629;
-          }
-
-          .box-x-deporte {
-            color: #ff003b;
-            border: 2px solid #ff003b;
-          }
-
-          .box-x-tecnologia {
-            color: #a74fff;
-            border: 2px solid #a74fff;
-          }
-
-          .box-x-calzado {
-            color: #a74fff;
-            border: 2px solid #a74fff;
-          }
-
-          .box-x-hogar {
-            color: #2fc33a;
-            border: 2px solid #2fc33a;
-          }
-
-          .box-x-juguete {
-            color: #ff3552;
-            border: 2px solid #ff3552;
-          }
-
-          .box-x-electroHogar {
-            color: #3890e3;
-            border: 2px solid #3890e3;
-          }
-
-          .box-x-belleza {
-            color: #ff8dd1;
-            border: 2px solid #ff8dd1;
-          }
-
-          .box-x-nuevo {
-            color: #ffdb40;
-            border: 2px solid #ffdb40;
-          }
-
-          .box-x-escolarOficina {
-            color: #7e4fff;
-            border: 2px solid #7e4fff;
-          }
-
-          .box-porcent {
-            font-weight: 800;
-            font-size: 1.6rem;
-            color: red;
-          }
-
-          .box-porcent-ropa {
-            color: #ff8629;
-          }
-
-          .box-porcent-deporte {
-            color: #ff003b;
-          }
-
-          .box-porcent-tecnologia {
-            color: #a74fff;
-          }
-
-          .box-porcent-calzado {
-            color: #a74fff;
-          }
-
-          .box-porcent-hogar {
-            color: #2fc33a;
-          }
-
-          .box-porcent-juguete {
-            color: #ff3552;
-          }
-
-          .box-porcent-electroHogar {
-            color: #3890e3;
-          }
-
-          .box-porcent-belleza {
-            color: #ff8dd1;
-          }
-
-          .box-porcent-nuevo {
-            color: #ffdb40;
-          }
-
-          .box-porcent-escolarOficina {
-            color: #7e4fff;
-          }
 
           @media (max-width: 769px) {
-            .card {
+            :global(.card) {
               flex-direction: row !important;
               height: 9rem !important;
               width: 100%;
