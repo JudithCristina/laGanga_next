@@ -18,7 +18,6 @@ const CardPromotion = ({ products, product, addInterest }) => {
       localStorage.getItem("arrayInterestLocal")
     );
 
-    console.log(arrayMeInteresa, "arrayMeInteresa");
 
     for (let i = 0; i < arrayMeInteresa.length; i++) {
       if (product.promocion._id === arrayMeInteresa[i].promocion._id) {

@@ -17,8 +17,8 @@ const Home = ({ products, addInterest }) => {
               src="/images/banner/banner-bottom.png"
               alt="banner"
               // layout="fill"
-              width={1500}
-              height={400}
+              width={1800}
+              height={500}
               //   layout="responsive"
             />
         </figure>

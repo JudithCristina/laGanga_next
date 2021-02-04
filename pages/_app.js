@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }) {
   const addInterest = (products, product) => {
     let registerInterest;
     console.log(products, "productos:) 0");
+     console.log(product, "productos:) 1");
     for (let i = 0; i < products.length; i++) {
       if (products[i].promocion._id === product.promocion._id) {
         registerInterest = product;
@@ -40,7 +41,7 @@ function MyApp({ Component, pageProps }) {
         product.promocion.liked = true;
       }
     }
-    console.log(arrayInterest, "janira3");
+    console.log(arrayInterest.length, "janira3");
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
         registerInterest.promocion.liked = false;
@@ -55,7 +56,8 @@ function MyApp({ Component, pageProps }) {
       }
     }
     console.log( [...arrayInterest, registerInterest], "judita")
-    localStorage.setItem("arrayInterestLocal", JSON.stringify([...arrayInterest, registerInterest]));
+     setArrayInterest([...arrayInterest, registerInterest])
+    localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
   };
 
   useEffect(() => {
