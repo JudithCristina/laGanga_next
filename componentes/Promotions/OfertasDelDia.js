@@ -86,7 +86,7 @@ const OfertasDelDia = (props) => {
         {`
         
         .item-carousel  {
-            width:18rem;
+            width:90%;
           }
 
         `}

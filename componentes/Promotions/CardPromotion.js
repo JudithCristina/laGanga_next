@@ -297,13 +297,13 @@ const CardPromotion = ({ products, product, addInterest }) => {
             margin-right: 0.5rem;
           }
 
-          .btn-like-active {
+          :global(.btn-like-active) {
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             color: #f31454;
           }
 
-          .btn-like {
+          :global(.btn-like) {
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             color: #8c8c8c;
