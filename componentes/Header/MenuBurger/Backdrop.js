@@ -1,10 +1,8 @@
-import React from "react"
+import React from "react";
 
-import "./MenuBurger.css"
+import "./MenuBurger.css";
 
-const backdrop = props => {
-    return(
-        <div className="backdrop" onClick={props.click}></div>
-    )
-}
+const backdrop = (props) => {
+  return <div className="backdrop" onClick={props.click}></div>;
+};
 export default backdrop;

@@ -23,7 +23,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
   return (
-    <>
+    <div className="footer-desktop">
       <Container className="container-ganga">
         <footer className="box-footer">
           <div className="text-conctact-footer">
@@ -83,6 +83,9 @@ const Footer = () => {
       </Container>
       <style jsx>
         {`
+        .footer-desktop{
+              display:block
+            }
           .box-footer {
             padding: 2rem 5rem;
             background: #000000;
@@ -139,13 +142,16 @@ const Footer = () => {
             html {
               font-size: 4.6vw;
             }
+            .footer-desktop{
+              display:none
+            }
             .box-footer {
               display: none;
             }
           }
         `}
       </style>
-    </>
+    </div>
   );
 };
 
