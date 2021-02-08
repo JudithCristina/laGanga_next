@@ -47,6 +47,7 @@ function MyApp({ Component, pageProps }) {
      if(arrayInterest.length=== 0 ){
        console.log("hola primer clic")
      setArrayInterest([...arrayInterest, registerInterest])
+     localStorage.setItem("arrayInterestLocal", JSON.stringify([...arrayInterest, registerInterest]))
      } else if (arrayInterest.length >= 1) {
       console.log("Mi segundo me gusta")
        for (let i = 0; i < arrayInterest.length; i++) {
@@ -61,8 +62,14 @@ function MyApp({ Component, pageProps }) {
                 productFilter.promocion._id !== registerInterest.promocion._id
             )
           );
+
+           localStorage.setItem("arrayInterestLocal", JSON.stringify( arrayInterest.filter(
+            (productFilter) =>
+              productFilter.promocion._id !== registerInterest.promocion._id
+          )))
         } else {
          setArrayInterest([...arrayInterest, registerInterest])
+          localStorage.setItem("arrayInterestLocal", JSON.stringify([...arrayInterest, registerInterest]))
         }
       }
      }
@@ -85,7 +92,7 @@ function MyApp({ Component, pageProps }) {
   //   console.log([...arrayInterest, registerInterest],"agreando al array")
     console.log( arrayInterest, "judita-2")
     //  setArrayInterest([...arrayInterest, registerInterest])
-   return  localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
+  //  return  localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
     // console.log(localStorage.getItem("arrayInterestLocal"),"agregando a local storage")
   };
 
