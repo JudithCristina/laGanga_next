@@ -46,7 +46,7 @@ const PromotionSpecific = ({ product }) => {
                 ) : (
                   <div className="socialGallery">
                     <div class="socialToolBox">
-                      <a href={`http://www.facebook.com/share.php?u=${router.asPath}`} className="btn-cirle-especific" target="_blank">
+                      <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2FPromotion%2Ft28%3Fid%3D5fea41b90e52d344743bf74f&amp;src=sdkpreparse" className="btn-cirle-especific" target="_blank">
                         <FontAwesomeIcon
                           icon={faFacebookF}
                           className="btn-share-especific"
