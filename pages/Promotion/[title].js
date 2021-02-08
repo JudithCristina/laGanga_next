@@ -10,17 +10,41 @@ import Row from "react-bootstrap/Row";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import Image from "next/image";
 import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import Head from "next/head";
 const PromotionSpecific = ({ product }) => {
   const [interest, setInterest] = useState(false);
   const [btnShare, setBtnShare] = useState(false);
   const router = useRouter();
-  console.log(router, "hola soy la ruta")
+  console.log(router, "hola soy la ruta");
   const functionShare = () => {
     setBtnShare(!btnShare);
   };
   return (
     <>
       <AppLayout>
+        <Head>
+          <title>{product.promocion.nombre}</title>
+          <meta
+            name="description"
+            content={product.promocion.descripcion}
+          ></meta>
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={product.promocion.nombre} />
+          <meta
+            property="og:description"
+            content={product.promocion.descripcion}
+          />
+          <meta
+            property="og:image"
+            content={
+              product.imagenes[1].typeImage === "O"
+                ? product.imagenes[1].url
+                : product.imagenes[0].url
+            }
+          />
+           <meta property="og:site_name" content="La Ganga" />
+        </Head>
+
         <Container className="pt-4 box-home container-ganga fade-in animated">
           <h4 className="title-ganga title-especific">Ver mas detalles:</h4>
           <div className="box-details margin-box">
@@ -46,7 +70,11 @@ const PromotionSpecific = ({ product }) => {
                 ) : (
                   <div className="socialGallery">
                     <div class="socialToolBox">
-                      <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2FPromotion%2Ft28%3Fid%3D5fea41b90e52d344743bf74f&amp;src=sdkpreparse" className="btn-cirle-especific" target="_blank">
+                      <a
+                        href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2FPromotion%2Ft28%3Fid%3D5fea41b90e52d344743bf74f&amp;src=sdkpreparse"
+                        className="btn-cirle-especific"
+                        target="_blank"
+                      >
                         <FontAwesomeIcon
                           icon={faFacebookF}
                           className="btn-share-especific"
