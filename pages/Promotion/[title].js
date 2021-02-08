@@ -9,8 +9,15 @@ import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import Image from "next/image";
-const PromotionSpecific = ({product}) => {
+import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
+const PromotionSpecific = ({ product }) => {
   const [interest, setInterest] = useState(false);
+  const [btnShare, setBtnShare] = useState(false);
+  const router = useRouter();
+  console.log(router, "hola soy la ruta")
+  const functionShare = () => {
+    setBtnShare(!btnShare);
+  };
   return (
     <>
       <AppLayout>
@@ -28,12 +35,32 @@ const PromotionSpecific = ({product}) => {
                 className="w-100"
               />
               <div className="grup-btn-especific">
-                <div className="btn-cirle-especific">
+                <div className="btn-cirle-especific" onClick={functionShare}>
                   <FontAwesomeIcon
                     icon={faShareAlt}
                     className="btn-share-especific"
                   />
                 </div>
+                {btnShare === false ? (
+                  ""
+                ) : (
+                  <div className="socialGallery">
+                    <div class="socialToolBox">
+                      <a href={`http://www.facebook.com/share.php?u=${router.asPath}`} className="btn-cirle-especific" target="_blank">
+                        <FontAwesomeIcon
+                          icon={faFacebookF}
+                          className="btn-share-especific"
+                        />
+                      </a>
+                      <a className="btn-cirle-especific">
+                        <FontAwesomeIcon
+                          icon={faTwitter}
+                          className="btn-share-especific"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                )}
                 <div className="btn-cirle-especific">
                   <FontAwesomeIcon
                     icon={faHeart}
@@ -153,20 +180,35 @@ const PromotionSpecific = ({product}) => {
              <Item />*/}
             </Row>
           </div>
-           <figure className="m-0 w-100">
-              <Image
-                src="/images/banner/banner-bottom.png"
-                alt="banner"
-                // layout="fill"
-                width={1500}
-                height={400}
-                //   layout="responsive"
-              />
+          <figure className="m-0 w-100">
+            <Image
+              src="/images/banner/banner-bottom.png"
+              alt="banner"
+              // layout="fill"
+              width={1500}
+              height={400}
+              //   layout="responsive"
+            />
           </figure>
         </Container>
       </AppLayout>
       <style jsx>
         {`
+          .socialGallery {
+            left: 40%;
+            margin: 0 auto 0;
+            position: absolute;
+            top: -35px;
+            transform: translate(-50%, 0);
+            width: 150px;
+          }
+          .socialGallery a {
+            cursor: pointer;
+          }
+          .socialToolBox {
+            display: flex;
+            justify-content: center;
+          }
           .title-especific {
             text-transform: uppercase;
             text-align: center;
@@ -313,22 +355,19 @@ const PromotionSpecific = ({product}) => {
   );
 };
 
-export async function getServerSideProps(params ) {
+export async function getServerSideProps(params) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const routerParams = params
-  let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${routerParams.query.id}`
-  const res = await fetch(
-    url
-  );
+  const routerParams = params;
+  let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${routerParams.query.id}`;
+  const res = await fetch(url);
 
   const product = await res.json();
   if (!product) {
     return {
       notFound: true,
-    }
+    };
   }
-
 
   // By returning { props: posts }, the Blog component
   // will receive `posts` as a prop at build time
@@ -339,7 +378,4 @@ export async function getServerSideProps(params ) {
   };
 }
 
-
-
 export default PromotionSpecific;
-

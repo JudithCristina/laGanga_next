@@ -14,11 +14,10 @@ const AllItems = ({ products, addInterest, like }) => {
         </div>
         <Row className="justify-content-md-center ">
           {products.map((product) => (
-            <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
+            <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4"  key={product._id}>
               <CardPromotion
                 product={product}
                 products={products}
-                key={product._id}
                 addInterest={addInterest}
                 like={like}
               />

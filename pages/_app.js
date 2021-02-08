@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps }) {
           )))
         } else {
          setArrayInterest([...arrayInterest, registerInterest])
-          localStorage.setItem("arrayInterestLocal", JSON.stringify([...arrayInterest, registerInterest]))
+        localStorage.setItem("arrayInterestLocal", JSON.stringify([...arrayInterest, registerInterest]))
         }
       }
      }
