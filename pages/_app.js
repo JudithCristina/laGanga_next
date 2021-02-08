@@ -41,40 +41,68 @@ function MyApp({ Component, pageProps }) {
         product.promocion.liked = true;
       }
     }
-    console.log(arrayInterest.length, "janira3");
-    for (let i = 0; i < arrayInterest.length; i++) {
-      if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
-        registerInterest.promocion.liked = false;
-        arrayInterest[i].promocion.liked = false;
-        product.promocion.liked = false;
-        return setArrayInterest(
-          arrayInterest.filter(
-            (productFilter) =>
-              productFilter.promocion._id !== registerInterest.promocion._id
-          )
-        );
-      }
-    }
-    console.log( [...arrayInterest, registerInterest], "judita")
+    console.log(registerInterest, "nueva promocion")
+    console.log(arrayInterest.length,"nuevoRegistro")
+     console.log( arrayInterest, "judita-1")
+     if(arrayInterest.length=== 0 ){
+       console.log("hola primer clic")
      setArrayInterest([...arrayInterest, registerInterest])
-    localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
+     } else if (arrayInterest.length >= 1) {
+      console.log("Mi segundo me gusta")
+       for (let i = 0; i < arrayInterest.length; i++) {
+        if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
+          console.log("eliminar")
+          registerInterest.promocion.liked = false;
+          arrayInterest[i].promocion.liked = false;
+          product.promocion.liked = false;
+         setArrayInterest(
+            arrayInterest.filter(
+              (productFilter) =>
+                productFilter.promocion._id !== registerInterest.promocion._id
+            )
+          );
+        } else {
+         setArrayInterest([...arrayInterest, registerInterest])
+        }
+      }
+     }
+    // for (let i = 0; i < arrayInterest.length; i++) {
+    //   if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
+    //     console.log("eliminar")
+    //     registerInterest.promocion.liked = false;
+    //     arrayInterest[i].promocion.liked = false;
+    //     product.promocion.liked = false;
+    //    return  setArrayInterest(
+    //       arrayInterest.filter(
+    //         (productFilter) =>
+    //           productFilter.promocion._id !== registerInterest.promocion._id
+    //       )
+    //     );
+    //   }
+    // }
+  console.log(arrayInterest.length, "janira3");
+  //  setArrayInterest([...arrayInterest, registerInterest])
+  //   console.log([...arrayInterest, registerInterest],"agreando al array")
+    console.log( arrayInterest, "judita-2")
+    //  setArrayInterest([...arrayInterest, registerInterest])
+   return  localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
+    // console.log(localStorage.getItem("arrayInterestLocal"),"agregando a local storage")
   };
 
   useEffect(() => {
-    if (window.localStorage.getItem("arrayInterestLocal") == null) {
-      setArrayInterest(
-        localStorage.setItem(
-          "arrayInterestLocal",
-          JSON.stringify(arrayInterest)
+  getProductsDay();
+   console.log(window.localStorage.getItem("arrayInterestLocal"), "ojitos")
+    if (!window.localStorage.getItem("arrayInterestLocal")) {
+      console.log("hola bebe")
+        localStorage.setItem("arrayInterestLocal",JSON.stringify(arrayInterest)
         )
-      );
     } else {
+      console.log("hola ñaña")
       setArrayInterest(
-        JSON.parse(window.localStorage.getItem("arrayInterestLocal"))
+        JSON.parse(localStorage.getItem("arrayInterestLocal"))
       );
     }
 
-     getProductsDay();
   }, []);
 
   return (

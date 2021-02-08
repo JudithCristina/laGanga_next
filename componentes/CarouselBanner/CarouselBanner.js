@@ -8,6 +8,7 @@ const CarouselBanner = () => {
     setWidth(window.innerWidth);
     getBanner();
   }, []);
+  console.log(width,"holitasjuju")
   const getBanner = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/banner/get-all/user`;
     await fetch(url)
