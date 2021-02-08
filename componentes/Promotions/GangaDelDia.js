@@ -76,8 +76,8 @@ const GangaDelDia = (props) => {
             draggable={false}
             showDots={false}
           >
-            {products.map((product, index) => (
-              <div className="item-carousel" key={index}>
+            {products.map((product) => (
+              <div className="item-carousel" key={product._id}>
                  <div className="  mb-4">
                  <CardPromotion
                   product={product}
@@ -86,7 +86,7 @@ const GangaDelDia = (props) => {
                 />
 
                  </div>
-               
+
               </div>
             ))}
           </Carousel>
@@ -94,7 +94,7 @@ const GangaDelDia = (props) => {
       </div>
       <style jsx>
         {`
-        
+
         .item-carousel  {
             width:90%;
           }

@@ -36,7 +36,7 @@ const MenuMobile = () => {
   return (
     <>
       <nav className="navbar fixed-bottom navbar-light bg-light menu-mobile">
-        <Link href="/" className="" exact={true} to="" activeClassName="homeOn">
+        <Link href="/" class="" exact={true} to="" activeClassName="homeOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="home"></div>
         </Link>
