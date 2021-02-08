@@ -1,16 +1,29 @@
+import React, { useEffect, useState } from "react";
 import Footer from "./../Footer";
 import Header from "./../Header/Header";
 import FilterCategory from "./../FilterCategory/FilterCategory";
 import HeaderNuevo from "../Header/HeaderNuevo";
+import MenuMobile from "../Header/MenuMobile";
 
 const AppLayout = ({ children, promotionsData }) => {
+  const [width, setWidth] = useState(0);
+  const breakpoint = 768;
+
+
+  useEffect(() => {
+    console.log("aaaaaaaaa",setWidth(window.innerWidth))
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
     <div className="container-ganga">
       {/* <Header  promotionsData={ promotionsData } ></Header> */}
       <HeaderNuevo promotionsData={promotionsData}></HeaderNuevo>
       <FilterCategory />
       <main className="margin-top-4">{children}</main>
-      <Footer></Footer>
+      <MenuMobile />
+      <Footer />
+      {/* {width < breakpoint ? <MenuMobile /> : <Footer />} */}
       <style jsx global>
         {`
           @font-face {
@@ -80,7 +93,6 @@ const AppLayout = ({ children, promotionsData }) => {
           .carousel-control-prev {
             width: 8% !important;
           }
-
 
           .box-free-shipping {
             width: auto;
@@ -290,9 +302,6 @@ const AppLayout = ({ children, promotionsData }) => {
             color: #7e4fff;
           }
 
-
-          
-
           @media (min-width: 576px) {
             .container-ganga {
               max-width: 900px !important;
@@ -323,8 +332,8 @@ const AppLayout = ({ children, promotionsData }) => {
               font-size: 4.6vw;
             }
             .margin-top-4 {
-            margin-top: 0rem;
-          }
+              margin-top: 0rem;
+            }
             .margin-box {
               padding: 0rem 1rem !important;
             }

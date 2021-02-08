@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 const CarouselBanner = () => {
-   const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(0);
   const [bannerImage, setBannerImage] = useState([]);
   const breakpoint = 768;
   useEffect(() => {

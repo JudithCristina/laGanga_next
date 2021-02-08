@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 
-import "./Menu.css";
-
+// import "./Menu.css";
 
 import { Modal } from "react-bootstrap";
-import { useHistory, NavLink, Link } from "react-router-dom";
+// import { useHistory, Link, Link } from "react-router-dom";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import ActiveLink from "../ActiveLink";
 
 const MenuMobile = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
+  const router = useRouter();
   const handleShow = (e) => {
     e.preventDefault();
     setShow(true);
   };
   const [valueCategory, setValueCategory] = useState("");
   const [valueMarca, setValueMarca] = useState("");
-  let history = useHistory();
+  // let history = useHistory();
 
   const handleInputChangeCategory = (e) => {
     setValueCategory(e.target.value);
@@ -32,23 +35,23 @@ const MenuMobile = () => {
   };
   return (
     <>
-      <nav class="navbar fixed-bottom navbar-light bg-light">
-        <NavLink class="" exact={true}  to="" activeClassName="homeOn">
+      <nav class="navbar fixed-bottom navbar-light bg-light menu-mobile">
+        <Link href="/" class="" exact={true} to="" activeClassName="homeOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="home"></div>
-        </NavLink>
-        <a class=""  onClick={handleShow} activeClassName="categoryOn">
+        </Link>
+        <a class="" onClick={handleShow} activeClassName="categoryOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="category"></div>
         </a>
-        <NavLink class=" " to="/interest" activeClassName="heartOn">
+        <Link href="/" class=" " to="/interest" activeClassName="heartOn">
           {/* <img src={heart} alt="" className="menu-off" /> */}
           <div className="heart"></div>
-        </NavLink>
-        <NavLink class="" to="/en-construccion" activeClassName="fireOn">
+        </Link>
+        <Link href="/" class="" to="/en-construccion" activeClassName="fireOn">
           {/* <img src={fire} alt="" className="menu-off" /> */}
           <div className="fire"></div>
-        </NavLink>
+        </Link>
       </nav>
       <Modal
         show={show}
@@ -275,6 +278,86 @@ const MenuMobile = () => {
           </button>
         </Modal.Footer>
       </Modal>
+      <style jsx>
+        {`
+          :global(.menu-mobile) {
+            display: none
+          }
+          .heart {
+            background-image: url("../../images/menu-icons/heart.svg");
+            background-size: contain;
+            width: 2rem;
+            height: 1.9rem;
+            background-repeat: no-repeat;
+          }
+          .heartOn .heart {
+            background-image: url("../../images/menu-icons/heart-on.svg") !important;
+            background-size: contain;
+            width: 2.2rem;
+            height: 2.2rem;
+            background-repeat: no-repeat;
+          }
+
+          .category {
+            background-image: url("../../images/menu-icons/category.svg");
+            background-size: contain;
+            width: 2rem;
+            height: 1.9rem;
+            background-repeat: no-repeat;
+          }
+          .categoryOn .category {
+            background-image: url("../../images/menu-icons/category-on.svg") !important;
+            background-size: contain;
+            width: 2.2rem;
+            height: 2.2rem;
+            background-repeat: no-repeat;
+          }
+
+          .fire {
+            background-image: url("../../images/menu-icons/fire.svg");
+            background-size: contain;
+            width: 2rem;
+            height: 1.9rem;
+            background-repeat: no-repeat;
+          }
+          .fireOn .fire {
+            background-image: url("../../images/menu-icons/fire-on.svg") !important;
+            background-size: contain;
+            width: 2.2rem;
+            height: 2.2rem;
+            background-repeat: no-repeat;
+          }
+
+          .home {
+            background-image: url("../../images/menu-icons/home-of.svg");
+            background-size: contain;
+            width: 2rem;
+            height: 1.9rem;
+            background-repeat: no-repeat;
+          }
+          .homeOn .home {
+            background-image: url("../../public/images/menu-icons/home-on.svg") !important;
+            background-size: contain;
+            width: 2.2rem;
+            height: 2.2rem;
+            background-repeat: no-repeat;
+          }
+        @media (max-width: 769px) {
+          :global(.menu-mobile) {
+            display: flex;
+            justify-content: space-around;
+            align-items:center;
+            padding: 1.1rem 0rem;
+            position:fixed;
+            z-index:99;
+            bottom:0
+          }
+
+        }
+
+        `}
+
+      </style>
     </>
   );
 };
