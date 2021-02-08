@@ -44,11 +44,11 @@ const MenuMobile = () => {
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="category"></div>
         </a>
-        <Link href="/" class=" " to="/interest" activeClassName="heartOn">
+        <Link href="/" className=" " to="/interest" activeClassName="heartOn">
           {/* <img src={heart} alt="" className="menu-off" /> */}
           <div className="heart"></div>
         </Link>
-        <Link href="/" class="" to="/en-construccion" activeClassName="fireOn">
+        <Link href="/" className="" to="/en-construccion" activeClassName="fireOn" active>
           {/* <img src={fire} alt="" className="menu-off" /> */}
           <div className="fire"></div>
         </Link>
