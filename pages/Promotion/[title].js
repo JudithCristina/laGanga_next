@@ -10,7 +10,9 @@ import Row from "react-bootstrap/Row";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import Image from "next/image";
 import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import Head from "next/head";
+// import Head from "next/head";
+
+
 const PromotionSpecific = ({ product }) => {
   const [interest, setInterest] = useState(false);
   const [btnShare, setBtnShare] = useState(false);
@@ -22,7 +24,7 @@ const PromotionSpecific = ({ product }) => {
   return (
     <>
       <AppLayout>
-        <Head>
+        {/* <Head>
           <title>{product.promocion.nombre}</title>
           <meta
             name="description"
@@ -43,7 +45,7 @@ const PromotionSpecific = ({ product }) => {
             }
           />
            <meta property="og:site_name" content="La Ganga" />
-        </Head>
+        </Head> */}
 
         <Container className="pt-4 box-home container-ganga fade-in animated">
           <h4 className="title-ganga title-especific">Ver mas detalles:</h4>
