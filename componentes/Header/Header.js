@@ -488,7 +488,7 @@ const Header = (props) => {
             }
 
             .burger-menu {
-              width: 2rem;
+              width: 1rem;
             }
 
             .navbar-desktop {

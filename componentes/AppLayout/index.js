@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./../Footer";
-import Header from "./../Header/Header";
+
 import FilterCategory from "./../FilterCategory/FilterCategory";
 import HeaderNuevo from "../Header/HeaderNuevo";
 import MenuMobile from "../Header/MenuMobile";
 
 const AppLayout = ({ children, promotionsData }) => {
-  const [width, setWidth] = useState(0);
-  const breakpoint = 768;
+  const [menuBurgerOpen, setmenuBurgerOpen] = useState(false);
 
+  const drawerToggleClickHandler = () => {
+    setmenuBurgerOpen(true);
+  };
 
-  useEffect(() => {
-    console.log("aaaaaaaaa",setWidth(window.innerWidth))
-    setWidth(window.innerWidth);
-  }, []);
+  const pruebaclic =()=>{
+    alert("hice clic")
+
+  }
+
 
   return (
     <div className="container-ganga">
       {/* <Header  promotionsData={ promotionsData } ></Header> */}
-      <HeaderNuevo promotionsData={promotionsData}></HeaderNuevo>
+      <HeaderNuevo
+        promotionsData={promotionsData}
+       
+        pruebaclic={pruebaclic}
+      ></HeaderNuevo>
       <FilterCategory />
       <main className="margin-top-4">{children}</main>
       <MenuMobile />

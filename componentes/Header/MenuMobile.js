@@ -35,20 +35,20 @@ const MenuMobile = () => {
   };
   return (
     <>
-      <nav class="navbar fixed-bottom navbar-light bg-light menu-mobile">
-        <Link href="/" class="" exact={true} to="" activeClassName="homeOn">
+      <nav className="navbar fixed-bottom navbar-light bg-light menu-mobile">
+        <Link href="/" className="" exact={true} to="" activeClassName="homeOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="home"></div>
         </Link>
-        <a class="" onClick={handleShow} activeClassName="categoryOn">
+        <a className="" onClick={handleShow} activeClassName="categoryOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="category"></div>
         </a>
-        <Link href="/" class=" " to="/interest" activeClassName="heartOn">
+        <Link href="/" className=" " to="/interest" activeClassName="heartOn">
           {/* <img src={heart} alt="" className="menu-off" /> */}
           <div className="heart"></div>
         </Link>
-        <Link href="/" class="" to="/en-construccion" activeClassName="fireOn">
+        <Link href="/" className="" to="/en-construccion" activeClassName="fireOn" active>
           {/* <img src={fire} alt="" className="menu-off" /> */}
           <div className="fire"></div>
         </Link>

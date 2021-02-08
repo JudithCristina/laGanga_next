@@ -85,7 +85,7 @@ const Interest = ({ addInterest }) => {
 
             .mujer-interest {
               width: 100%;
-              bottom: 0%;
+              bottom: -2%;
             }
           }
         `}

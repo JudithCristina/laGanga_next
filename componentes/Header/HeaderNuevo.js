@@ -8,7 +8,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const HeaderNuevo = () => {
+const HeaderNuevo = (props) => {
   const [searchWord, setSearchWord] = useState("");
   const [products, setProducts] = useState([]);
   const router = useRouter();
@@ -41,12 +41,12 @@ const HeaderNuevo = () => {
           </a>
         </Link>
 
-        <div className="burger-yesmom">
+        <div className="burger-laganga" onClick={props.pruebaclic} >
           <Image
             src="/images/menu-icons/burger-menu.svg"
-            alt="burger yesmom"
-            width={40}
-            height={40}
+            alt="burger la ganga"
+            width={35}
+            height={35}
           />
         </div>
         <div className="box-search-desktop">
@@ -112,7 +112,7 @@ const HeaderNuevo = () => {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            padding: 0.3rem 2rem;
+            padding: 0.7rem 2rem;
             background: #fff;
             position: fixed;
             z-index: 9999;
@@ -150,6 +150,11 @@ const HeaderNuevo = () => {
               transform: scale(1);
             }
           }
+
+          .logo-ganga {
+              display: flex;
+              justify-content:center
+            }
 
           /* Buscador */
           .search-container {
@@ -252,13 +257,14 @@ const HeaderNuevo = () => {
           .box-desktop-form {
             display: block;
           }
-          .burger-yesmom {
+          .burger-laganga {
             display: none;
           }
 
           @media (max-width: 769px) {
             .navbar-ganga {
               position: relative;
+              padding: 0.5rem 2rem;
             }
             .btn-like-menu {
               display: none;
@@ -318,7 +324,7 @@ const HeaderNuevo = () => {
               left: -0.5rem;
             }
 
-            .burger-yesmom {
+            .burger-laganga {
               display: block;
             }
             .box-search-desktop {
