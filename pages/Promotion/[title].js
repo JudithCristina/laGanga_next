@@ -101,7 +101,7 @@ const PromotionSpecific = () => {
                     <div className="socialGallery">
                       <div class="socialToolBox">
                         <a
-                          href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2FPromotion%2Ft28%3Fid%3D5fea41b90e52d344743bf74f&amp;src=sdkpreparse"
+                          href="https://www.facebook.com/sharer/sharer.php?u=https://la-ganga-next.vercel.app"
                           className="btn-cirle-especific"
                           target="_blank"
                         >
