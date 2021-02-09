@@ -17,8 +17,9 @@ const PromotionSpecific = () => {
   const [interest, setInterest] = useState(false);
   const [btnShare, setBtnShare] = useState(false);
   const router = useRouter();
-  console.log(router, "hola soy la ruta");
   const [product, setProduct] = useState([]);
+  console.log(router, "hola soy la ruta");
+
   const functionShare = () => {
     setBtnShare(!btnShare);
   };
@@ -46,7 +47,7 @@ const PromotionSpecific = () => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [router.query.id]);
   return (
     <>
      {
