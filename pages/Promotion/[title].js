@@ -13,11 +13,11 @@ import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Head from "next/head";
 
 
-const PromotionSpecific = () => {
+const PromotionSpecific = ({product}) => {
   const [interest, setInterest] = useState(false);
   const [btnShare, setBtnShare] = useState(false);
   const router = useRouter();
-  const [product, setProduct] = useState([]);
+  // const [product, setProduct] = useState([]);
   console.log(router, "hola soy la ruta");
 
   const functionShare = () => {
@@ -26,34 +26,32 @@ const PromotionSpecific = () => {
 
   // console.log(localStorage.getItem("searchFilterLocalStorage"));
   // console.log(router, "pruebita");
-  const getProduct = async () => {
-    let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${router.query.title}`;
-    await fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
-          setProduct([]);
-        } else {
-          console.log(data[0],"ojitos")
-          setProduct(data[0]);
-        }
-      })
-      .catch((e) => {
-        console.log(e, "error:)");
-      });
-  };
+  // const getProduct = async () => {
+  //   let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${router.query.title}`;
+  //   await fetch(url)
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
+  //         setProduct([]);
+  //       } else {
+  //         console.log(data[0],"ojitos")
+  //         setProduct(data[0]);
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       console.log(e, "error:)");
+  //     });
+  // };
 
-  useEffect(() => {
-    getProduct();
-  }, [router.query.id]);
+  // useEffect(() => {
+  //   getProduct();
+  // }, []);
   return (
     <>
-     {
-       product.length===0 ? "" :
          <AppLayout>
-          <Head>
+          {/* <Head>
             <title>{product.promocion.nombre}</title>
             <meta
               name="description"
@@ -74,7 +72,7 @@ const PromotionSpecific = () => {
               }
             />
              <meta property="og:site_name" content="La Ganga" />
-          </Head>
+          </Head> */}
 
           <Container className="pt-4 box-home container-ganga fade-in animated">
             <h4 className="title-ganga title-especific">Ver mas detalles:</h4>
@@ -251,7 +249,6 @@ const PromotionSpecific = () => {
             </figure>
           </Container>
         </AppLayout>
-     }
       <style jsx>
         {`
           .socialGallery {
@@ -415,27 +412,28 @@ const PromotionSpecific = () => {
   );
 };
 
-// export async function getServerSideProps(params) {
-//   // Call an external API endpoint to get posts.
-//   // You can use any data fetching library
-//   const routerParams = params;
-//   let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${routerParams.query.id}`;
-//   const res = await fetch(url);
+export async function getServerSideProps(params) {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const routerParams = params;
+  console.log(routerParams)
+  let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${routerParams.query.title}`;
+  const res = await fetch(url);
 
-//   const product = await res.json();
-//   if (!product) {
-//     return {
-//       notFound: true,
-//     };
-//   }
+  const product = await res.json();
+  if (!product) {
+    return {
+      notFound: true,
+    };
+  }
 
-//   // By returning { props: posts }, the Blog component
-//   // will receive `posts` as a prop at build time
-//   return {
-//     props: {
-//       product: product[0],
-//     },
-//   };
-// }
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      product: product[0],
+    },
+  };
+}
 
 export default PromotionSpecific;
