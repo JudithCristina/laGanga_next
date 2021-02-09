@@ -170,16 +170,16 @@ const CardPromotion = ({ products, product, addInterest }) => {
           </div>
 
           <Link
-            href={`/Promotion/[title]?id=${product.promocion._id}`}
+            href={`/promotion/[title]?id=${product.promocion._id}`}
             as={
               product.promocion.nombre.charAt(
                 product.promocion.nombre.length - 1
               ) === "?"
-                ? `/Promotion/${product.promocion.nombre.replace(
+                ? `/promotion/${product.promocion.nombre.replace(
                     "?",
                     ""
                   )}-?id=${product.promocion._id}`
-                : `/Promotion/${product.promocion.nombre}?id=${product.promocion._id}`
+                : `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
             }
           >
             <a className="link body-card">

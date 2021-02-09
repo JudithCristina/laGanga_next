@@ -266,6 +266,28 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
+export async function getServerSideProps() {
+  console.log("holitass")
+  let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion-all/user`
+  console.log(url, "urli")
+  const res = await fetch(
+    url
+  );
+  const products = await res.json();
+  if (!products) {
+    return {
+      notFound: true,
+    };
+  }
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to
 // perform automatic static optimization, causing every page in your app to
