@@ -18,14 +18,14 @@ const PromotionSpecific = () => {
   const [btnShare, setBtnShare] = useState(false);
   const router = useRouter();
   console.log(router, "hola soy la ruta");
-  const [product, setProducts] = useState([]);
+  const [product, setProduct] = useState([]);
   const functionShare = () => {
     setBtnShare(!btnShare);
   };
 
   // console.log(localStorage.getItem("searchFilterLocalStorage"));
   // console.log(router, "pruebita");
-  const getProducts = async () => {
+  const getProduct = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${router.query.id}`;
     await fetch(url)
       .then((response) => {
@@ -33,10 +33,10 @@ const PromotionSpecific = () => {
       })
       .then((data) => {
         if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
-          setProducts([]);
+          setProduct([]);
         } else {
-          console.log(data,"ojitos")
-          setProducts(data[0]);
+          console.log(data[0],"ojitos")
+          setProduct(data[0]);
         }
       })
       .catch((e) => {
@@ -45,8 +45,8 @@ const PromotionSpecific = () => {
   };
 
   useEffect(() => {
-    getProducts();
-  }, [router.query.id]);
+    getProduct();
+  }, []);
   return (
     <>
      {
