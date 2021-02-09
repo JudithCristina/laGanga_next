@@ -27,7 +27,7 @@ const PromotionSpecific = () => {
   // console.log(localStorage.getItem("searchFilterLocalStorage"));
   // console.log(router, "pruebita");
   const getProduct = async () => {
-    let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${router.query.id}`;
+    let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${router.query.title}`;
     await fetch(url)
       .then((response) => {
         return response.json();
