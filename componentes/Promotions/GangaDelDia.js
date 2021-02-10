@@ -42,7 +42,7 @@ const GangaDelDia = (props) => {
           setProducts(data.nuevasPromociones);
         }
 
-        setLoading(false);
+        // setLoading(false);
       })
       .catch((e) => {
         console.log(e, "error");
@@ -63,40 +63,42 @@ const GangaDelDia = (props) => {
             Aprovecha las mejores marcas, con el descuento que tú deseas.
           </h5>
         </div>
-        <Carousel
-          responsive={responsive}
-          infinite={true}
-          autoPlay={props.deviceType !== "mobile" ? true : false}
-          autoPlaySpeed={2800}
-          deviceType={props.deviceType}
-          removeArrowOnDeviceType={["tablet", "mobile"]}
-          swipeable={false}
-          draggable={false}
-          showDots={false}
-        >
-          {products.map((product) => (
-            <>
-              {isLoading && <PreloaderCards />}
-              {!isLoading && (
-                <div className="item-carousel" key={product._id}>
-                  <div className="  mb-4">
-                    <CardPromotion
-                      product={product}
-                      products={products}
-                      addInterest={props.addInterest}
-                    />
-                  </div>
-                </div>
-              )}
-            </>
-          ))}
-        </Carousel>
+        {isLoading && <PreloaderCards />}
+        {!isLoading && (
+          <Carousel
+            responsive={responsive}
+            infinite={true}
+            autoPlay={props.deviceType !== "mobile" ? true : false}
+            autoPlaySpeed={2800}
+            deviceType={props.deviceType}
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            swipeable={false}
+            draggable={false}
+            showDots={false}
+          >
+            {products.map((product) => (
+              <div className="item-carousel" key={product._id}>
+                 <div className="  mb-4">
+                 <CardPromotion
+                  product={product}
+                  products={products}
+                  addInterest={props.addInterest}
+                />
+
+                 </div>
+
+              </div>
+            ))}
+          </Carousel>
+        )}
       </div>
       <style jsx>
         {`
-          .item-carousel {
-            width: 90%;
+
+        .item-carousel  {
+            width:90%;
           }
+
         `}
       </style>
     </>

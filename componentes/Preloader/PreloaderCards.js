@@ -1,16 +1,16 @@
-import React from 'react'
-import ContentLoader from 'react-content-loader'
+import React from "react";
+import ContentLoader from "react-content-loader";
 
 const PreloaderCards = props => {
   return (
-  <ContentLoader viewBox="0 0 500 420" height={420} width={500} {...props}>
-    <rect x="16" y="17" rx="0" ry="0" width="360" height="200" />
-    <circle cx="35" cy="248" r="20" />
-    <rect x="69" y="229" rx="2" ry="2" width="275" height="15" />
-    <rect x="69" y="253" rx="2" ry="2" width="140" height="15" />
-  </ContentLoader>
+    <ContentLoader viewBox="0 0 1500 350" height={350} width={1500} style={{ width: '100%' }} {...props}>
+      <rect x="0" y="90" rx="0" ry="0" width="250" height="250" />
+      <rect x="300" y="90" rx="0" ry="0" width="250" height="250" />
+      <rect x="600" y="90" rx="0" ry="0" width="250" height="250" />
+      <rect x="900" y="90" rx="0" ry="0" width="250" height="250" />
+    </ContentLoader>
   )
-}
+};
 
 // LinkedInStyle.metadata = {
 //   name: 'Victoria Mei',
@@ -19,5 +19,4 @@ const PreloaderCards = props => {
 //   filename: 'LinkedIn',
 // }
 
-export default PreloaderCards
-
+export default PreloaderCards;

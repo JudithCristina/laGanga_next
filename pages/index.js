@@ -6,7 +6,7 @@ import GangaDelDia from '../componentes/Promotions/GangaDelDia';
 import AllItems from '../componentes/Promotions/AllItems';
 import Image from "next/image";
 import Head from "next/head";
-const Home = ({ products, addInterest }) => {
+const Home = ({ products, addInterest,bannerImage }) => {
   return (
     <>
       <Head>
@@ -41,7 +41,7 @@ const Home = ({ products, addInterest }) => {
       </Head>
       <AppLayout>
         <Container className="container-ganga box-home fade-in animated">
-          <CarouselBanner />
+          <CarouselBanner bannerImage={bannerImage} />
           <OfertasDelDia addInterest={addInterest}/>
           <GangaDelDia addInterest={addInterest} />
           <figure className="m-0 w-100">
@@ -61,6 +61,30 @@ const Home = ({ products, addInterest }) => {
 
   );
 };
+
+export async function getServerSideProps(params) {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const routerParams = params;
+  console.log(routerParams);
+  let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/banner/get-all/user`;
+  const res = await fetch(url);
+
+  const bannerImage = await res.json();
+  if (!bannerImage) {
+    return {
+      notFound: true,
+    };
+  }
+
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      bannerImage: bannerImage,
+    },
+  };
+}
 
 // export async function getServerSideProps() {
 //   console.log("holitass")
