@@ -30,7 +30,6 @@ const GangaDelDia = (props) => {
   const [isLoading, setLoading] = useState(true);
    const [widthCard, setWidthCard] = useState(0); // default width, detect on server.
   const handleResize = () => setWidthCard(window.innerWidth);
-  const breakpoint = 768;
 
   //  useEffect(() => {
   //   // getBanner();

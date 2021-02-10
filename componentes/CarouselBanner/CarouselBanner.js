@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-const CarouselBanner = ({bannerImage}) => {
-  // const [width, setWidth] = useState(0);
-   const [width, setWidth] = useState(0); // default width, detect on server.
-  const handleResize = () => setWidth(window.innerWidth);
+import PreloaderCards from "../Preloader/PreloaderBanner";
+const CarouselBanner = ({ bannerImage }) => {
+  const [isLoading, setLoading] = useState(true);
+  const [widthBanner, setWidthBanner] = useState(0); // default width, detect on server.
+  const handleResize = () => setWidthBanner(window.innerWidth);
   // const [bannerImage, setBannerImage] = useState([]);
   const breakpoint = 768;
   // let width
@@ -16,11 +17,17 @@ const CarouselBanner = ({bannerImage}) => {
   //   getBanner();
   // }, []);
 
-   useEffect(() => {
+
+  useEffect(() => {
     // getBanner();
-    setWidth(window.innerWidth)
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    setWidthBanner(window.innerWidth);
+    setInterval(() => {
+      // calculateTimeLeft(product.fechaFinOferta);
+      setLoading(false);
+    }, 7000);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // console.log(width,"holitasjuju")
@@ -45,33 +52,37 @@ const CarouselBanner = ({bannerImage}) => {
 
   return (
     <>
-      <Carousel>
-        {bannerImage.map((item) => (
-          <Carousel.Item>
-            {width < breakpoint ? (
-              <img
-                className="d-block w-100"
-                src={
-                  item.imagen[0].typeImage === "BM"
-                    ? item.imagen[0].url
-                    : item.imagen[1].url
-                }
-                alt="First slide"
-              />
-            ) : (
-              <img
-                className="d-block w-100"
-                src={
-                  item.imagen[0].typeImage === "BD"
-                    ? item.imagen[0].url
-                    : item.imagen[1].url
-                }
-                alt="First slide"
-              />
-            )}
-          </Carousel.Item>
-        ))}
-      </Carousel>
+
+      {isLoading && <PreloaderCards widthBanner={widthBanner}/>}
+      {!isLoading && (
+        <Carousel>
+          {bannerImage.map((item) => (
+            <Carousel.Item>
+              {widthBanner < breakpoint ? (
+                <img
+                  className="d-block w-100"
+                  src={
+                    item.imagen[0].typeImage === "BM"
+                      ? item.imagen[0].url
+                      : item.imagen[1].url
+                  }
+                  alt="First slide"
+                />
+              ) : (
+                <img
+                  className="d-block w-100"
+                  src={
+                    item.imagen[0].typeImage === "BD"
+                      ? item.imagen[0].url
+                      : item.imagen[1].url
+                  }
+                  alt="First slide"
+                />
+              )}
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      )}
       <style jsx>
         {`
           .box-home {
