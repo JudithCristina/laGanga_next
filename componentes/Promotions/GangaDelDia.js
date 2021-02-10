@@ -42,7 +42,7 @@ const GangaDelDia = (props) => {
           setProducts(data.nuevasPromociones);
         }
 
-        setLoading(false);
+        // setLoading(false);
       })
       .catch((e) => {
         console.log(e, "error");
