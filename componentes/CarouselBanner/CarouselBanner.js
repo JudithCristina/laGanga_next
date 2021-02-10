@@ -18,11 +18,12 @@ const CarouselBanner = ({bannerImage}) => {
 
    useEffect(() => {
     // getBanner();
+    setWidth(window.innerWidth)
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [handleResize]);
+  }, []);
 
-  console.log(width,"holitasjuju")
+  // console.log(width,"holitasjuju")
   // const getBanner = async () => {
   //   console.log("soy yo")
   //   let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/banner/get-all/user`;

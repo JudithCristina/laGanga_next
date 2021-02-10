@@ -28,8 +28,19 @@ const responsive = {
 const GangaDelDia = (props) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
+   const [widthCard, setWidthCard] = useState(0); // default width, detect on server.
+  const handleResize = () => setWidthCard(window.innerWidth);
+  const breakpoint = 768;
+
+  //  useEffect(() => {
+  //   // getBanner();
+  //   setWidth(window.innerWidth)
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
   const getProductsWeek = async (props) => {
+    console.log("hola")
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/new/user`;
     await fetch(url)
       .then((response) => {
@@ -42,7 +53,7 @@ const GangaDelDia = (props) => {
           setProducts(data.nuevasPromociones);
         }
 
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((e) => {
         console.log(e, "error");
@@ -53,6 +64,10 @@ const GangaDelDia = (props) => {
       setLoading(true);
     }
     getProductsWeek();
+      setWidthCard(window.innerWidth)
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+
   }, []);
   return (
     <>
@@ -63,7 +78,7 @@ const GangaDelDia = (props) => {
             Aprovecha las mejores marcas, con el descuento que tú deseas.
           </h5>
         </div>
-        {isLoading && <PreloaderCards />}
+        {isLoading && <PreloaderCards widthCard={widthCard} />}
         {!isLoading && (
           <Carousel
             responsive={responsive}
