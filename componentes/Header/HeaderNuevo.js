@@ -41,7 +41,7 @@ const HeaderNuevo = (props) => {
           </a>
         </Link>
 
-        <div className="burger-laganga" onClick={props.pruebaclic} >
+        <div className="burger-laganga" onClick={props.pruebaclic}>
           <Image
             src="/images/menu-icons/burger-menu.svg"
             alt="burger la ganga"
