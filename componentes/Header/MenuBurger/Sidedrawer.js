@@ -121,7 +121,9 @@ const SideDrawer = (props) => {
       </nav>
       <style jsx>
         {`
+        
           .side-drawer {
+            font-family: "made-tomy-sof-regular";
             height: 100%;
             background: #fff;
             box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
@@ -129,15 +131,15 @@ const SideDrawer = (props) => {
             top: 0;
             left: 0;
             width: 90%;
-            /* max-width: 400px; */
             z-index: 9999;
-            transform: translateX(0%);
             transition: transform 0.3s ease-out;
-            font-family: "made-tomy-sof-regular";
+            
+            animation: slide-in-left 
           }
-          .side-drawer .open {
-            transform: translateX(0%)!important;
+          .side-drawer.open {
+            transform: translateX(0%) !important;
           }
+
           .side-drawer ul {
             height: 100%;
             list-style: none;
