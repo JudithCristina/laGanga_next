@@ -170,19 +170,19 @@ const CardPromotion = ({ products, product, addInterest }) => {
           </div>
 
           <Link
-            href={`/promotion/[title]`}
-            as={`/promotion/${product.promocion._id}`}
-            // href={`/promotion/[title]?id=${product.promocion._id}`}
-            // as={
-            //   product.promocion.nombre.charAt(
-            //     product.promocion.nombre.length - 1
-            //   ) === "?"
-            //     ? `/promotion/${product.promocion.nombre.replace(
-            //         "?",
-            //         ""
-            //       )}-?id=${product.promocion._id}`
-            //     : `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
-            // }
+            // href={`/promotion/[title]`}
+            // as={`/promotion/${product.promocion._id}`}
+            href={`/promotion/[title]?id=${product.promocion._id}`}
+            as={
+              product.promocion.nombre.charAt(
+                product.promocion.nombre.length - 1
+              ) === "?"
+                ? `/promotion/${product.promocion.nombre.replace(
+                    "?",
+                    ""
+                  )}-?id=${product.promocion._id}`
+                : `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
+            }
           >
             <a className="link body-card">
               <div className="group-time-item">

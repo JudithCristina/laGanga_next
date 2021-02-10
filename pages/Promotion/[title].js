@@ -417,7 +417,7 @@ export async function getServerSideProps(params) {
   // You can use any data fetching library
   const routerParams = params;
   console.log(routerParams)
-  let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${routerParams.query.title}`;
+  let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${routerParams.query.id}`;
   const res = await fetch(url);
 
   const product = await res.json();
