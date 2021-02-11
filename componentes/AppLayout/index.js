@@ -23,14 +23,14 @@ const AppLayout = ({ children, promotionsData }) => {
     setmenuBurgerOpen(false);
   };
   let backdrop;
-  if (menuBurgerOpen) {
-    return backdrop = <>
-    <Backdrop ocultarMenuMobile={ocultarMenuMobile} />
-    <Sidedrawer menuBurgerOpen={menuBurgerOpen} ocultarMenuMobile={ocultarMenuMobile}/>
-    </>
-  } else {
-    console.log("no hay nada amiga");
-  }
+
+  // if (menuBurgerOpen) {
+  //   return (backdrop = backdrop = (
+  //     <Backdrop ocultarMenuMobile={ocultarMenuMobile} />
+  //   ));
+  // } else {
+  //   console.log("no hay nada amiga");
+  // }
 
   return (
     <div className="container-ganga">
@@ -40,7 +40,11 @@ const AppLayout = ({ children, promotionsData }) => {
         pruebaclic={pruebaclic}
         ocultarMenuMobile={ocultarMenuMobile}
       ></HeaderNuevo>
-   
+      <Sidedrawer
+        menuBurgerOpen={menuBurgerOpen}
+        ocultarMenuMobile={ocultarMenuMobile}
+      ></Sidedrawer>
+
       <FilterCategory />
       <main className="margin-top-4">{children}</main>
       <MenuMobile />
@@ -73,6 +77,14 @@ const AppLayout = ({ children, promotionsData }) => {
 
           .link {
             text-decoration: none !important;
+          }
+
+          .side-drawer {
+            transition: transform 0.3s ease-out;
+            animation: slide-in-left;
+          }
+          .side-drawer.open {
+            transform: translateX(0%) !important;
           }
 
           /* Estilos Judith  :D */
@@ -403,6 +415,38 @@ const AppLayout = ({ children, promotionsData }) => {
             animation-duration: 3s;
             -webkit-animation-fill-mode: both;
             animation-fill-mode: both;
+          }
+
+          .slide-in-left {
+            -webkit-animation: slide-in-left 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            animation: slide-in-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              both;
+          }
+
+          @-webkit-keyframes slide-in-left {
+            0% {
+              -webkit-transform: translateX(-105%);
+              transform: translateX(-105%);
+              opacity: 0;
+            }
+            100% {
+              -webkit-transform: translateX(0);
+              transform: translateX(100%);
+              opacity: 1;
+            }
+          }
+          @keyframes slide-in-left {
+            0% {
+              -webkit-transform: translateX(-105%);
+              transform: translateX(-105%);
+              opacity: 0;
+            }
+            100% {
+              -webkit-transform: translateX(0);
+              transform: translateX(100%);
+              opacity: 1;
+            }
           }
         `}
       </style>

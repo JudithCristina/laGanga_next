@@ -40,7 +40,12 @@ const SideDrawer = (props) => {
               activeClassName="is-activeHomeMobile"
               exact={true}
             >
-              {/* <img src={inicio} className="w-15 mr-2" /> */}
+              <Image
+              src="/images/menu-icons/home-burger.svg"
+              alt="logo la ganga"
+              width={20}
+              height={20}
+            ></Image>
               Inicio
             </a>
           </li>
@@ -60,7 +65,12 @@ const SideDrawer = (props) => {
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
-              {/* <img src={favorito} className="w-15 mr-2" /> */}
+              <Image
+              src="/images/menu-icons/favorito-burger.svg"
+              alt="logo la ganga"
+              width={20}
+              height={20}
+            ></Image>
               Favoritos
             </a>
           </li>
@@ -71,7 +81,12 @@ const SideDrawer = (props) => {
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
-              {/* <img src={ganga} className="w-15 mr-2" /> */}
+             <Image
+              src="/images/menu-icons/ganga-burger.svg"
+              alt="logo la ganga"
+              width={20}
+              height={20}
+            ></Image>
               La ganga de la ganga
             </a>
           </li>
@@ -81,7 +96,12 @@ const SideDrawer = (props) => {
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
-              {/* <img src={iniciar} className="w-15 mr-2" /> */}
+              <Image
+              src="/images/menu-icons/iniciar-burger.svg"
+              alt="logo la ganga"
+              width={20}
+              height={20}
+            ></Image>
               Iniciar sesión
             </a>
           </li>
@@ -121,7 +141,9 @@ const SideDrawer = (props) => {
       </nav>
       <style jsx>
         {`
+        
           .side-drawer {
+            font-family: "made-tomy-sof-regular";
             height: 100%;
             background: #fff;
             box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
@@ -129,15 +151,14 @@ const SideDrawer = (props) => {
             top: 0;
             left: 0;
             width: 90%;
-            /* max-width: 400px; */
             z-index: 9999;
-            transform: translateX(0%);
-            transition: transform 0.3s ease-out;
-            font-family: "made-tomy-sof-regular";
+            transition: transform 0.3s ease-out; 
+            transform: translateX(-105%) 
           }
-          .side-drawer .open {
-            transform: translateX(0%)!important;
+          .side-drawer.open {
+            transform: translateX(0%) 
           }
+
           .side-drawer ul {
             height: 100%;
             list-style: none;
