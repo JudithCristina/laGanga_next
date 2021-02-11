@@ -9,15 +9,16 @@ import { Container } from "react-bootstrap";
 //   //  faInstagram,
 //   //  faWhatsapp
 // } from "@fortawesome/free-regular-svg-icons";
-import {  faMapMarkerAlt,
-    faEnvelope,
-    faPhone} from "@fortawesome/free-solid-svg-icons"
+import {
+  faMapMarkerAlt,
+  faEnvelope,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faTwitter,
   faInstagram,
   faWhatsapp,
-
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -65,27 +66,38 @@ const Footer = () => {
           </div>
           <div>
             <ul className="style-none-list social-networks">
-              <li>
-                <FontAwesomeIcon icon={faFacebookF} className="icon-social" />
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faTwitter} className="icon-social" />
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faInstagram} className="icon-social" />
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faWhatsapp} className="icon-social" />
-              </li>
+              <a className="icon-social" href="/">
+                <li>
+                  <FontAwesomeIcon icon={faFacebookF} />
+                </li>
+              </a>
+
+              <a className="icon-social" href="/">
+                <li>
+                  <FontAwesomeIcon icon={faTwitter} />
+                </li>
+              </a>
+
+              <a className="icon-social" href="/">
+                <li>
+                  <FontAwesomeIcon icon={faInstagram} />
+                </li>
+              </a>
+
+              <a className="icon-social" href="/">
+                <li>
+                  <FontAwesomeIcon icon={faWhatsapp} />
+                </li>
+              </a>
             </ul>
           </div>
         </footer>
       </Container>
       <style jsx>
         {`
-        .footer-desktop{
-              display:block
-            }
+          .footer-desktop {
+            display: block;
+          }
           .box-footer {
             padding: 2rem 5rem;
             background: #000000;
@@ -114,6 +126,13 @@ const Footer = () => {
           .icon-social {
             font-size: 1.5rem;
             margin: 0.7rem;
+            color: #fff;
+            cursor: pointer!important;
+          }
+
+          .icon-social:hover{
+            color: #f31454;
+            transform:rotate(10deg);
           }
 
           .decoration-none-ancla {
@@ -142,8 +161,8 @@ const Footer = () => {
             html {
               font-size: 4.6vw;
             }
-            .footer-desktop{
-              display:none
+            .footer-desktop {
+              display: none;
             }
             .box-footer {
               display: none;

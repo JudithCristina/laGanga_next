@@ -18,28 +18,19 @@ const AppLayout = ({ children, promotionsData }) => {
     setmenuBurgerOpen(true);
   };
 
-  
-
   const ocultarMenuMobile = () => {
     console.log("cerraooo");
     setmenuBurgerOpen(false);
   };
   let backdrop;
-  let drawerClasses = "side-drawer";
-  if (menuBurgerOpen) {
-    drawerClasses = "side-drawer open";
-    return backdrop = (
-      <div className={drawerClasses}>
-        <Backdrop ocultarMenuMobile={ocultarMenuMobile} />
-        <Sidedrawer
-          menuBurgerOpen={menuBurgerOpen}
-          ocultarMenuMobile={ocultarMenuMobile}
-        />
-      </div>
-    )
-  } else {
-    console.log("no hay nada amiga");
-  }
+
+  // if (menuBurgerOpen) {
+  //   return (backdrop = backdrop = (
+  //     <Backdrop ocultarMenuMobile={ocultarMenuMobile} />
+  //   ));
+  // } else {
+  //   console.log("no hay nada amiga");
+  // }
 
   return (
     <div className="container-ganga">
@@ -49,6 +40,10 @@ const AppLayout = ({ children, promotionsData }) => {
         pruebaclic={pruebaclic}
         ocultarMenuMobile={ocultarMenuMobile}
       ></HeaderNuevo>
+      <Sidedrawer
+        menuBurgerOpen={menuBurgerOpen}
+        ocultarMenuMobile={ocultarMenuMobile}
+      ></Sidedrawer>
 
       <FilterCategory />
       <main className="margin-top-4">{children}</main>
@@ -85,16 +80,12 @@ const AppLayout = ({ children, promotionsData }) => {
           }
 
           .side-drawer {
-            
-            transition: transform 0.3s ease-out; 
-            animation: slide-in-left 
+            transition: transform 0.3s ease-out;
+            animation: slide-in-left;
           }
           .side-drawer.open {
             transform: translateX(0%) !important;
           }
-
-
-
 
           /* Estilos Judith  :D */
 
@@ -426,14 +417,13 @@ const AppLayout = ({ children, promotionsData }) => {
             animation-fill-mode: both;
           }
 
-
           .slide-in-left {
             -webkit-animation: slide-in-left 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
             animation: slide-in-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               both;
           }
-          
+
           @-webkit-keyframes slide-in-left {
             0% {
               -webkit-transform: translateX(-105%);
@@ -458,7 +448,6 @@ const AppLayout = ({ children, promotionsData }) => {
               opacity: 1;
             }
           }
-
         `}
       </style>
     </div>
