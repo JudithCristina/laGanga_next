@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import PreloaderCards from "../Preloader/PreloaderBanner";
+import Image from "next/image";
 const CarouselBanner = ({ bannerImage }) => {
   const [isLoading, setLoading] = useState(true);
   const [widthBanner, setWidthBanner] = useState(0); // default width, detect on server.
@@ -25,7 +26,7 @@ const CarouselBanner = ({ bannerImage }) => {
     setInterval(() => {
       // calculateTimeLeft(product.fechaFinOferta);
       setLoading(false);
-    }, 7000);
+    }, 1000);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -59,23 +60,29 @@ const CarouselBanner = ({ bannerImage }) => {
           {bannerImage.map((item) => (
             <Carousel.Item>
               {widthBanner < breakpoint ? (
-                <img
+                <Image
                   className="d-block w-100"
                   src={
                     item.imagen[0].typeImage === "BM"
                       ? item.imagen[0].url
                       : item.imagen[1].url
                   }
+                  //  src="https://ibb.co/PZL3Tfd"
+                  width={768}
+                  height={450}
                   alt="First slide"
                 />
               ) : (
-                <img
+                <Image
                   className="d-block w-100"
                   src={
                     item.imagen[0].typeImage === "BD"
                       ? item.imagen[0].url
                       : item.imagen[1].url
                   }
+                  //  src="https://ibb.co/PZL3Tfd"
+                  width={1800}
+                  height={500}
                   alt="First slide"
                 />
               )}

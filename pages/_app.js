@@ -7,7 +7,9 @@ function MyApp({ Component, pageProps }) {
   const [products, setProducts] = useState([]);
   const [menuBurgerOpen, setmenuBurgerOpen] = React.useState(false);
   const [arrayInterest, setArrayInterest] = useState([]);
-
+  const [widthBanner, setWidthBanner] = useState(0); // default width, detect on server.
+  const [isLoading, setLoading] = useState(true);
+  const handleResize = () => setWidthBanner(window.innerWidth);
   const getProductsDay = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion-all/user`;
     await fetch(url)
@@ -22,6 +24,8 @@ function MyApp({ Component, pageProps }) {
           // setProducts(res.data.promocionesGeneral);
           // setProducts(res.data.promociones);
           setProducts(data);
+
+          setLoading(false);
           // setTotalPromotions(res.data.totalDePromociones)
         }
         // setLoading(false);
@@ -109,12 +113,15 @@ function MyApp({ Component, pageProps }) {
         JSON.parse(localStorage.getItem("arrayInterestLocal"))
       );
     }
+    setWidthBanner(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
 
   }, []);
 
   return (
     <>
-      <Component {...pageProps} products={products} addInterest={addInterest} />
+      <Component {...pageProps} products={products} addInterest={addInterest} width={widthBanner} isLoading={isLoading}ss/>
       <style jsx global>
         {`
           @font-face {

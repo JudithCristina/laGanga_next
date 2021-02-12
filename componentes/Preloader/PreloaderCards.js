@@ -4,7 +4,7 @@ import ContentLoader from "react-content-loader";
 const PreloaderCards = props => {
   // console.log(props.widthCard,"hola")
   const breakpoint = 768;
-
+console.log(props.widthCard,"JUDITH")
   return (
   <>
    {

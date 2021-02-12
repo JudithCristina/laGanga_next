@@ -6,7 +6,7 @@ import GangaDelDia from '../componentes/Promotions/GangaDelDia';
 import AllItems from '../componentes/Promotions/AllItems';
 import Image from "next/image";
 import Head from "next/head";
-const Home = ({ products, addInterest,bannerImage }) => {
+const Home = ({ products, addInterest,bannerImage,width, isLoading }) => {
   return (
     <>
       <Head>
@@ -42,8 +42,8 @@ const Home = ({ products, addInterest,bannerImage }) => {
       <AppLayout>
         <Container className="container-ganga box-home fade-in animated">
           <CarouselBanner bannerImage={bannerImage} />
-          <OfertasDelDia addInterest={addInterest}/>
-          <GangaDelDia addInterest={addInterest} />
+          <OfertasDelDia addInterest={addInterest}  width={width} />
+          <GangaDelDia addInterest={addInterest} width={width} />
           <figure className="m-0 w-100">
               <Image
                 src="/images/banner/banner-bottom.png"
@@ -54,7 +54,7 @@ const Home = ({ products, addInterest,bannerImage }) => {
                 //   layout="responsive"
               />
           </figure>
-           <AllItems products={products} addInterest={addInterest}/>
+           <AllItems products={products} addInterest={addInterest} width={width} isLoading={isLoading}/>
         </Container>
       </AppLayout>
     </>

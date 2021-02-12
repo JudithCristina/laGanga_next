@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CardPromotion from "../../componentes/Promotions/CardPromotion";
-
+import PreloaderCards from "../Preloader/PreloaderCards"
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -26,7 +26,7 @@ const responsive = {
 };
 const OfertasDelDia = (props) => {
   const [products, setProducts] = useState([]);
-
+  const [isLoading, setLoading] = useState(true);
   const getProductsDay = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/day/user`;
     await fetch(url)
@@ -39,7 +39,7 @@ const OfertasDelDia = (props) => {
         } else {
           setProducts(data.promocionesDelDia);
         }
-
+        setLoading(false);
         // setLoading(false);
       })
       .catch((e) => {
@@ -48,6 +48,11 @@ const OfertasDelDia = (props) => {
   };
   useEffect(() => {
     getProductsDay();
+     if (isLoading === false) {
+      setLoading(true);
+    }
+
+
   }, []);
 
   return (
@@ -56,7 +61,8 @@ const OfertasDelDia = (props) => {
         <div className="box-gangaDelDia">
           <h1 className="title-ganga">Ofertas del día</h1>
         </div>
-
+        {isLoading && <PreloaderCards widthCard={props.width} />}
+         {!isLoading && (
         <Carousel
           responsive={responsive}
           infinite={true}
@@ -77,14 +83,15 @@ const OfertasDelDia = (props) => {
                 addInterest={props.addInterest}
               />
                </div>
-              
+
             </div>
           ))}
         </Carousel>
+         )}
       </div>
       <style jsx>
         {`
-        
+
         .item-carousel  {
             width:90%;
           }
