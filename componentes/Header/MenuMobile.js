@@ -48,7 +48,13 @@ const MenuMobile = () => {
           {/* <img src={heart} alt="" className="menu-off" /> */}
           <div className="heart"></div>
         </Link>
-        <Link href="/" className="" to="/en-construccion" activeClassName="fireOn" active>
+        <Link
+          href="/"
+          className=""
+          to="/en-construccion"
+          activeClassName="fireOn"
+          active
+        >
           {/* <img src={fire} alt="" className="menu-off" /> */}
           <div className="fire"></div>
         </Link>
@@ -281,7 +287,7 @@ const MenuMobile = () => {
       <style jsx>
         {`
           :global(.menu-mobile) {
-            display: none
+            display: none;
           }
           .heart {
             background-image: url("../../images/menu-icons/heart.svg");
@@ -342,21 +348,18 @@ const MenuMobile = () => {
             height: 2.2rem;
             background-repeat: no-repeat;
           }
-        @media (max-width: 769px) {
-          :global(.menu-mobile) {
-            display: flex;
-            justify-content: space-around;
-            align-items:center;
-            padding: 1.1rem 0rem;
-            position:fixed;
-            z-index:99;
-            bottom:0
+          @media (max-width: 769px) {
+            :global(.menu-mobile) {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              padding: 1.1rem 0rem;
+              position: fixed;
+              z-index: 99;
+              bottom: 0;
+            }
           }
-
-        }
-
         `}
-
       </style>
     </>
   );

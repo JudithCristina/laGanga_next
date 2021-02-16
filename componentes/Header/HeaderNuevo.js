@@ -114,7 +114,7 @@ const HeaderNuevo = (props) => {
             flex-wrap: wrap;
             padding: 0.7rem 2rem;
             background: #fff;
-            position: fixed;
+            position: relative;
             z-index: 9999;
             width: 100%;
             max-width: inherit;

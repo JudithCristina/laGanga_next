@@ -57,6 +57,7 @@ const Home = ({ products, addInterest,bannerImage,width, isLoading }) => {
            <AllItems products={products} addInterest={addInterest} width={width} isLoading={isLoading}/>
         </Container>
       </AppLayout>
+
     </>
 
   );

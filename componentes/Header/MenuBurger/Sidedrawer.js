@@ -33,19 +33,21 @@ const SideDrawer = (props) => {
             ></Image>
           </div>
 
-          <li>
+          <li className="li-menu-mobile">
             <a
               href="/"
               onClick={props.ocultarMenuMobile}
-              activeClassName="is-activeHomeMobile"
+              activeClassName="is-activeHomeMobile "
               exact={true}
             >
-              <Image
-              src="/images/menu-icons/home-burger.svg"
-              alt="logo la ganga"
-              width={20}
-              height={20}
-            ></Image>
+              <div className="mr-2">
+                <Image
+                  src="/images/menu-icons/home-burger.svg"
+                  alt="logo la ganga"
+                  width={20}
+                  height={20}
+                ></Image>
+              </div>
               Inicio
             </a>
           </li>
@@ -64,13 +66,14 @@ const SideDrawer = (props) => {
               href="/interest"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
+              className="w-15 mr-2"
             >
               <Image
-              src="/images/menu-icons/favorito-burger.svg"
-              alt="logo la ganga"
-              width={20}
-              height={20}
-            ></Image>
+                src="/images/menu-icons/favorito-burger.svg"
+                alt="logo la ganga"
+                width={20}
+                height={20}
+              ></Image>
               Favoritos
             </a>
           </li>
@@ -81,12 +84,12 @@ const SideDrawer = (props) => {
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
-             <Image
-              src="/images/menu-icons/ganga-burger.svg"
-              alt="logo la ganga"
-              width={20}
-              height={20}
-            ></Image>
+              <Image
+                src="/images/menu-icons/ganga-burger.svg"
+                alt="logo la ganga"
+                width={20}
+                height={20}
+              ></Image>
               La ganga de la ganga
             </a>
           </li>
@@ -97,11 +100,11 @@ const SideDrawer = (props) => {
               activeClassName="is-activeHomeMobile"
             >
               <Image
-              src="/images/menu-icons/iniciar-burger.svg"
-              alt="logo la ganga"
-              width={20}
-              height={20}
-            ></Image>
+                src="/images/menu-icons/iniciar-burger.svg"
+                alt="logo la ganga"
+                width={20}
+                height={20}
+              ></Image>
               Iniciar sesión
             </a>
           </li>
@@ -141,7 +144,6 @@ const SideDrawer = (props) => {
       </nav>
       <style jsx>
         {`
-        
           .side-drawer {
             font-family: "made-tomy-sof-regular";
             height: 100%;
@@ -152,11 +154,11 @@ const SideDrawer = (props) => {
             left: 0;
             width: 90%;
             z-index: 9999;
-            transition: transform 0.3s ease-out; 
-            transform: translateX(-105%) 
+            transition: transform 0.3s ease-out;
+            transform: translateX(-105%);
           }
           .side-drawer.open {
-            transform: translateX(0%) 
+            transform: translateX(0%);
           }
 
           .side-drawer ul {
@@ -239,6 +241,11 @@ const SideDrawer = (props) => {
             border-top: 1px solid #7487fc;
             margin-right: 15px;
             margin-left: 10px;
+          }
+
+          .li-menu-mobile{
+            display:flex!important;
+
           }
 
           @media (min-width: 768px) {

@@ -149,6 +149,10 @@ function MyApp({ Component, pageProps }) {
             text-decoration: none !important;
           }
 
+          {/* .box-home{
+            margin-top:4rem!important
+          } */}
+
           /* Estilos Judith  :D */
 
           .container,
