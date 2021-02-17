@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 const CardPromotion = ({ products, product, addInterest }) => {
   const [timeDays, setTimeDays] = useState(0);
   const [timeHours, setTimeHours] = useState(0);
