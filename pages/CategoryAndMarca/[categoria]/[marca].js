@@ -7,10 +7,10 @@ import CardPromotion from "../../../componentes/Promotions/CardPromotion";
 const CategoryAndMarca = () => {
   const [filterCategoriesMarca, setfilterCategoriesMarca] = useState([]);
   const router = useRouter();
-  console.log(router, "ojitos")
+  console.log(router, "ojitos");
   const { categoria } = useRouter().query;
   const { marca } = useRouter().query;
-  console.log(categoria,"categoria")
+  console.log(categoria, "categoria");
 
   const getProductsDay = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/filterCategoryMarca/${categoria}&${marca}`;
@@ -42,9 +42,12 @@ const CategoryAndMarca = () => {
             Categoría: {categoria} {marca}
           </h4>
         </div>
+
         <Row className="justify-content-md-center ">
           {filterCategoriesMarca.map((product) => (
-            <CardPromotion product={product} key={product._id} />
+            <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
+              <CardPromotion product={product} key={product._id} />
+            </div>
           ))}
         </Row>
       </Container>

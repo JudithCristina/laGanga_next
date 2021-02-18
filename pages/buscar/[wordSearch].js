@@ -2,8 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useRouter } from "next/router";
 import AppLayout from "../../componentes/AppLayout";
-import CardPromotion from "../../componentes/Promotions/CardPromotion"
-
+import CardPromotion from "../../componentes/Promotions/CardPromotion";
 
 const wordSearch = () => {
   const router = useRouter();
@@ -38,14 +37,13 @@ const wordSearch = () => {
         <div className="box-search">
           <h4>Resultados de búsqueda: {router.query.wordSearch}</h4>
         </div>
-        {products.length !==
-        0 ? (
+        {products.length !== 0 ? (
           <Row className="justify-content-md-center ">
-            {products.map(
-              (product) => (
+            {products.map((product) => (
+              <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
                 <CardPromotion product={product} key={product._id} />
-              )
-            )}
+              </div>
+            ))}
           </Row>
         ) : (
           <p>No se encontraron resultados</p>
