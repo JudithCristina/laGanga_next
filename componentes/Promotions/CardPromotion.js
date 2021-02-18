@@ -164,7 +164,7 @@ const CardPromotion = ({ products, product, addInterest, deleteInterest }) => {
             <div className="box-tag-offer">
               <div
                 className={
-                  "box-x" + " " + "box-x-" + product.promocion.categoria
+                  "box-otro" + " " + "box-otro-" + product.promocion.categoria
                 }
               >
                 {product.promocion.descuentoOtros}
@@ -312,7 +312,7 @@ const CardPromotion = ({ products, product, addInterest, deleteInterest }) => {
 
           .title-item {
             font-family: "made-tomy-sof-regular";
-            font-size: 0.8rem;
+            font-size: 0.8rem!important;
             margin-bottom: 0.2rem !important;
             color: #000 !important;
           }
@@ -385,6 +385,7 @@ const CardPromotion = ({ products, product, addInterest, deleteInterest }) => {
             left: 50%;
             transform: translateX(-50%);
             top: 8%;
+            z-index:9
           }
           .box-free-shipping {
             width: auto;
@@ -549,6 +550,70 @@ const CardPromotion = ({ products, product, addInterest, deleteInterest }) => {
             border: 2px solid #7e4fff;
           }
 
+          .box-otro{
+            border-radius: 6%;
+            padding: 0.3rem 0.5rem;
+            font-weight: 800;
+            font-size: 1rem;
+            line-height: 1.05rem;
+            text-align: center;
+            color: red;
+            width: 100%;
+          }
+
+          .box-otro-ropa {
+            color: #ff8629;
+            border: 2px solid #ff8629;
+          }
+
+          .box-otro-deporte {
+            color: #ff003b;
+            border: 2px solid #ff003b;
+          }
+
+          .box-otro-tecnologia {
+            color: #a74fff;
+            border: 2px solid #a74fff;
+          }
+
+          .box-otro-calzado {
+            color: #a74fff;
+            border: 2px solid #a74fff;
+          }
+
+          .box-otro-hogar {
+            color: #2fc33a;
+            border: 2px solid #2fc33a;
+          }
+
+          .box-otro-juguete {
+            color: #ff3552;
+            border: 2px solid #ff3552;
+          }
+
+          .box-otro-electroHogar {
+            color: #3890e3;
+            border: 2px solid #3890e3;
+          }
+
+          .box-otro-belleza {
+            color: #ff8dd1;
+            border: 2px solid #ff8dd1;
+          }
+
+          .box-otro-nuevo {
+            color: #ffdb40;
+            border: 2px solid #ffdb40;
+          }
+
+          .box-otro-escolarOficina {
+            color: #7e4fff;
+            border: 2px solid #7e4fff;
+          }
+
+
+
+
           .box-porcent {
             font-weight: 800;
             font-size: 1.6rem;
@@ -651,14 +716,14 @@ const CardPromotion = ({ products, product, addInterest, deleteInterest }) => {
               margin-left: 0.2rem;
             }
 
-            .title-item {
+            :global(.card-title){
               font-size: 1rem !important;
             }
 
             .subtitle-item {
               font-size: 0.7rem;
             }
-            .card-body {
+            :global(.card-body) {
               /* position: relative;
             top: 6%; */
               padding: 1.8rem 1rem 1rem 0.8rem !important;

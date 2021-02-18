@@ -225,6 +225,73 @@ const AppLayout = ({ children, promotionsData }) => {
           }
 
 
+
+
+
+          .box-otro{
+            border-radius: 6%;
+            padding: 0.3rem 0.5rem;
+            font-weight: 800;
+            font-size: 1rem;
+            line-height: 1.05rem;
+            text-align: center;
+            color: red;
+            width: 100%;
+          }
+
+          .box-otro-ropa {
+            color: #ff8629;
+            border: 2px solid #ff8629;
+          }
+
+          .box-otro-deporte {
+            color: #ff003b;
+            border: 2px solid #ff003b;
+          }
+
+          .box-otro-tecnologia {
+            color: #a74fff;
+            border: 2px solid #a74fff;
+          }
+
+          .box-otro-calzado {
+            color: #a74fff;
+            border: 2px solid #a74fff;
+          }
+
+          .box-otro-hogar {
+            color: #2fc33a;
+            border: 2px solid #2fc33a;
+          }
+
+          .box-otro-juguete {
+            color: #ff3552;
+            border: 2px solid #ff3552;
+          }
+
+          .box-otro-electroHogar {
+            color: #3890e3;
+            border: 2px solid #3890e3;
+          }
+
+          .box-otro-belleza {
+            color: #ff8dd1;
+            border: 2px solid #ff8dd1;
+          }
+
+          .box-otro-nuevo {
+            color: #ffdb40;
+            border: 2px solid #ffdb40;
+          }
+
+          .box-otro-escolarOficina {
+            color: #7e4fff;
+            border: 2px solid #7e4fff;
+          }
+
+
+
+
         `}
       </style>
     </>
