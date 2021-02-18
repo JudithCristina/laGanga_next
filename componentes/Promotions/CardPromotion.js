@@ -7,7 +7,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
+const CardPromotion = ({ products, product, addInterest, deleteInterest }) => {
   const [timeDays, setTimeDays] = useState(0);
   const [timeHours, setTimeHours] = useState(0);
   const [timeMinutes, setTimeMinutes] = useState(0);
@@ -68,7 +68,7 @@ const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
-  const addAlertInterest = (products,product)=>{
+  const addAlertInterest = (products, product) => {
     MySwal.fire({
       title: "¿Quieres agregar esta promoción en tu lista de intereses?",
       // text: "Una vez eliminado, ¡no podrás recuperar esta promoción",
@@ -79,32 +79,32 @@ const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        addInterest(products,product)
+        addInterest(products, product);
         MySwal.fire("Agregado!", "Tu promoción ha sido guardada.", "success");
       } else {
         MySwal.fire("Tu promoción está a salvo!");
       }
     });
-  }
-   const deleteAlertInterest = (products, product) => {
-     MySwal.fire({
-       title: "¿Quieres eliminar esta promoción de tu lista de intereses?",
-       icon: "success",
-       // text: "Una vez eliminado, ¡no podrás recuperar esta promoción",
-       showCancelButton: true,
-       confirmButtonColor: "#3085d6",
-       cancelButtonColor: "#d33",
-       confirmButtonText: "Eliminar",
-       cancelButtonText: "Cancelar",
-     }).then((result) => {
-       if (result.isConfirmed) {
+  };
+  const deleteAlertInterest = (products, product) => {
+    MySwal.fire({
+      title: "¿Quieres eliminar esta promoción de tu lista de intereses?",
+      icon: "success",
+      // text: "Una vez eliminado, ¡no podrás recuperar esta promoción",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
         deleteInterest(products, product);
-         MySwal.fire("Eliminado!", "Tu promoción ha sido eliminada.", "success");
-       } else {
-         MySwal.fire("Tu promoción está a salvo!");
-       }
-     });
-   };
+        MySwal.fire("Eliminado!", "Tu promoción ha sido eliminada.", "success");
+      } else {
+        MySwal.fire("Tu promoción está a salvo!");
+      }
+    });
+  };
 
   return (
     <>
@@ -194,10 +194,10 @@ const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
                 }
                 // onClick={() => addInterest(products, product)}
                 onClick={() => {
-                product.promocion.liked
-                  ? deleteAlertInterest(products, product)
-                  : addAlertInterest(products, product);
-              }}
+                  product.promocion.liked
+                    ? deleteAlertInterest(products, product)
+                    : addAlertInterest(products, product);
+                }}
               />
             </a>
           </div>
@@ -239,12 +239,15 @@ const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
                 )}
               </div>
               <Card.Body>
-                <Card.Title className="title-item">
-                  {product.promocion.nombre}
-                </Card.Title>
-                <Card.Text className="subtitle-item">
-                  {`${product.promocion.descripcion.substr(0, 70)}...`}
-                </Card.Text>
+                <div className="title-item">
+                  {" "}
+                  <Card.Title>{product.promocion.nombre}</Card.Title>
+                </div>
+                <div className="subtitle-item">
+                  <Card.Text>
+                    {`${product.promocion.descripcion.substr(0, 70)}...`}
+                  </Card.Text>
+                </div>
               </Card.Body>
             </a>
           </Link>
@@ -311,12 +314,12 @@ const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
             font-family: "made-tomy-sof-regular";
             font-size: 0.8rem;
             margin-bottom: 0.2rem !important;
-            color: #000;
+            color: #000 !important;
           }
           .subtitle-item {
             font-family: "made-tomy-sof-regular";
             font-size: 0.7rem;
-            color: #08131f;
+            color: #08131f !important;
           }
 
           /* .tag-offer {
@@ -617,7 +620,7 @@ const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
 
             .box-x {
               position: relative;
-              left: 17%;
+              left: 25%;
             }
             :global(.box-img-item img) {
               width: 40%;
