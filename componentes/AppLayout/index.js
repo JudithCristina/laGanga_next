@@ -10,7 +10,6 @@ import Backdrop from "../Header/MenuBurger/Backdrop";
 const AppLayout = ({ children, promotionsData }) => {
   const [menuBurgerOpen, setmenuBurgerOpen] = useState(false);
 
-  
   const drawerToggleClickHandler = () => {
     setmenuBurgerOpen(true);
   };
@@ -34,17 +33,17 @@ const AppLayout = ({ children, promotionsData }) => {
           pruebaclic={pruebaclic}
           ocultarMenuMobile={ocultarMenuMobile}
         ></HeaderNuevo>
-<Sidedrawer
-        menuBurgerOpen={menuBurgerOpen}
-        ocultarMenuMobile={ocultarMenuMobile}
-      ></Sidedrawer>
+        <Sidedrawer
+          menuBurgerOpen={menuBurgerOpen}
+          ocultarMenuMobile={ocultarMenuMobile}
+        ></Sidedrawer>
         <FilterCategory />
         <main className="margin-top-4">{children}</main>
         <MenuMobile />
         <Footer />
         {/* {width < breakpoint ? <MenuMobile /> : <Footer />} */}
       </div>
-      <style jsx>
+      <style jsx global>
         {`
           .margin-box {
             padding: 0rem 5rem !important;
@@ -215,11 +214,7 @@ const AppLayout = ({ children, promotionsData }) => {
             color: #7e4fff;
           }
 
-
-
-
-
-          .box-otro{
+          .box-otro {
             border-radius: 6%;
             padding: 0.3rem 0.5rem;
             font-weight: 800;
@@ -279,10 +274,6 @@ const AppLayout = ({ children, promotionsData }) => {
             color: #7e4fff;
             border: 2px solid #7e4fff;
           }
-
-
-
-
         `}
       </style>
     </>
