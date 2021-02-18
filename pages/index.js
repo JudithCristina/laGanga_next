@@ -6,12 +6,19 @@ import GangaDelDia from '../componentes/Promotions/GangaDelDia';
 import AllItems from '../componentes/Promotions/AllItems';
 import Image from "next/image";
 import Head from "next/head";
-const Home = ({ products, addInterest,bannerImage,width, isLoading }) => {
+const Home = ({
+  products,
+  addInterest,
+  bannerImage,
+  width,
+  isLoading,
+  deleteInterest,
+}) => {
   return (
     <>
       <Head>
         <title>La Ganga - Home</title>
-        <link rel="icon" type="image/x-icon"  href="/yesmom-favicon.png" />
+        <link rel="icon" type="image/x-icon" href="/yesmom-favicon.png" />
         <meta name="description" content="La Ganga es ..."></meta>
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Ganga - Home" />
@@ -42,24 +49,36 @@ const Home = ({ products, addInterest,bannerImage,width, isLoading }) => {
       <AppLayout>
         <Container className="container-ganga box-home fade-in animated">
           <CarouselBanner bannerImage={bannerImage} />
-          <OfertasDelDia addInterest={addInterest}  width={width} />
-          <GangaDelDia addInterest={addInterest} width={width} />
+          <OfertasDelDia
+            addInterest={addInterest}
+            deleteInterest={deleteInterest}
+            width={width}
+          />
+          <GangaDelDia
+            addInterest={addInterest}
+            deleteInterest={deleteInterest}
+            width={width}
+          />
           <figure className="m-0 w-100">
-              <Image
-                src="/images/banner/banner-bottom.png"
-                alt="banner"
-                // layout="fill"
-                width={1800}
-                height={500}
-                //   layout="responsive"
-              />
+            <Image
+              src="/images/banner/banner-bottom.png"
+              alt="banner"
+              // layout="fill"
+              width={1800}
+              height={500}
+              //   layout="responsive"
+            />
           </figure>
-           <AllItems products={products} addInterest={addInterest} width={width} isLoading={isLoading}/>
+          <AllItems
+            products={products}
+            addInterest={addInterest}
+            deleteInterest={deleteInterest}
+            width={width}
+            isLoading={isLoading}
+          />
         </Container>
       </AppLayout>
-
     </>
-
   );
 };
 

@@ -7,14 +7,14 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-const CardPromotion = ({ products, product, addInterest }) => {
+const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
   const [timeDays, setTimeDays] = useState(0);
   const [timeHours, setTimeHours] = useState(0);
   const [timeMinutes, setTimeMinutes] = useState(0);
   const [agotadoProduct, setAgotadoProduct] = useState("");
   const [timeSeconds, setTimeSeconds] = useState(0);
   const dateFuture = "2020/12/01";
-
+  const MySwal = withReactContent(Swal);
   React.useEffect(() => {
     let arrayMeInteresa = JSON.parse(
       localStorage.getItem("arrayInterestLocal")
@@ -68,6 +68,43 @@ const CardPromotion = ({ products, product, addInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
+  const addAlertInterest = (products,product)=>{
+    MySwal.fire({
+      title: "¿Quieres agregar esta promoción en tu lista de intereses?",
+      // text: "Una vez eliminado, ¡no podrás recuperar esta promoción",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Agregar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        addInterest(products,product)
+        MySwal.fire("Agregado!", "Tu promoción ha sido guardada.", "success");
+      } else {
+        MySwal.fire("Tu promoción está a salvo!");
+      }
+    });
+  }
+   const deleteAlertInterest = (products, product) => {
+     MySwal.fire({
+       title: "¿Quieres eliminar esta promoción de tu lista de intereses?",
+       icon: "success",
+       // text: "Una vez eliminado, ¡no podrás recuperar esta promoción",
+       showCancelButton: true,
+       confirmButtonColor: "#3085d6",
+       cancelButtonColor: "#d33",
+       confirmButtonText: "Agregar",
+       cancelButtonText: "Cancelar",
+     }).then((result) => {
+       if (result.isConfirmed) {
+        deleteInterest(products, product);
+         MySwal.fire("Eliminado!", "Tu promoción ha sido eliminada.", "success");
+       } else {
+         MySwal.fire("Tu promoción está a salvo!");
+       }
+     });
+   };
 
   return (
     <>
@@ -155,7 +192,12 @@ const CardPromotion = ({ products, product, addInterest }) => {
                 className={
                   product.promocion.liked ? "btn-like-active" : "btn-like"
                 }
-                onClick={() => addInterest(products, product)}
+                // onClick={() => addInterest(products, product)}
+                onClick={() => {
+                product.promocion.liked
+                  ? deleteAlertInterest(products, product)
+                  : addAlertInterest(products, product);
+              }}
               />
             </a>
           </div>

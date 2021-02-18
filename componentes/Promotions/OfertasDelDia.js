@@ -62,40 +62,38 @@ const OfertasDelDia = (props) => {
           <h1 className="title-ganga">Ofertas del día</h1>
         </div>
         {isLoading && <PreloaderCards widthCard={props.width} />}
-         {!isLoading && (
-        <Carousel
-          responsive={responsive}
-          infinite={true}
-          autoPlay={props.deviceType !== "mobile" ? true : false}
-          autoPlaySpeed={2500}
-          deviceType={props.deviceType}
-          removeArrowOnDeviceType={["tablet", "mobile"]}
-          swipeable={true}
-          draggable={false}
-          showDots={false}
-        >
-          {products.map((product) => (
-            <div className="item-carousel" key={product._id}>
-               <div className="  mb-4">
-               <CardPromotion
-                product={product}
-                products={products}
-                addInterest={props.addInterest}
-              />
-               </div>
-
-            </div>
-          ))}
-        </Carousel>
-         )}
+        {!isLoading && (
+          <Carousel
+            responsive={responsive}
+            infinite={true}
+            autoPlay={props.deviceType !== "mobile" ? true : false}
+            autoPlaySpeed={2500}
+            deviceType={props.deviceType}
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            swipeable={true}
+            draggable={false}
+            showDots={false}
+          >
+            {products.map((product) => (
+              <div className="item-carousel" key={product._id}>
+                <div className="  mb-4">
+                  <CardPromotion
+                    product={product}
+                    products={products}
+                    addInterest={props.addInterest}
+                    deleteInterest={props.deleteInterest}
+                  />
+                </div>
+              </div>
+            ))}
+          </Carousel>
+        )}
       </div>
       <style jsx>
         {`
-
-        .item-carousel  {
-            width:90%;
+          .item-carousel {
+            width: 90%;
           }
-
         `}
       </style>
     </>

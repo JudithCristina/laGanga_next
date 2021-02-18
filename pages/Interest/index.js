@@ -4,12 +4,12 @@ import Container from "react-bootstrap/Container";
 import AppLayout from "../../componentes/AppLayout";
 import CardPromotion from "../../componentes/Promotions/CardPromotion";
 import Image from "next/image";
-const Interest = ({ addInterest }) => {
+const Interest = ({ addInterest, deleteInterest }) => {
   const [arrayMeInterest, setArrayMeInterest] = useState([]);
 
   useEffect(() => {
     setArrayMeInterest(JSON.parse(localStorage.getItem("arrayInterestLocal")));
-  }, []);
+  }, [arrayMeInterest]);
 
   return (
     <>
@@ -19,17 +19,19 @@ const Interest = ({ addInterest }) => {
           {arrayMeInterest.length == 0 ? (
             <div className="box-mujer-interest">
               <div className="box-gangaDelDia">
-                <h1 className="title-ganga pt-5">Aún no tienes ofertas favoritas</h1>
+                <h1 className="title-ganga pt-5">
+                  Aún no tienes ofertas favoritas
+                </h1>
               </div>
               <div className="mujer-interest">
-              <Image
-                src="/images/mujer.png"
-                alt="banner"
-                // layout="fill"
-                width={400}
-                height={300}
+                <Image
+                  src="/images/mujer.png"
+                  alt="banner"
+                  // layout="fill"
+                  width={400}
+                  height={300}
                   // layout="responsive"
-              />
+                />
               </div>
             </div>
           ) : (
@@ -50,6 +52,7 @@ const Interest = ({ addInterest }) => {
                       )}
                       key={product._id}
                       addInterest={addInterest}
+                      deleteInterest={deleteInterest}
                     />
                   </div>
                 ))}

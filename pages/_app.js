@@ -37,6 +37,84 @@ function MyApp({ Component, pageProps }) {
   const addInterest = (products, product) => {
     let registerInterest;
     console.log(products, "productos:) 0");
+    console.log(product, "productos:) 1");
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].promocion._id === product.promocion._id) {
+        registerInterest = product;
+        registerInterest.promocion.liked = true;
+        product.promocion.liked = true;
+      }
+    }
+    console.log(registerInterest, "nueva promocion");
+    console.log(arrayInterest.length, "nuevoRegistro");
+    console.log(arrayInterest, "judita-1");
+    if (arrayInterest.length === 0) {
+      console.log("hola primer clic");
+      setArrayInterest([...arrayInterest, registerInterest]);
+      localStorage.setItem(
+        "arrayInterestLocal",
+        JSON.stringify([...arrayInterest, registerInterest])
+      );
+    } else if (arrayInterest.length >= 1) {
+      console.log("Mi segundo me gusta");
+      for (let i = 0; i < arrayInterest.length; i++) {
+        // if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
+        //   console.log("eliminar");
+        //   registerInterest.promocion.liked = false;
+        //   arrayInterest[i].promocion.liked = false;
+        //   product.promocion.liked = false;
+        //   setArrayInterest(
+        //     arrayInterest.filter(
+        //       (productFilter) =>
+        //         productFilter.promocion._id !== registerInterest.promocion._id
+        //     )
+        //   );
+
+        //   localStorage.setItem(
+        //     "arrayInterestLocal",
+        //     JSON.stringify(
+        //       arrayInterest.filter(
+        //         (productFilter) =>
+        //           productFilter.promocion._id !== registerInterest.promocion._id
+        //       )
+        //     )
+        //   );
+        // } else
+        if (arrayInterest[i].promocion._id !== registerInterest.promocion._id) {
+          setArrayInterest([...arrayInterest, registerInterest]);
+          localStorage.setItem(
+            "arrayInterestLocal",
+            JSON.stringify([...arrayInterest, registerInterest])
+          );
+        }
+      }
+    }
+    // for (let i = 0; i < arrayInterest.length; i++) {
+    //   if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
+    //     console.log("eliminar")
+    //     registerInterest.promocion.liked = false;
+    //     arrayInterest[i].promocion.liked = false;
+    //     product.promocion.liked = false;
+    //    return  setArrayInterest(
+    //       arrayInterest.filter(
+    //         (productFilter) =>
+    //           productFilter.promocion._id !== registerInterest.promocion._id
+    //       )
+    //     );
+    //   }
+    // }
+    console.log(arrayInterest.length, "janira3");
+    //  setArrayInterest([...arrayInterest, registerInterest])
+    //   console.log([...arrayInterest, registerInterest],"agreando al array")
+    console.log(arrayInterest, "judita-2");
+    //  setArrayInterest([...arrayInterest, registerInterest])
+    //  return  localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
+    // console.log(localStorage.getItem("arrayInterestLocal"),"agregando a local storage")
+  };
+
+  const deleteInterest = (products, product) => {
+    let registerInterest;
+    console.log(products, "productos:) 0");
      console.log(product, "productos:) 1");
     for (let i = 0; i < products.length; i++) {
       if (products[i].promocion._id === product.promocion._id) {
@@ -48,11 +126,7 @@ function MyApp({ Component, pageProps }) {
     console.log(registerInterest, "nueva promocion")
     console.log(arrayInterest.length,"nuevoRegistro")
      console.log( arrayInterest, "judita-1")
-     if(arrayInterest.length=== 0 ){
-       console.log("hola primer clic")
-     setArrayInterest([...arrayInterest, registerInterest])
-     localStorage.setItem("arrayInterestLocal", JSON.stringify([...arrayInterest, registerInterest]))
-     } else if (arrayInterest.length >= 1) {
+ if (arrayInterest.length >= 1) {
       console.log("Mi segundo me gusta")
        for (let i = 0; i < arrayInterest.length; i++) {
         if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
@@ -71,44 +145,18 @@ function MyApp({ Component, pageProps }) {
             (productFilter) =>
               productFilter.promocion._id !== registerInterest.promocion._id
           )))
-        } else {
-         setArrayInterest([...arrayInterest, registerInterest])
-        localStorage.setItem("arrayInterestLocal", JSON.stringify([...arrayInterest, registerInterest]))
         }
       }
      }
-    // for (let i = 0; i < arrayInterest.length; i++) {
-    //   if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
-    //     console.log("eliminar")
-    //     registerInterest.promocion.liked = false;
-    //     arrayInterest[i].promocion.liked = false;
-    //     product.promocion.liked = false;
-    //    return  setArrayInterest(
-    //       arrayInterest.filter(
-    //         (productFilter) =>
-    //           productFilter.promocion._id !== registerInterest.promocion._id
-    //       )
-    //     );
-    //   }
-    // }
-  console.log(arrayInterest.length, "janira3");
-  //  setArrayInterest([...arrayInterest, registerInterest])
-  //   console.log([...arrayInterest, registerInterest],"agreando al array")
-    console.log( arrayInterest, "judita-2")
-    //  setArrayInterest([...arrayInterest, registerInterest])
-  //  return  localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
-    // console.log(localStorage.getItem("arrayInterestLocal"),"agregando a local storage")
   };
 
   useEffect(() => {
   getProductsDay();
    console.log(window.localStorage.getItem("arrayInterestLocal"), "ojitos")
     if (!window.localStorage.getItem("arrayInterestLocal")) {
-      console.log("hola bebe")
         localStorage.setItem("arrayInterestLocal",JSON.stringify(arrayInterest)
         )
     } else {
-      console.log("hola ñaña")
       setArrayInterest(
         JSON.parse(localStorage.getItem("arrayInterestLocal"))
       );
@@ -121,7 +169,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Component {...pageProps} products={products} addInterest={addInterest} width={widthBanner} isLoading={isLoading}ss/>
+      <Component
+        {...pageProps}
+        products={products}
+        addInterest={addInterest}
+        deleteInterest={deleteInterest}
+        width={widthBanner}
+        isLoading={isLoading}
+        ss
+      />
       <style jsx global>
         {`
           @font-face {
@@ -149,9 +205,11 @@ function MyApp({ Component, pageProps }) {
             text-decoration: none !important;
           }
 
-          {/* .box-home{
+           {
+            /* .box-home{
             margin-top:4rem!important
-          } */}
+          } */
+          }
 
           /* Estilos Judith  :D */
 
