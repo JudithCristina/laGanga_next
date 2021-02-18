@@ -9,7 +9,7 @@ const Interest = ({ addInterest, deleteInterest }) => {
 
   useEffect(() => {
     setArrayMeInterest(JSON.parse(localStorage.getItem("arrayInterestLocal")));
-  }, [arrayMeInterest]);
+  }, [deleteInterest]);
 
   return (
     <>

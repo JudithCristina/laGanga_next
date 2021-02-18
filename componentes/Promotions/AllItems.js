@@ -5,7 +5,7 @@ import PreloaderCards from "../Preloader/PreloaderCards";
 const AllItems = ({
   products,
   addInterest,
-  like,
+  // like,
   width,
   isLoading,
   deleteInterest,
@@ -32,7 +32,7 @@ const AllItems = ({
                   products={products}
                   addInterest={addInterest}
                   deleteInterest={deleteInterest}
-                  like={like}
+                  // like={like}
                 />
               </div>
             ))}

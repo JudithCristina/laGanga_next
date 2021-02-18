@@ -16,15 +16,15 @@ const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
   const dateFuture = "2020/12/01";
   const MySwal = withReactContent(Swal);
   React.useEffect(() => {
-    let arrayMeInteresa = JSON.parse(
-      localStorage.getItem("arrayInterestLocal")
-    );
+    // let arrayMeInteresa = JSON.parse(
+    //   localStorage.getItem("arrayInterestLocal")
+    // );
 
-    for (let i = 0; i < arrayMeInteresa.length; i++) {
-      if (product.promocion._id === arrayMeInteresa[i].promocion._id) {
-        product.promocion.liked = true;
-      }
-    }
+    // for (let i = 0; i < arrayMeInteresa.length; i++) {
+    //   if (product.promocion._id === arrayMeInteresa[i].promocion._id) {
+    //     product.promocion.liked = true;
+    //   }
+    // }
 
     const fechaFinalInputISOString = new Date(
       product.promocion.fechaFinOferta
