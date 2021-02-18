@@ -33,22 +33,23 @@ const SideDrawer = (props) => {
             ></Image>
           </div>
 
-          <li className="li-menu-mobile">
+          <li className="">
             <a
               href="/"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile "
               exact={true}
+           
             >
-              <div className="mr-2">
+       
                 <Image
                   src="/images/menu-icons/home-burger.svg"
                   alt="logo la ganga"
                   width={20}
                   height={20}
                 ></Image>
-              </div>
-              Inicio
+
+              {` `}Inicio
             </a>
           </li>
           {/* <li>
@@ -63,7 +64,7 @@ const SideDrawer = (props) => {
           </li> */}
           <li>
             <a
-              href="/interest"
+              href="/Interest"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
               className="w-15 mr-2"
@@ -74,13 +75,13 @@ const SideDrawer = (props) => {
                 width={20}
                 height={20}
               ></Image>
-              Favoritos
+              {` `}Favoritos
             </a>
           </li>
 
           <li>
             <a
-              href="/en-construccion"
+              href="/building"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
@@ -90,12 +91,12 @@ const SideDrawer = (props) => {
                 width={20}
                 height={20}
               ></Image>
-              La ganga de la ganga
+              {` `}La ganga de la ganga
             </a>
           </li>
           <li>
             <a
-              href="/en-construccion"
+              href="/building"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
@@ -105,7 +106,7 @@ const SideDrawer = (props) => {
                 width={20}
                 height={20}
               ></Image>
-              Iniciar sesión
+             {` `} Iniciar sesión
             </a>
           </li>
           <div className="box-links-mobile">
@@ -113,27 +114,27 @@ const SideDrawer = (props) => {
             <div className="mt-1">
               <a href="mailto:hola@mycupon.com">
                 <FontAwesomeIcon icon={faEnvelope} className="" />
-                hola@mycupon.com
+                {` `}hola@mycupon.com
               </a>
             </div>
             <div className="mt-1">
               <a href="tel:+51987654321">
                 <FontAwesomeIcon icon={faPhone} className="" />
-                +51 987-654-321
+                {` `}+51 987-654-321
               </a>
             </div>
             <div className="mt-1">
               <a href="/">
-                <FontAwesomeIcon icon={faFacebookF} className="" />
+                <FontAwesomeIcon icon={faFacebookF} className="m-1" />
               </a>
               <a href="/">
-                <FontAwesomeIcon icon={faTwitter} className="" />
+                <FontAwesomeIcon icon={faTwitter} className="m-1" />
               </a>
               <a href="/">
-                <FontAwesomeIcon icon={faInstagram} className="" />
+                <FontAwesomeIcon icon={faInstagram} className="m-1" />
               </a>
               <a href="/">
-                <FontAwesomeIcon icon={faWhatsapp} className="" />
+                <FontAwesomeIcon icon={faWhatsapp} className="m-1" />
               </a>
             </div>
             <p className="mt-3">
@@ -243,10 +244,7 @@ const SideDrawer = (props) => {
             margin-left: 10px;
           }
 
-          .li-menu-mobile{
-            display:flex!important;
-
-          }
+       
 
           @media (min-width: 768px) {
             .side-drawer {
