@@ -92,7 +92,8 @@ const OfertasDelDia = (props) => {
       <style jsx>
         {`
           .item-carousel {
-            width: 90%;
+            width: 95%;
+            margin:auto
           }
         `}
       </style>
