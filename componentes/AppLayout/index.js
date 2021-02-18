@@ -10,6 +10,7 @@ import Backdrop from "../Header/MenuBurger/Backdrop";
 const AppLayout = ({ children, promotionsData }) => {
   const [menuBurgerOpen, setmenuBurgerOpen] = useState(false);
 
+  
   const drawerToggleClickHandler = () => {
     setmenuBurgerOpen(true);
   };
@@ -23,19 +24,6 @@ const AppLayout = ({ children, promotionsData }) => {
     setmenuBurgerOpen(false);
   };
   let backdrop;
-  if (menuBurgerOpen) {
-    return (backdrop = (
-      <>
-        <Backdrop ocultarMenuMobile={ocultarMenuMobile} />
-        <Sidedrawer
-          menuBurgerOpen={menuBurgerOpen}
-          ocultarMenuMobile={ocultarMenuMobile}
-        />
-      </>
-    ));
-  } else {
-    console.log("no hay nada amiga");
-  }
 
   return (
     <>
@@ -46,7 +34,10 @@ const AppLayout = ({ children, promotionsData }) => {
           pruebaclic={pruebaclic}
           ocultarMenuMobile={ocultarMenuMobile}
         ></HeaderNuevo>
-
+<Sidedrawer
+        menuBurgerOpen={menuBurgerOpen}
+        ocultarMenuMobile={ocultarMenuMobile}
+      ></Sidedrawer>
         <FilterCategory />
         <main className="margin-top-4">{children}</main>
         <MenuMobile />
