@@ -94,7 +94,7 @@ const CardPromotion = ({ products, product, addInterest,  deleteInterest }) => {
        showCancelButton: true,
        confirmButtonColor: "#3085d6",
        cancelButtonColor: "#d33",
-       confirmButtonText: "Agregar",
+       confirmButtonText: "Eliminar",
        cancelButtonText: "Cancelar",
      }).then((result) => {
        if (result.isConfirmed) {
