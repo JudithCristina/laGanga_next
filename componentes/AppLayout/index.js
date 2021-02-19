@@ -214,6 +214,7 @@ const AppLayout = ({ children, promotionsData }) => {
             color: #7e4fff;
           }
 
+
           .box-otro {
             border-radius: 6%;
             padding: 0.3rem 0.5rem;

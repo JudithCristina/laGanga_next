@@ -296,9 +296,15 @@ const PromotionSpecific = ({ product }) => {
             margin-bottom: 1rem;
             font-size: 1.5rem;
           }
+          .group-time svg{
+            height:100%;
+            font-size: 1.5rem;
+          }
 
           .img-clock {
             color: #f31454;
+        
+
           }
           .description-especific {
             padding: 0.4rem;
