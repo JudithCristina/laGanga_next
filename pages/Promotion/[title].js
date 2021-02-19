@@ -82,66 +82,24 @@ const PromotionSpecific = ({ product, width, height }) => {
         </Head>
 
         <Container className="pt-4 box-home container-ganga fade-in animated">
-          <h4 className="title-ganga title-especific">Ver mas detalles:</h4>
-          {isLoading && <PreloaderCardEspecific widthCardSpecific={width} />}
-          {!isLoading && (
-            <div className="box-details margin-box">
-              <figure className="figure-product-especific">
-                <img
-                  src={
-                    product.imagenes[1].typeImage === "O"
-                      ? product.imagenes[1].url
-                      : product.imagenes[0].url
-                  }
-                  alt=""
-                  className="w-100"
-                />
-                <div className="grup-btn-especific">
-                  <div className="btn-cirle-especific" onClick={functionShare}>
-                    <FontAwesomeIcon
-                      icon={faShareAlt}
-                      className="btn-share-especific"
-                    />
-                  </div>
-                  {btnShare === false ? (
-                    ""
-                  ) : (
-                    <div className="socialGallery">
-                      <div class="socialToolBox">
-                        <a
-                          href={`https://www.facebook.com/sharer/sharer.php?u=https://la-ganga-next.vercel.app${router.asPath}`}
-                          className="btn-cirle-especific"
-                          target="_blank"
-                        >
-                          <FontAwesomeIcon
-                            icon={faFacebookF}
-                            className="btn-share-especific"
-                          />
-                        </a>
-                        <a
-                          href={`https://twitter.com/intent/tweet?text=[Te%20recomiendo%20esta%20promocion%20]&url=[https://la-ganga-next.vercel.app${router.asPath}]&hashtags=[laGanga]`}
-                          className="btn-cirle-especific"
-                          target="_blank"
-                        >
-                          <FontAwesomeIcon
-                            icon={faTwitter}
-                            className="btn-share-especific"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  )}
-                  <div className="btn-cirle-especific">
-                    <FontAwesomeIcon
-                      icon={faHeart}
-                      className={
-                        interest
-                          ? "btn-like-especific-active"
-                          : "btn-like-especific"
-                      }
-                      // onClick={addInterestEspecific}
-                    />
-                  </div>
+          <h4 className="title-ganga title-especific">Ver mas detalles</h4>
+          <div className="box-details margin-box">
+            <figure className="figure-product-especific">
+              <img
+                src={
+                  product.imagenes[1].typeImage === "O"
+                    ? product.imagenes[1].url
+                    : product.imagenes[0].url
+                }
+                alt=""
+                className="w-100"
+              />
+              <div className="grup-btn-especific">
+                <div className="btn-cirle-especific" onClick={functionShare}>
+                  <FontAwesomeIcon
+                    icon={faShareAlt}
+                    className="btn-share-especific"
+                  />
                 </div>
                 {product.promocion.tipoDescuento === "freeShipping" ? (
                   <div className="box-tag-offer-especific">
@@ -307,9 +265,15 @@ const PromotionSpecific = ({ product, width, height }) => {
             margin-bottom: 1rem;
             font-size: 1.5rem;
           }
+          .group-time svg{
+            height:100%;
+            font-size: 1.5rem;
+          }
 
           .img-clock {
             color: #f31454;
+            font-size: 1.5rem;
+
           }
           .description-especific {
             padding: 0.4rem;
