@@ -7,23 +7,41 @@ const PreloaderBanner = (props) => {
     <>
       {props.widthBanner > breakpoint ? (
         <ContentLoader
-          viewBox="0 0 1800 500"
-          height={500}
-          width={1800}
+          viewBox={`0 0 ${props.widthBanner} ${props.widthBanner / 3.6}`}
+          height={props.widthBanner / 3.6}
+          width={props.widthBanner}
           style={{ width: "100%" }}
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
           {...props}
         >
-          <rect x="10" y="10" rx="20" ry="20" width="1780" height="500" />
+          <rect
+            x={props.widthBanner / 180}
+            y={props.widthBanner / 180}
+            rx="20"
+            ry="20"
+            width={props.widthBanner / 1.011}
+            height={props.widthBanner / 1.011 / 3.56}
+          />
         </ContentLoader>
       ) : (
         <ContentLoader
-          viewBox={`0 0 ${props.widthBanner} ${props.widthBanner}`}
-          height={500}
-          width={768}
+          viewBox={`0 0 ${props.widthBanner} ${props.widthBanner / 1.536}`}
+          height={props.widthBanner / 1.536}
+          width={props.widthBanner}
           style={{ width: "100%" }}
+           backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
           {...props}
         >
-          <rect x="4" y="4" rx="10" ry="10" width="760" height="500" />
+          <rect
+            x={props.widthBanner / 192}
+            y={props.widthBanner / 192}
+            rx="10"
+            ry="10"
+            width={props.widthBanner / 1.0105}
+            height={props.widthBanner / 1.0105 / 1.52}
+          />
         </ContentLoader>
       )}
     </>

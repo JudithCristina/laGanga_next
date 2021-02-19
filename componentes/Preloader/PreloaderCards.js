@@ -9,18 +9,47 @@ console.log(props.widthCard,"JUDITH")
     <>
       {props.widthCard > breakpoint ? (
         <ContentLoader
-          viewBox="0 0 1800 450"
-          height={450}
-          width={1800}
+          viewBox={`0 0 ${props.widthCard} ${props.widthCard / 4}`}
+          height={props.widthCard / 4}
+          width={props.widthCard}
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
           style={{ width: "100%" }}
           {...props}
         >
-          <rect x="0" y="90" rx="0" ry="0" width="360" height="400" />
-          <rect x="430" y="90" rx="0" ry="0" width="360" height="400" />
-          <rect x="860" y="90" rx="0" ry="0" width="360" height="400" />
-          <rect x="1290" y="90" rx="0" ry="0" width="360" height="400" />
+          <rect
+            x=""
+            y={props.widthCard / 4.18 / 15}
+            rx="0"
+            ry="0"
+            width={props.widthCard / 4.43}
+            height={props.widthCard / 5 / 0.9}
+          />
+          <rect
+            x={props.widthCard / 4}
+            y={props.widthCard / 4.18 / 15}
+            rx="0"
+            ry="0"
+            width={props.widthCard / 4.3}
+            height={props.widthCard / 5 / 0.9}
+          />
+          <rect
+            x={props.widthCard / 1.97}
+            y={props.widthCard / 4.18 / 15}
+            rx="0"
+            ry="0"
+            width={props.widthCard / 4.3}
+            height={props.widthCard / 5 / 0.9}
+          />
+
+          <rect
+            x={props.widthCard / 1.3}
+            y={props.widthCard / 4.18 / 15}
+            rx="0"
+            ry="0"
+            width={props.widthCard / 4.3}
+            height={props.widthCard / 5 / 0.9}
+          />
         </ContentLoader>
       ) : (
         <ContentLoader
@@ -86,7 +115,7 @@ console.log(props.widthCard,"JUDITH")
             rx="8"
             ry="8"
             width={props.widthCard / 5.9}
-            height={(props.widthCard / 5.9)/3.71}
+            height={props.widthCard / 5.9 / 3.71}
           />
         </ContentLoader>
       )}
