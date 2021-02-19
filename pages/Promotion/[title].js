@@ -74,7 +74,7 @@ const PromotionSpecific = ({ product }) => {
         </Head>
 
         <Container className="pt-4 box-home container-ganga fade-in animated">
-          <h4 className="title-ganga title-especific">Ver mas detalles:</h4>
+          <h4 className="title-ganga title-especific">Ver mas detalles</h4>
           <div className="box-details margin-box">
             <figure className="figure-product-especific">
               <img
@@ -303,7 +303,7 @@ const PromotionSpecific = ({ product }) => {
 
           .img-clock {
             color: #f31454;
-        
+            font-size: 1.5rem;
 
           }
           .description-especific {

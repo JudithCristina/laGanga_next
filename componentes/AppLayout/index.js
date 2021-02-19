@@ -275,6 +275,24 @@ const AppLayout = ({ children, promotionsData }) => {
             color: #7e4fff;
             border: 2px solid #7e4fff;
           }
+
+          .title-ganga {
+            font-family: "made-tomy-sof-regular";
+            font-size: 1.8rem;
+            font-weight: 700;
+          }
+
+          .subtitle-ganga {
+            font-family: "made-tomy-sof-regular";
+            font-size: 1rem;
+            font-weight: 600;
+          }
+
+          .link {
+            text-decoration: none !important;
+          }
+
+
         `}
       </style>
     </>
