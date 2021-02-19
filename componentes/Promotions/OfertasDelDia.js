@@ -82,6 +82,8 @@ const OfertasDelDia = (props) => {
                     products={products}
                     addInterest={props.addInterest}
                     deleteInterest={props.deleteInterest}
+                    width={props.width}
+                    height={props.height}
                   />
                 </div>
               </div>
@@ -93,7 +95,7 @@ const OfertasDelDia = (props) => {
         {`
           .item-carousel {
             width: 95%;
-            margin:auto
+            margin: auto;
           }
         `}
       </style>

@@ -33,6 +33,8 @@ const AllItems = ({
                   products={products}
                   addInterest={addInterest}
                   deleteInterest={deleteInterest}
+                  width={width}
+                  height={height}
                   // like={like}
                 />
               </div>

@@ -8,16 +8,6 @@ const CarouselBanner = ({ bannerImage }) => {
   const handleResize = () => setWidthBanner(window.innerWidth);
   // const [bannerImage, setBannerImage] = useState([]);
   const breakpoint = 768;
-  // let width
-  // if(typeof window !== "undefined"){
-  //  width =window.innerWidth
-  // }
-  // console.log(width)
-  // useEffect(() => {
-  //   // setWidth(window.innerWidth);
-  //   getBanner();
-  // }, []);
-
 
   useEffect(() => {
     // getBanner();
