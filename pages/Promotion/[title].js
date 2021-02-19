@@ -28,7 +28,7 @@ const PromotionSpecific = ({ product, width, height }) => {
     setInterval(() => {
       // calculateTimeLeft(product.fechaFinOferta);
       setLoading(false);
-    }, 1000000);
+    }, 1000);
   }, []);
 
   // console.log(localStorage.getItem("searchFilterLocalStorage"));
