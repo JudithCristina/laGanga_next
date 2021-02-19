@@ -13,6 +13,7 @@ const Home = ({
   width,
   isLoading,
   deleteInterest,
+  height,
 }) => {
   return (
     <>
@@ -53,11 +54,13 @@ const Home = ({
             addInterest={addInterest}
             deleteInterest={deleteInterest}
             width={width}
+            height={height}
           />
           <GangaDelDia
             addInterest={addInterest}
             deleteInterest={deleteInterest}
             width={width}
+            height={height}
           />
           <figure className="m-0 w-100">
             <Image
@@ -74,6 +77,7 @@ const Home = ({
             addInterest={addInterest}
             deleteInterest={deleteInterest}
             width={width}
+            height={height}
             isLoading={isLoading}
           />
         </Container>

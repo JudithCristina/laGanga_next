@@ -72,7 +72,7 @@ const GangaDelDia = (props) => {
             Aprovecha las mejores marcas, con el descuento que tú deseas.
           </h5>
         </div>
-        {isLoading && <PreloaderCards widthCard={props.width} />}
+        {isLoading && <PreloaderCards widthCard={props.width} heightCard={props.height} />}
         {!isLoading && (
           <Carousel
             responsive={responsive}
@@ -104,7 +104,7 @@ const GangaDelDia = (props) => {
         {`
           .item-carousel {
             width: 95%;
-            margin:auto
+            margin: auto;
           }
         `}
       </style>

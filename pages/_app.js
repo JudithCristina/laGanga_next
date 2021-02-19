@@ -7,9 +7,13 @@ function MyApp({ Component, pageProps }) {
   const [products, setProducts] = useState([]);
   const [menuBurgerOpen, setmenuBurgerOpen] = React.useState(false);
   const [arrayInterest, setArrayInterest] = useState([]);
-  const [widthBanner, setWidthBanner] = useState(0); // default width, detect on server.
+  const [widthBanner, setWidthBanner] = useState(0);
+  const [heightBanner, setHeightBanner] = useState(0); // default width, detect on server.
   const [isLoading, setLoading] = useState(true);
-  const handleResize = () => setWidthBanner(window.innerWidth);
+  const handleResize = () => {
+    setWidthBanner(window.innerWidth)
+    setHeightBanner(window.innerHeight);
+  };
   const getProductsDay = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion-all/user`;
     await fetch(url)
@@ -56,28 +60,6 @@ function MyApp({ Component, pageProps }) {
     } else if (arrayInterest.length >= 1) {
       console.log("Mi segundo me gusta");
       for (let i = 0; i < arrayInterest.length; i++) {
-        // if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
-        //   console.log("eliminar");
-        //   registerInterest.promocion.liked = false;
-        //   arrayInterest[i].promocion.liked = false;
-        //   product.promocion.liked = false;
-        //   setArrayInterest(
-        //     arrayInterest.filter(
-        //       (productFilter) =>
-        //         productFilter.promocion._id !== registerInterest.promocion._id
-        //     )
-        //   );
-
-        //   localStorage.setItem(
-        //     "arrayInterestLocal",
-        //     JSON.stringify(
-        //       arrayInterest.filter(
-        //         (productFilter) =>
-        //           productFilter.promocion._id !== registerInterest.promocion._id
-        //       )
-        //     )
-        //   );
-        // } else
         if (arrayInterest[i].promocion._id !== registerInterest.promocion._id) {
           setArrayInterest([...arrayInterest, registerInterest]);
           localStorage.setItem(
@@ -142,9 +124,12 @@ function MyApp({ Component, pageProps }) {
       setArrayInterest(JSON.parse(localStorage.getItem("arrayInterestLocal")));
     }
     setWidthBanner(window.innerWidth);
+    setHeightBanner(window.innerHeight);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  console.log(heightBanner,"height");
 
   return (
     <>
@@ -154,6 +139,7 @@ function MyApp({ Component, pageProps }) {
         addInterest={addInterest}
         deleteInterest={deleteInterest}
         width={widthBanner}
+        height={heightBanner}
         isLoading={isLoading}
       />
       <style jsx global>

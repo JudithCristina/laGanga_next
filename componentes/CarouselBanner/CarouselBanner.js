@@ -31,26 +31,6 @@ const CarouselBanner = ({ bannerImage }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // console.log(width,"holitasjuju")
-  // const getBanner = async () => {
-  //   console.log("soy yo")
-  //   let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/banner/get-all/user`;
-  //   await fetch(url)
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
-  //         setBannerImage([]);
-  //       } else {
-  //         setBannerImage(data);
-  //       }
-  //     })
-  //     .catch((e) => {
-  //       console.log(e, "error:)");
-  //     });
-  // };
-
   return (
     <>
 
@@ -69,7 +49,7 @@ const CarouselBanner = ({ bannerImage }) => {
                   }
                   //  src="https://ibb.co/PZL3Tfd"
                   width={768}
-                  height={450}
+                  height={500}
                   alt="First slide"
                 />
               ) : (

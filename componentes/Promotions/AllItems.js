@@ -7,6 +7,7 @@ const AllItems = ({
   addInterest,
   // like,
   width,
+   height,
   isLoading,
   deleteInterest,
 }) => {
@@ -19,7 +20,7 @@ const AllItems = ({
             Aprovecha las mejores marcas, con el descuento que tú deseas.
           </h5>
         </div>
-        {isLoading && <PreloaderCards widthCard={width} />}
+        {isLoading && <PreloaderCards widthCard={width} heightcard={height} />}
         {!isLoading && (
           <Row className="justify-content-md-center ">
             {products.map((product) => (
