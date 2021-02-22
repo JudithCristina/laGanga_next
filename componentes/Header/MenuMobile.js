@@ -44,6 +44,7 @@ const MenuMobile = () => {
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="category"></div>
         </a>
+
         <Link href="/" className=" " to="/interest" activeClassName="heartOn">
           {/* <img src={heart} alt="" className="menu-off" /> */}
           <div className="heart"></div>

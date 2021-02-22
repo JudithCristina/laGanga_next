@@ -1,16 +1,16 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
-const PreloaderCards = props => {
+const PreloaderCards = (props) => {
   // console.log(props.widthCard,"hola")
   const breakpoint = 768;
-console.log(props.widthCard,"JUDITH")
+  console.log(props.widthCard, "JUDITH");
   return (
     <>
       {props.widthCard > breakpoint ? (
         <ContentLoader
-          viewBox={`0 0 ${props.widthCard} ${props.widthCard / 4}`}
-          height={props.widthCard / 4}
+          viewBox={`0 0 ${props.widthCard} ${props.widthCard /4}`}
+          height={props.widthCard/4}
           width={props.widthCard}
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
@@ -18,7 +18,7 @@ console.log(props.widthCard,"JUDITH")
           {...props}
         >
           <rect
-            x=""
+            x="0"
             y={props.widthCard / 4.18 / 15}
             rx="0"
             ry="0"
