@@ -19,7 +19,7 @@ const PromotionSpecific = ({ product, width, height }) => {
   const router = useRouter();
   // const [product, setProduct] = useState([]);
   console.log(router, "hola soy la ruta");
-
+ console.log(width,"juju")
   const functionShare = () => {
     setBtnShare(!btnShare);
   };
@@ -317,7 +317,7 @@ const PromotionSpecific = ({ product, width, height }) => {
             font-size: 1.5rem;
 
           }
-          .description-especific {
+          .descrip--tion-especific {
             padding: 0.4rem;
             margin-top: 1rem;
             margin-bottom: 1rem;
