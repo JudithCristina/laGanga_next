@@ -115,7 +115,7 @@ const MenuMobile = () => {
             background-repeat: no-repeat;
           }
           .homeOn .home {
-            background-image: url("../../images/menu-icons/fire-on.svg") !important;
+            background-image: url("../../images/menu-icons/home-on.svg") !important;
             background-size: contain;
             width: 2.2rem;
             height: 2.2rem;
