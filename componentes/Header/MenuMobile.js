@@ -121,17 +121,7 @@ const MenuMobile = () => {
             height: 2.2rem;
             background-repeat: no-repeat;
           }
-          @media (max-width: 769px) {
-            :global(.menu-mobile) {
-              display: flex;
-              justify-content: space-around;
-              align-items: center;
-              padding: 1.1rem 0rem;
-              position: fixed;
-              z-index: 99;
-              bottom: 0;
-            }
-          }
+        
           .fixed-filter {
             position: fixed;
             z-index: 100;
@@ -139,6 +129,7 @@ const MenuMobile = () => {
             top: 200px;
             padding: 1.5rem 0rem;
             cursor: pointer;
+     
           }
           :global(.select-marca) {
             width: 100%;
@@ -319,7 +310,17 @@ const MenuMobile = () => {
             .fixed-filter {
               display: none;
             }
+            :global(.menu-mobile) {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              padding: 1.1rem 0rem;
+              position: fixed;
+              z-index: 99;
+              bottom: 0;
+            }
           }
+       
         `}
       </style>
     </>
