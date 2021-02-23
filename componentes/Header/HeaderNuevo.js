@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import ActiveLink from "../ActiveLink";
+import ActiveLink from "./../ActiveLink";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -133,7 +133,7 @@ const HeaderNuevo = (props) => {
             </a>
           </ActiveLink>
           <ActiveLink href="/" activeClassName="is-active">
-            <a className="btn-like-menu">
+            <a className="btn-login-menu">
               <FontAwesomeIcon icon={faUserCircle} />
             </a>
           </ActiveLink>
@@ -176,11 +176,12 @@ const HeaderNuevo = (props) => {
             justify-content: space-between;
             top: 0;
           }
-          .is-active .btn-like-menu {
-            animation: animateHeart 0.3s linear forwards;
-            color: #f31454;
+          .box-search-container .is-active {
+            animation: animateHeart 0.3s linear forwards!important;
+            color: #f31454!important;
           }
-          .btn-like-menu {
+
+          .box-search-container a {
             cursor: pointer;
             transition: all 0.3s;
             transform-origin: center;
@@ -189,10 +190,12 @@ const HeaderNuevo = (props) => {
             font-size: 1.4rem;
             margin: 0rem 0.5rem;
           }
-          .btn-like-menu:hover,
-          .btn-like-menu:focus {
+          .box-search-container a:hover,
+          .box-search-container a:focus {
             transform: scale(1.2);
+            color: #f31454;
           }
+
           @keyframes animateHeart {
             0% {
               transform: scale(0.2);
@@ -340,7 +343,6 @@ const HeaderNuevo = (props) => {
             display: inline-flex;
             cursor: pointer;
             text-align: left;
-
           }
 
           @media (max-width: 769px) {
