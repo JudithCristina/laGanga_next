@@ -58,6 +58,11 @@ const FilterCategory = () => {
             font-family: "made-tomy-sof-regular";
             font-weight: 600;
           }
+          @media (max-width: 769px) {
+            .fixed-filter {
+              display: none;
+            }
+          }
         `}
       </style>
     </div>

@@ -15,11 +15,11 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
   const [valueCategory, setValueCategory] = useState("category=''");
   const [valueMarca, setValueMarca] = useState("marca=''");
   const handleClose = () => {
-    handleHideFilterCategory()
+    handleHideFilterCategory();
     setSelectedOption(null);
   };
 
-   console.log( modalShow,"popup")
+  console.log(modalShow, "popup");
   // const handleShowFilterCategory = () => {
   //   setShow(true);
   //   optionsMarca();
@@ -76,7 +76,7 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        className="pt-5"
+        className="modal-category-marca"
       >
         <Modal.Body>
           <div className="box-filter">
@@ -227,7 +227,9 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
           :global(.select-marca) {
             width: 100%;
           }
-
+          :global(.modal-category-marca) {
+            padding-top: 3rem!important;
+          }
           .modal-content {
             padding: 1rem;
           }
@@ -393,6 +395,26 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
             .fixed-filter {
               display: none;
             }
+            .card-category {
+              height: 3.2rem;
+              width: 3.2rem;
+              margin: 0.3rem;
+            }
+            .box-filter h5 {
+              font-size: 0.9rem;
+            }
+            .send-filter {
+              font-size: 0.7rem !important;
+            }
+            :global(.select-marca) {
+              font-size: 0.8rem !important;
+            }
+            :global(.modal-body) {
+              padding: 0.6rem !important;
+            }
+            :global(.modal-category-marca) {
+            padding-top: 1rem!important;
+          }
           }
         `}
       </style>
