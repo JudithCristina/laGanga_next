@@ -149,6 +149,9 @@ function MyApp({ Component, pageProps }) {
             src: url(fonts/made-tommy.otf);
           }
 
+          body{
+            font-family: "made-tomy-sof-regular";
+          }
           .font-made-tomy-sof-regular {
             font-family: "made-tomy-sof-regular";
           }
