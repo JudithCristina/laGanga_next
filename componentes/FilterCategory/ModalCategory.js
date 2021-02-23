@@ -79,9 +79,13 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
         className="modal-category-marca"
       >
         <Modal.Body>
+          <Modal.Header closeButton>
+            
+              <h5 className="">CATEGORIAS</h5>
+          
+          </Modal.Header>
+
           <div className="box-filter">
-            <h5>CATEGORIAS</h5>
-            <hr />
             <div className="icon-category">
               <input
                 type="radio"
@@ -196,6 +200,7 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
             </div>
           </div>
           <div className="box-filter">
+            
             <h5>MARCAS</h5>
             <hr />
             <div className="box-marcas">
@@ -228,7 +233,7 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
             width: 100%;
           }
           :global(.modal-category-marca) {
-            padding-top: 3rem!important;
+            padding-top: 3rem !important;
           }
           .modal-content {
             padding: 1rem;
@@ -413,8 +418,8 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
               padding: 0.6rem !important;
             }
             :global(.modal-category-marca) {
-            padding-top: 1rem!important;
-          }
+              padding-top: 1rem !important;
+            }
           }
         `}
       </style>
