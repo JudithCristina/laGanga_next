@@ -18,6 +18,8 @@ const MenuMobile = () => {
     setModal(false);
   };
 
+ 
+
   return (
     <>
       <nav className="navbar fixed-bottom navbar-light bg-light menu-mobile">
@@ -49,6 +51,8 @@ const MenuMobile = () => {
           handleHideFilterCategory={handleHideFilterCategory}
         />
       ) : null}
+
+      
 
       <style jsx>
         {`

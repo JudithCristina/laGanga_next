@@ -139,6 +139,7 @@ const HeaderNuevo = (props) => {
           </ActiveLink>
         </div>
       </nav>
+
       <div className="box-search-mobile">
         <form className="search-container" onSubmit={filterForm}>
           <input
@@ -146,7 +147,7 @@ const HeaderNuevo = (props) => {
             type="search"
             placeholder="Ingresa lo que estas buscando"
             aria-label="Search"
-            onChange={(e) => setSearchWord(e.target.value)}
+            onChange={SearchWordFunction}
             value={searchWord}
             autoComplete="off"
             autoCorrect="off"
@@ -159,7 +160,31 @@ const HeaderNuevo = (props) => {
             <FontAwesomeIcon icon={faSearch} className="icon-searh-mobile" />
           </button>
         </form>
+        {searchProducts.length !== 0 ? (
+          <div className="box-search-filter">
+            {searchProducts.map((product) => (
+              <div>
+                <div className="img-search">
+                  <a>
+                    <img
+                      src={
+                        product.imagenes[1].typeImage === "M"
+                          ? product.imagenes[1].url
+                          : product.imagenes[0].url
+                      }
+                      alt=""
+                      className="pr-1"
+                    />
+                  </a>
+                </div>
+                <div>{product.promocion.nombre}</div>
+                {/* <CardPromotion product={product} key={product._id} /> */}
+              </div>
+            ))}
+          </div>
+        ) : null}
       </div>
+
       <style jsx>
         {`
           .navbar-ganga {
@@ -177,8 +202,8 @@ const HeaderNuevo = (props) => {
             top: 0;
           }
           .box-search-container .is-active {
-            animation: animateHeart 0.3s linear forwards!important;
-            color: #f31454!important;
+            animation: animateHeart 0.3s linear forwards !important;
+            color: #f31454 !important;
           }
 
           .box-search-container a {
@@ -341,8 +366,7 @@ const HeaderNuevo = (props) => {
             display: flex;
             flex-direction: column;
             height: auto;
-            max-height:10rem
-
+            max-height: 10rem;
           }
           .box-search-filter div {
             display: inline-flex;
@@ -421,6 +445,11 @@ const HeaderNuevo = (props) => {
             }
             .box-search-container {
               display: none;
+            }
+            .box-search-filter {
+              width: 100%;
+              max-width: 100%;
+              max-height: 15rem;
             }
           }
         `}
