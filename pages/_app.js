@@ -156,7 +156,7 @@ function MyApp({ Component, pageProps }) {
             font-family: "made-tomy-sof-regular";
           }
 
-          .title-ganga {
+          {/* .title-ganga {
             font-family: "made-tomy-sof-regular";
             font-size: 1.8rem;
             font-weight: 700;
@@ -170,7 +170,7 @@ function MyApp({ Component, pageProps }) {
 
           .link {
             text-decoration: none !important;
-          }
+          } */}
 
            {
             /* .box-home{

@@ -46,6 +46,7 @@ const FilterCategory = () => {
             top: 200px;
             padding: 1.5rem 0rem;
             cursor: pointer;
+            width:3rem
           }
           .fixed-filter p {
             color: #ffffff;
@@ -57,6 +58,7 @@ const FilterCategory = () => {
             margin-block-end: 0.5em !important;
             font-family: "made-tomy-sof-regular";
             font-weight: 600;
+            position:relative
           }
           @media (max-width: 769px) {
             .fixed-filter {
