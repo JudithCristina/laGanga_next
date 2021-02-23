@@ -3,6 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import { useRouter } from "next/router";
 import AppLayout from "../../componentes/AppLayout";
 import CardPromotion from "../../componentes/Promotions/CardPromotion";
+import Image from "next/image";
 
 const wordSearch = () => {
   const router = useRouter();
@@ -46,16 +47,32 @@ const wordSearch = () => {
             ))}
           </Row>
         ) : (
-          <p>
-            No encontramos promociones relacionados a tu búsqueda, intenta
-            con otro término.
-          </p>
+          <>
+            <div className="box-mujer-interest">
+              <div className="box-gangaDelDia">
+                <h1 className="subtitle-ganga">
+                  No encontramos promociones relacionados a tu búsqueda, intenta
+                  con otro término.
+                </h1>
+              </div>
+              <div className="mujer-interest">
+                <Image
+                  src="/images/mujer.png"
+                  alt="banner"
+                  // layout="fill"
+                  width={400}
+                  height={300}
+                  // layout="responsive"
+                />
+              </div>
+            </div>
+          </>
         )}
       </Container>
       <style jsx>
         {`
           .box-search {
-            margin: 3rem 0rem;
+            margin: 1.5rem 0rem 1rem 0rem;
           }
         `}
       </style>

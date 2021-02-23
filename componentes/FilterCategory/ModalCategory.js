@@ -80,9 +80,7 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
       >
         <Modal.Body>
           <Modal.Header closeButton>
-            
-              <h5 className="">CATEGORIAS</h5>
-          
+            <h5 className="text-categorias">CATEGORIAS</h5>
           </Modal.Header>
 
           <div className="box-filter">
@@ -200,7 +198,6 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
             </div>
           </div>
           <div className="box-filter">
-            
             <h5>MARCAS</h5>
             <hr />
             <div className="box-marcas">
@@ -396,6 +393,15 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
           .oficina {
             background-image: url("./../../images/categoria-oficina.png");
           }
+          :global(.close){
+            position:absolute;
+            right:5%;
+            top:5%
+
+          }
+          .text-categorias {
+              margin:auto;
+            }
           @media (max-width: 769px) {
             .fixed-filter {
               display: none;
@@ -419,6 +425,9 @@ const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
             }
             :global(.modal-category-marca) {
               padding-top: 1rem !important;
+            }
+            .text-categorias {
+              font-size: 0.9rem;
             }
           }
         `}

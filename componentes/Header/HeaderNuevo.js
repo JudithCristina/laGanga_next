@@ -33,7 +33,7 @@ const HeaderNuevo = (props) => {
       });
   };
 
-  console.log(searchProducts,"buscador");
+  console.log(searchProducts, "buscador");
   const filterForm = (e) => {
     e.preventDefault();
     const searchFilter = searchWord.toLowerCase();
@@ -338,6 +338,11 @@ const HeaderNuevo = (props) => {
             max-height: 20rem;
             overflow-y: auto;
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            max-height:10rem
+
           }
           .box-search-filter div {
             display: inline-flex;
