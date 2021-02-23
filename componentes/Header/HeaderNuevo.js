@@ -33,6 +33,7 @@ const HeaderNuevo = (props) => {
       });
   };
 
+  console.log(searchProducts,"buscador");
   const filterForm = (e) => {
     e.preventDefault();
     const searchFilter = searchWord.toLowerCase();
@@ -101,9 +102,9 @@ const HeaderNuevo = (props) => {
             </button>
           </form>
           {searchProducts.length !== 0 ? (
-            <div>
+            <div className="box-search-filter">
               {searchProducts.map((product) => (
-                <div className="box-search-filter">
+                <div>
                   <div className="img-search">
                     <a>
                       <img
@@ -339,7 +340,7 @@ const HeaderNuevo = (props) => {
             display: inline-flex;
             cursor: pointer;
             text-align: left;
-            
+
           }
 
           @media (max-width: 769px) {
