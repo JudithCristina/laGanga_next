@@ -292,6 +292,33 @@ const AppLayout = ({ children, promotionsData }) => {
             text-decoration: none !important;
           }
 
+          .box-mujer-interest {
+            height: 70vh;
+            position: relative;
+          }
+
+          .mujer-interest {
+            position: absolute;
+            bottom: -3.5%;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+
+          .subtitle-interest {
+            color: #f31454;
+            padding-top: 1rem;
+          }
+          @media (max-width: 769px) {
+            .box-mujer-interest {
+              height: 70vh;
+            }
+
+            .mujer-interest {
+              width: 100%;
+              bottom: 0%;
+            }
+          }
+
 
         `}
       </style>
