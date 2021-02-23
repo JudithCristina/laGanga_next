@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import ActiveLink from "./../../ActiveLink"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -34,23 +34,23 @@ const SideDrawer = (props) => {
           </div>
 
           <li className="">
-            <a
+            <ActiveLink
               href="/"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile "
               exact={true}
-           
             >
-       
+              <a>
+                {" "}
                 <Image
                   src="/images/menu-icons/home-burger.svg"
                   alt="logo la ganga"
                   width={20}
                   height={20}
                 ></Image>
-
-              {` `}Inicio
-            </a>
+                {` `}Inicio
+              </a>
+            </ActiveLink>
           </li>
           {/* <li>
             <NavLink
@@ -63,51 +63,57 @@ const SideDrawer = (props) => {
             </NavLink>
           </li> */}
           <li>
-            <a
+            <ActiveLink
               href="/Interest"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
               className="w-15 mr-2"
             >
-              <Image
-                src="/images/menu-icons/favorito-burger.svg"
-                alt="logo la ganga"
-                width={20}
-                height={20}
-              ></Image>
-              {` `}Favoritos
-            </a>
+              <a>
+                <Image
+                  src="/images/menu-icons/favorito-burger.svg"
+                  alt="logo la ganga"
+                  width={20}
+                  height={20}
+                ></Image>
+                {` `}Favoritos
+              </a>
+            </ActiveLink>
           </li>
 
           <li>
-            <a
+            <ActiveLink
               href="/building"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
-              <Image
-                src="/images/menu-icons/ganga-burger.svg"
-                alt="logo la ganga"
-                width={20}
-                height={20}
-              ></Image>
-              {` `}La ganga de la ganga
-            </a>
+              <a>
+                <Image
+                  src="/images/menu-icons/ganga-burger.svg"
+                  alt="logo la ganga"
+                  width={20}
+                  height={20}
+                ></Image>
+                {` `}La ganga de la ganga
+              </a>
+            </ActiveLink>
           </li>
           <li>
-            <a
+            <ActiveLink
               href="/building"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
-              <Image
-                src="/images/menu-icons/iniciar-burger.svg"
-                alt="logo la ganga"
-                width={20}
-                height={20}
-              ></Image>
-             {` `} Iniciar sesión
-            </a>
+              <a>
+                <Image
+                  src="/images/menu-icons/iniciar-burger.svg"
+                  alt="logo la ganga"
+                  width={20}
+                  height={20}
+                ></Image>
+                {` `} Iniciar sesión
+              </a>
+            </ActiveLink>
           </li>
           <div className="box-links-mobile">
             <hr className="linea-mobile" />
@@ -243,8 +249,6 @@ const SideDrawer = (props) => {
             margin-right: 15px;
             margin-left: 10px;
           }
-
-       
 
           @media (min-width: 768px) {
             .side-drawer {
