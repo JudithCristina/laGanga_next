@@ -4,25 +4,26 @@ import { useRouter } from "next/router";
 import Container from "react-bootstrap/Container";
 import { Button, Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faSlidersH } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select";
 
-const ModalCategory = () => {
+const ModalCategory = ({ modalShow, handleHideFilterCategory }) => {
   const router = useRouter();
   const [options1, setOptions1] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [show, setShow] = useState(true);
+  // const [show, setShow] = useState(true);
   const [valueCategory, setValueCategory] = useState("category=''");
   const [valueMarca, setValueMarca] = useState("marca=''");
   const handleClose = () => {
-    setShow(false);
+    handleHideFilterCategory()
     setSelectedOption(null);
   };
 
-  const handleShowFilterCategory = () => {
-    setShow(true);
-    optionsMarca();
-  };
+   console.log( modalShow,"popup")
+  // const handleShowFilterCategory = () => {
+  //   setShow(true);
+  //   optionsMarca();
+  // };
 
   const optionsMarca = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/marca/get-all/user`;
@@ -70,7 +71,7 @@ const ModalCategory = () => {
   return (
     <Container className="container-ganga">
       <Modal
-        show={show}
+        show={modalShow}
         onHide={handleClose}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"

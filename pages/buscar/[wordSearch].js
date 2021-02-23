@@ -46,7 +46,10 @@ const wordSearch = () => {
             ))}
           </Row>
         ) : (
-          <p>No se encontraron resultados</p>
+          <p>
+            No encontramos promociones relacionados a tu búsqueda, intenta
+            con otro término.
+          </p>
         )}
       </Container>
       <style jsx>

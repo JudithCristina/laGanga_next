@@ -11,15 +11,48 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 const HeaderNuevo = (props) => {
   const [searchWord, setSearchWord] = useState("");
   const [products, setProducts] = useState([]);
-  const router = useRouter();
+  const [searchProducts, setSearchProducts] = useState([]);
+const router = useRouter();
+
+
+  const getSearchProducts = async (search) => {
+    let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/search/user?search=${search}`;
+    await fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
+          setSearchProducts([]);
+        } else {
+          console.log(data)
+          setSearchProducts(data);
+        }
+      })
+      .catch((e) => {
+        console.log(e, "error:)");
+      });
+  };
+
 
   const filterForm = (e) => {
     e.preventDefault();
     const searchFilter = searchWord.toLowerCase();
-    if (searchFilter === "") {
-      return router.push("/");
-    } else {
+    if (searchFilter !== "")  {
       router.push("/buscar/" + searchFilter);
+    }
+  };
+
+  const SearchWordFunction = (e) => {
+    e.preventDefault();
+    const searchFilter = e.target.value.toLowerCase();
+    console.log(searchFilter ,"ojitos");
+    setSearchWord(e.target.value);
+    if (searchFilter.length !== 0) {
+      getSearchProducts(searchFilter);
+      // router.push("/buscar/" + searchFilter);
+    } else {
+      setSearchProducts([]);
     }
   };
 
@@ -52,11 +85,10 @@ const HeaderNuevo = (props) => {
         <div className="box-search-desktop">
           <form className="search-container " onSubmit={filterForm}>
             <input
-              type="text"
               type="search"
               placeholder="Ingresa lo que estas buscando"
               aria-label="Search"
-              onChange={(e) => setSearchWord(e.target.value)}
+              onChange={SearchWordFunction}
               value={searchWord}
               autoComplete="off"
               autoCorrect="off"
@@ -64,12 +96,32 @@ const HeaderNuevo = (props) => {
               className="form-control input-search-menu"
             />
             <button
-              type="button"
+              type="submit"
               className="btn btn-outline-success btn-search-menu"
             >
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </form>
+          {searchProducts.length !== 0 ? (
+            <div>
+              {searchProducts.map((product) => (
+                <div>
+                  <p>{product.promocion.nombre}</p>
+                  <img
+                    src={
+                      product.imagenes[1].typeImage === "M"
+                        ? product.imagenes[1].url
+                        : product.imagenes[0].url
+                    }
+                    alt=""
+                  />
+                  {/* <CardPromotion product={product} key={product._id} /> */}
+                </div>
+              ))}
+            </div>
+          ) : (
+            null
+          )}
         </div>
 
         <div className="box-search-container">
@@ -152,9 +204,9 @@ const HeaderNuevo = (props) => {
           }
 
           .logo-ganga {
-              display: flex;
-              justify-content:center
-            }
+            display: flex;
+            justify-content: center;
+          }
 
           /* Buscador */
           .search-container {
@@ -330,8 +382,8 @@ const HeaderNuevo = (props) => {
             .box-search-desktop {
               display: none;
             }
-            .box-search-container{
-              display:none
+            .box-search-container {
+              display: none;
             }
           }
         `}

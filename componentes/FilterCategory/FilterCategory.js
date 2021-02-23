@@ -12,26 +12,30 @@ import ModalCategory from "./ModalCategory";
 const FilterCategory = () => {
   // const [show, setShow] = useState(false);
   const [modal, setModal] = useState(false);
-
-  const handleClose = () => {
-    setShow(false);
-  };
+  console.log(modal,"hola filter")
+  // const handleClose = () => {
+  //   setShow(false);
+  // };
 
   const handleShowFilterCategory = () => {
-    console.log("trueeeee");
-    setShow(true);
+    setModal(true);
+  };
+  const handleHideFilterCategory = () => {
+    setModal(false);
   };
 
   return (
     <div>
       <Container className="container-ganga">
-        <div
-          className="fixed-filter"
-          onClick={() => setModal(modal ? false : <ModalCategory />)}
-        >
+        <div className="fixed-filter" onClick={handleShowFilterCategory}>
           <p>CATEGORIAS</p>
         </div>
-        {modal}
+        {modal ? (
+          <ModalCategory
+            modalShow={modal}
+            handleHideFilterCategory={handleHideFilterCategory}
+          />
+        ) : null}
       </Container>
       <style jsx>
         {`
