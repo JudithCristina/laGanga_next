@@ -12,8 +12,7 @@ const HeaderNuevo = (props) => {
   const [searchWord, setSearchWord] = useState("");
   const [products, setProducts] = useState([]);
   const [searchProducts, setSearchProducts] = useState([]);
-const router = useRouter();
-
+  const router = useRouter();
 
   const getSearchProducts = async (search) => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/search/user?search=${search}`;
@@ -25,7 +24,7 @@ const router = useRouter();
         if (data.MensajeRespuesta === "NO EXISTEN DATOS") {
           setSearchProducts([]);
         } else {
-          console.log(data)
+          console.log(data);
           setSearchProducts(data);
         }
       })
@@ -34,11 +33,10 @@ const router = useRouter();
       });
   };
 
-
   const filterForm = (e) => {
     e.preventDefault();
     const searchFilter = searchWord.toLowerCase();
-    if (searchFilter !== "")  {
+    if (searchFilter !== "") {
       router.push("/buscar/" + searchFilter);
     }
   };
@@ -46,7 +44,7 @@ const router = useRouter();
   const SearchWordFunction = (e) => {
     e.preventDefault();
     const searchFilter = e.target.value.toLowerCase();
-    console.log(searchFilter ,"ojitos");
+    console.log(searchFilter, "ojitos");
     setSearchWord(e.target.value);
     if (searchFilter.length !== 0) {
       getSearchProducts(searchFilter);
@@ -105,23 +103,26 @@ const router = useRouter();
           {searchProducts.length !== 0 ? (
             <div>
               {searchProducts.map((product) => (
-                <div>
-                  <p>{product.promocion.nombre}</p>
-                  <img
-                    src={
-                      product.imagenes[1].typeImage === "M"
-                        ? product.imagenes[1].url
-                        : product.imagenes[0].url
-                    }
-                    alt=""
-                  />
+                <div className="box-search-filter">
+                  <div className="img-search">
+                    <a>
+                      <img
+                        src={
+                          product.imagenes[1].typeImage === "M"
+                            ? product.imagenes[1].url
+                            : product.imagenes[0].url
+                        }
+                        alt=""
+                        className="pr-1"
+                      />
+                    </a>
+                  </div>
+                  <div>{product.promocion.nombre}</div>
                   {/* <CardPromotion product={product} key={product._id} /> */}
                 </div>
               ))}
             </div>
-          ) : (
-            null
-          )}
+          ) : null}
         </div>
 
         <div className="box-search-container">
@@ -311,6 +312,34 @@ const router = useRouter();
           }
           .burger-laganga {
             display: none;
+          }
+
+          .img-search {
+            width: 2rem;
+            height: 2rem;
+          }
+          .img-search img {
+            width: 100%;
+            height: auto;
+          }
+          .box-search-filter {
+            border: 1px solid #cecece;
+            padding: 8px 5px;
+            width: 20rem;
+            box-shadow: none;
+            position: absolute;
+            z-index: 10;
+            list-style-type: none;
+            background-color: #fff;
+            max-height: 20rem;
+            overflow-y: auto;
+            text-align: left;
+          }
+          .box-search-filter div {
+            display: inline-flex;
+            cursor: pointer;
+            text-align: left;
+            
           }
 
           @media (max-width: 769px) {
