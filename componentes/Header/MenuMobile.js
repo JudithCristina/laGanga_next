@@ -53,7 +53,7 @@ const MenuMobile = () => {
       {modal ? (
         <ModalCategory
           modalShow={modal}
-          handleShowFilterCategory={handleShowFilterCategory}
+          handleHideFilterCategory={handleHideFilterCategory}
         />
       ) : null}
 
