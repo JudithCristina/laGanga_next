@@ -92,6 +92,8 @@ input.search-bar:focus:-ms-input-placeholder {
   animation: animateHeart .3s linear forwards;
   color: #f31454;
 }
+
+
 .btn-like-menu {
   /* margin-left: 0.6rem;
   margin-right: 0.8rem;
@@ -163,7 +165,7 @@ input.search-bar:focus:-ms-input-placeholder {
   width: 2rem;
   height: 1.9rem;
   background-repeat: no-repeat;
-  
+
 }
 .heartOn .heart{
   background-image: url("../../images/menu-icons/heart-on.svg")!important;
@@ -179,7 +181,7 @@ input.search-bar:focus:-ms-input-placeholder {
   width: 2rem;
   height: 1.9rem;
   background-repeat: no-repeat;
-  
+
 }
 .categoryOn .category{
   background-image: url("../../images/menu-icons/category-on.svg")!important;
@@ -195,7 +197,7 @@ input.search-bar:focus:-ms-input-placeholder {
   width: 2rem;
   height: 1.9rem;
   background-repeat: no-repeat;
-  
+
 }
 .fireOn .fire{
   background-image: url("../../images/menu-icons/fire-on.svg")!important;
@@ -211,7 +213,7 @@ input.search-bar:focus:-ms-input-placeholder {
   width: 2rem;
   height: 1.9rem;
   background-repeat: no-repeat;
-  
+
 }
 .homeOn .home{
   background-image: url("../../images/menu-icons/home-on.svg")!important;
@@ -368,7 +370,7 @@ input.search-bar-mobile {
     width: 2rem;
   }
 
- 
+
   .navbar-desktop{
     display: none!important;
   }
@@ -383,5 +385,5 @@ input.search-bar-mobile {
     position: relative;
     left: -.1rem;
   }
-  
+
 }
