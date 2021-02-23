@@ -5,8 +5,7 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 // import { useHistory, Link, Link } from "react-router-dom";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import ActiveLink from "../ActiveLink";
+import ActiveLink from "./../ActiveLink";
 import ModalCategory from "../FilterCategory/ModalCategory";
 
 const MenuMobile = () => {
@@ -22,33 +21,27 @@ const MenuMobile = () => {
   return (
     <>
       <nav className="navbar fixed-bottom navbar-light bg-light menu-mobile">
-        <Link href="/" class="" exact={true} to="" activeClassName="homeOn">
+        <ActiveLink href="/" activeClassName="homeOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
-          <div className="home"></div>
-        </Link>
-        <a
-          className=""
-          onClick={handleShowFilterCategory}
-          activeClassName="categoryOn"
-        >
-          {/* <img src={category} alt="" className="menu-off" /> */}
+          <a>
+            <div className="home"></div>
+          </a>
+        </ActiveLink>
+        <div onClick={handleShowFilterCategory} activeClassName="categoryOn">
           <div className="category"></div>
-        </a>
-
-        <Link href="/" className=" " to="/interest" activeClassName="heartOn">
+        </div>
+        <ActiveLink href="/Interest" activeClassName="heartOn">
           {/* <img src={heart} alt="" className="menu-off" /> */}
-          <div className="heart"></div>
-        </Link>
-        <Link
-          href="/"
-          className=""
-          to="/en-construccion"
-          activeClassName="fireOn"
-          active
-        >
+          <a>
+            <div className="heart"></div>
+          </a>
+        </ActiveLink>
+        <ActiveLink href="/ganga-de-la-ganga" activeClassName="fireOn">
           {/* <img src={fire} alt="" className="menu-off" /> */}
-          <div className="fire"></div>
-        </Link>
+          <a>
+            <div className="fire"></div>
+          </a>
+        </ActiveLink>
       </nav>
       {modal ? (
         <ModalCategory
@@ -84,7 +77,14 @@ const MenuMobile = () => {
             height: 1.9rem;
             background-repeat: no-repeat;
           }
-          .categoryOn .category {
+          .category:hover {
+            background-image: url("../../images/menu-icons/category-on.svg") !important;
+            background-size: contain;
+            width: 2.2rem;
+            height: 2.2rem;
+            background-repeat: no-repeat;
+          }
+          .category:active{
             background-image: url("../../images/menu-icons/category-on.svg") !important;
             background-size: contain;
             width: 2.2rem;
@@ -115,7 +115,7 @@ const MenuMobile = () => {
             background-repeat: no-repeat;
           }
           .homeOn .home {
-            background-image: url("../../public/images/menu-icons/home-on.svg") !important;
+            background-image: url("../../images/menu-icons/fire-on.svg") !important;
             background-size: contain;
             width: 2.2rem;
             height: 2.2rem;
