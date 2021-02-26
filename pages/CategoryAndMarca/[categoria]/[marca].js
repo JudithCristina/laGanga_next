@@ -7,10 +7,8 @@ import CardPromotion from "../../../componentes/Promotions/CardPromotion";
 const CategoryAndMarca = () => {
   const [filterCategoriesMarca, setfilterCategoriesMarca] = useState([]);
   const router = useRouter();
-  console.log(router, "ojitos");
   const { categoria } = useRouter().query;
   const { marca } = useRouter().query;
-  console.log(categoria, "categoria");
 
   const getProductsDay = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/filterCategoryMarca/${categoria}&${marca}`;

@@ -27,10 +27,8 @@ const Interest = ({ addInterest, deleteInterest }) => {
                 <Image
                   src="/images/mujer.png"
                   alt="banner"
-                  // layout="fill"
                   width={400}
                   height={300}
-                  // layout="responsive"
                 />
               </div>
             </div>
@@ -62,7 +60,7 @@ const Interest = ({ addInterest, deleteInterest }) => {
           {/* </Row> */}
         </Container>
       </AppLayout>
-      
+
     </>
   );
 };

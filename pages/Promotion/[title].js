@@ -17,9 +17,7 @@ const PromotionSpecific = ({ product, width, height }) => {
   const [isLoading, setLoading] = useState(true);
   const [btnShare, setBtnShare] = useState(false);
   const router = useRouter();
-  // const [product, setProduct] = useState([]);
-  console.log(router, "hola soy la ruta");
- console.log(width,"juju")
+
   const functionShare = () => {
     setBtnShare(!btnShare);
   };
@@ -434,8 +432,6 @@ const PromotionSpecific = ({ product, width, height }) => {
 };
 
 export async function getServerSideProps(params) {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
   const routerParams = params;
   console.log(routerParams);
   let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${routerParams.query.id}`;
@@ -447,9 +443,6 @@ export async function getServerSideProps(params) {
       notFound: true,
     };
   }
-
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
       product: product[0],

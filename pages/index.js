@@ -66,10 +66,8 @@ const Home = ({
             <Image
               src="/images/banner/banner-bottom.png"
               alt="banner"
-              // layout="fill"
               width={1800}
               height={500}
-              //   layout="responsive"
             />
           </figure>
           <AllItems
@@ -87,8 +85,6 @@ const Home = ({
 };
 
 export async function getServerSideProps(params) {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
   const routerParams = params;
   console.log(routerParams);
   let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/banner/get-all/user`;
@@ -101,37 +97,11 @@ export async function getServerSideProps(params) {
     };
   }
 
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
       bannerImage: bannerImage,
     },
   };
 }
-
-// export async function getServerSideProps() {
-//   console.log("holitass")
-//   // Call an external API endpoint to get posts.
-//   // You can use any data fetching library
-//   let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion-all/user`
-//   console.log(url, "urli")
-//   const res = await fetch(
-//     url
-//   );
-//   const promotionsData = await res.json();
-//   if (!promotionsData) {
-//     return {
-//       notFound: true,
-//     };
-//   }
-//   // By returning { props: posts }, the Blog component
-//   // will receive `posts` as a prop at build time
-//   return {
-//     props: {
-//       promotionsData,
-//     },
-//   };
-// }
 
 export default Home;

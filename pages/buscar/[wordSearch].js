@@ -8,8 +8,6 @@ import Image from "next/image";
 const wordSearch = () => {
   const router = useRouter();
   const [products, setProducts] = useState([]);
-  // console.log(localStorage.getItem("searchFilterLocalStorage"));
-  // console.log(router, "pruebita");
   const getProducts = async () => {
     let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/search/user?search=${router.query.wordSearch}`;
     await fetch(url)
