@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CardPromotion from "../../componentes/Promotions/CardPromotion";
 import PreloaderCards from "../Preloader/PreloaderCards"
+import { styleCarruselPromotion } from "./style";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -91,14 +91,7 @@ const OfertasDelDia = (props) => {
           </Carousel>
         )}
       </div>
-      <style jsx>
-        {`
-          .item-carousel {
-            width: 95%;
-            margin: auto;
-          }
-        `}
-      </style>
+      <style jsx>{ styleCarruselPromotion}</style>
     </>
   );
 };
