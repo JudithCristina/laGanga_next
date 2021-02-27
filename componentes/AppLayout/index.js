@@ -6,7 +6,7 @@ import HeaderNuevo from "../Header/HeaderNuevo";
 import MenuMobile from "../Header/MenuMobile";
 import Sidedrawer from "../Header/MenuBurger/Sidedrawer";
 import Backdrop from "../Header/MenuBurger/Backdrop";
-import style,{globalStyles} from './style'
+import style, { globalStyles } from "./style";
 // import fondo2 from "../../public/images/bg-ganga.svg"
 import { Parallax, Background } from "react-parallax";
 
