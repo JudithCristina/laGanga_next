@@ -225,8 +225,8 @@ function MyApp({ Component, pageProps }) {
           /* ANIMACIONES */
           .react-parallax-bgimage {
             position: fixed !important;
-            height: 100% !important;
-            width: auto !important;
+            height:  !important;
+            width: 100% !important;
           }
 
           .fade-in {

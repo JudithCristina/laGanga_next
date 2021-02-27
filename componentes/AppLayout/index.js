@@ -7,6 +7,9 @@ import MenuMobile from "../Header/MenuMobile";
 import Sidedrawer from "../Header/MenuBurger/Sidedrawer";
 import Backdrop from "../Header/MenuBurger/Backdrop";
 import style,{globalStyles} from './style'
+// import fondo2 from "../../public/images/bg-ganga.svg"
+import { Parallax, Background } from "react-parallax";
+
 const AppLayout = ({ children, promotionsData }) => {
   const [menuBurgerOpen, setmenuBurgerOpen] = useState(false);
 
@@ -33,11 +36,18 @@ const AppLayout = ({ children, promotionsData }) => {
           pruebaclic={pruebaclic}
           ocultarMenuMobile={ocultarMenuMobile}
         ></HeaderNuevo>
+
         <Sidedrawer
           menuBurgerOpen={menuBurgerOpen}
           ocultarMenuMobile={ocultarMenuMobile}
         ></Sidedrawer>
         <FilterCategory />
+        <Parallax
+          blur={0}
+          bgImage="../../images/bg-ganga.svg"
+          bgImageAlt="the cat"
+          strength={100}
+        ></Parallax>
         <main className="margin-top-4">{children}</main>
         <MenuMobile />
         <Footer />
