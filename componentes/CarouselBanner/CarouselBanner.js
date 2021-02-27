@@ -63,7 +63,6 @@ const CarouselBanner = ({ bannerImage }) => {
       <style jsx>
         {`
           .box-home {
-            /* background-image: url("./../../images/background-ganga.png"); */
             background-size: contain;
             background-repeat: no-repeat;
             margin-bottom: 5rem;
