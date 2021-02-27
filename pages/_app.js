@@ -160,8 +160,6 @@ function MyApp({ Component, pageProps }) {
           }
 
 
-          /* Estilos Judith  :D */
-
           .container,
           .container-fluid,
           .container-lg,
