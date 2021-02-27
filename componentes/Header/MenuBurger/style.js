@@ -1,16 +1,19 @@
-/* backdrop */
-.backdrop {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 100;
-  top: 0;
-  left: 0;
-}
-/* backdrop */
+import css from 'styled-jsx/css'
 
+export const styleBackdrop = css`
+  .backdrop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    top: 0;
+    left: 0;
+  }
+`;
+export const styleSidedrawer = css`
 .side-drawer {
+  font-family: "made-tomy-sof-regular";
   height: 100%;
   background: #fff;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
@@ -18,15 +21,14 @@
   top: 0;
   left: 0;
   width: 90%;
-  /* max-width: 400px; */
   z-index: 9999;
-  transform: translateX(-105%);
   transition: transform 0.3s ease-out;
-  font-family: "made-tomy-sof-regular";
+  transform: translateX(-105%);
 }
 .side-drawer.open {
   transform: translateX(0%);
 }
+
 .side-drawer ul {
   height: 100%;
   list-style: none;
@@ -43,7 +45,7 @@
 .side-drawer a {
   color: #000;
   text-decoration: none;
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 .side-drawer a:hover,
 .side-drawer a:active {
@@ -98,15 +100,15 @@
   /* border-top: 1px solid #000; */
 }
 
-.box-links-mobile a svg{
-   color: #7487FC;
-   margin-right: 8px;
+.box-links-mobile a svg {
+  color: #7487fc;
+  margin-right: 8px;
 }
 
-.linea-mobile{
-    border-top: 1px solid #7487FC;
-    margin-right: 15px;
-    margin-left: 10px;
+.linea-mobile {
+  border-top: 1px solid #7487fc;
+  margin-right: 15px;
+  margin-left: 10px;
 }
 
 @media (min-width: 768px) {
@@ -114,3 +116,4 @@
     display: none;
   }
 }
+`;
