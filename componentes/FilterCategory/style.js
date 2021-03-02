@@ -171,8 +171,8 @@ filter: opacity(0.8); */
       display: none;
     }
     .card-category {
-      height: 3.2rem;
-      width: 3.2rem;
+      height: 3.8rem;
+      width: 3.8rem;
       margin: 0.3rem;
     }
     .box-filter h5 {
