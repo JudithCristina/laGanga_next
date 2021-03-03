@@ -80,7 +80,7 @@ const PromotionSpecific = ({ product, width, height }) => {
         </Head>
 
         <Container className="pt-4 box-home container-ganga fade-in animated">
-          <h4 className="title-ganga title-especific">Ver mas detalles:</h4>
+          <h4 className="title-ganga title-especific">Ver mas detalles Homer:</h4>
           {isLoading && <PreloaderCardEspecific widthCardSpecific={width} />}
           {!isLoading && (
             <div className="box-details margin-box">

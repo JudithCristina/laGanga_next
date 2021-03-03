@@ -238,7 +238,7 @@ const CardPromotion = ({
             // }
 
 			href={{
-				pathname: `/promotion/[title]/id=${product.promocion._id}`,
+				pathname: `/promotion/[title]/?id=${product.promocion._id}`,
 				query: { title: `${product.promocion.nombre}` },
 			}}
 			passHref
