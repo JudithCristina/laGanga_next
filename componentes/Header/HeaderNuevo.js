@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { styleHeaderNuevo} from "./style";
+import { styleHeaderNuevo } from "./style";
 
 const HeaderNuevo = (props) => {
   const [searchWord, setSearchWord] = useState("");
@@ -105,23 +105,39 @@ const HeaderNuevo = (props) => {
           {searchProducts.length !== 0 ? (
             <div className="box-search-filter">
               {searchProducts.map((product) => (
-                <div>
-                  <div className="img-search">
-                    <a>
-                      <img
-                        src={
-                          product.imagenes[1].typeImage === "M"
-                            ? product.imagenes[1].url
-                            : product.imagenes[0].url
-                        }
-                        alt=""
-                        className="pr-1"
-                      />
-                    </a>
+                <Link
+                  // href={`/promotion/[title]`}
+                  // as={`/promotion/${product.promocion._id}`}
+                  href={`/promotion/[title]?id=${product.promocion._id}`}
+                  as={
+                    product.promocion.nombre.charAt(
+                      product.promocion.nombre.length - 1
+                    ) === "?"
+                      ? `/promotion/${product.promocion.nombre.replace(
+                          "?",
+                          ""
+                        )}-?id=${product.promocion._id}`
+                      : `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
+                  }
+                >
+                  <div>
+                    <div className="img-search">
+                      <a>
+                        <img
+                          src={
+                            product.imagenes[1].typeImage === "M"
+                              ? product.imagenes[1].url
+                              : product.imagenes[0].url
+                          }
+                          alt=""
+                          className="pr-1"
+                        />
+                      </a>
+                    </div>
+                    <div>{product.promocion.nombre}</div>
+                    {/* <CardPromotion product={product} key={product._id} /> */}
                   </div>
-                  <div>{product.promocion.nombre}</div>
-                  {/* <CardPromotion product={product} key={product._id} /> */}
-                </div>
+                </Link>
               ))}
             </div>
           ) : null}
@@ -164,23 +180,37 @@ const HeaderNuevo = (props) => {
         {searchProducts.length !== 0 ? (
           <div className="box-search-filter">
             {searchProducts.map((product) => (
-              <div>
+              <Link
+              // href={`/promotion/[title]`}
+              // as={`/promotion/${product.promocion._id}`}
+              href={`/promotion/[title]?id=${product.promocion._id}`}
+              as={
+                product.promocion.nombre.charAt(
+                  product.promocion.nombre.length - 1
+                ) === "?"
+                  ? `/promotion/${product.promocion.nombre.replace(
+                      "?",
+                      ""
+                    )}-?id=${product.promocion._id}`
+                  : `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
+              }
+            >
+              <div className="">
                 <div className="img-search">
-                  <a>
-                    <img
-                      src={
-                        product.imagenes[1].typeImage === "M"
-                          ? product.imagenes[1].url
-                          : product.imagenes[0].url
-                      }
-                      alt=""
-                      className="pr-1"
-                    />
-                  </a>
+                  <img
+                    src={
+                      product.imagenes[1].typeImage === "M"
+                        ? product.imagenes[1].url
+                        : product.imagenes[0].url
+                    }
+                    alt=""
+                    className="pr-1"
+                  />
                 </div>
                 <div>{product.promocion.nombre}</div>
                 {/* <CardPromotion product={product} key={product._id} /> */}
               </div>
+              </Link>
             ))}
           </div>
         ) : null}

@@ -83,6 +83,7 @@ export const globalStyles = css.global`
     position: fixed !important;
     height: !important;
     width: 100% !important;
+    opacity:.7
   }
 
   .fade-in {

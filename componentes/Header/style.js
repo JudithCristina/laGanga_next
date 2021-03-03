@@ -172,9 +172,8 @@ export const styleHeaderNuevo = css`
     box-shadow: none;
     position: absolute;
     z-index: 10;
-    list-style-type: none;
     background-color: #fff;
-    max-height: 20rem;
+    /* max-height: 20rem; */
     overflow-y: auto;
     text-align: left;
     display: flex;
@@ -188,7 +187,37 @@ export const styleHeaderNuevo = css`
     text-align: left;
   }
 
-  @media (max-width: 769px) {
+  .box-search-filter::-webkit-scrollbar {
+    width: 8px; /* Tamaño del scroll en vertical */
+    height: 8px; /* Tamaño del scroll en horizontal */
+    /* display: none; Ocultar scroll */
+  }
+  /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+  .box-search-filter::-webkit-scrollbar-thumb {
+    background: #28a745;
+    border-radius: 4px;
+  }
+  /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+  .box-search-filter::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  /* Cambiamos el fondo cuando esté en active */
+  .box-search-filter::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+  }
+  /* Ponemos un color de fondo y redondeamos las esquinas del track */
+  .box-search-filter::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+  }
+  /* Cambiamos el fondo cuando esté en active o hover */
+  .box-search-filter::-webkit-scrollbar-track:hover,
+  .box-search-filter::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+  }
+
+  @media (max-width: 768px) {
     .navbar-ganga {
       position: relative;
       padding: 0.5rem 2rem;
@@ -267,8 +296,8 @@ export const styleHeaderNuevo = css`
     }
   }
 `;
-export const styleMenuMobile= css`
-:global(.menu-mobile) {
+export const styleMenuMobile = css`
+  :global(.menu-mobile) {
     display: none;
   }
   .heart {
@@ -300,7 +329,7 @@ export const styleMenuMobile= css`
     height: 2.2rem;
     background-repeat: no-repeat;
   }
-  .category:active{
+  .category:active {
     background-image: url("../../images/menu-icons/category-on.svg") !important;
     background-size: contain;
     width: 2.2rem;
@@ -345,7 +374,6 @@ export const styleMenuMobile= css`
     top: 200px;
     padding: 1.5rem 0rem;
     cursor: pointer;
-
   }
   :global(.select-marca) {
     width: 100%;
@@ -522,6 +550,7 @@ export const styleMenuMobile= css`
   .oficina {
     background-image: url("./../../images/categoria-oficina.png");
   }
+
   @media (max-width: 769px) {
     .fixed-filter {
       display: none;
@@ -536,5 +565,9 @@ export const styleMenuMobile= css`
       bottom: 0;
     }
   }
-
+  @media only screen and (min-width: 320px) and (max-width: 736px) and (orientation: landscape) {
+    .menu-mobile {
+      display: none;
+    }
+  }
 `;
