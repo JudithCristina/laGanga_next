@@ -433,7 +433,7 @@ const PromotionSpecific = ({ product, width, height }) => {
 
 export async function getServerSideProps(params) {
   const routerParams = params;
-  console.log(routerParams);
+  // console.log(routerParams);
   let url = `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL_BUSINESS_LOCAL}/get-promotion/${routerParams.query.id}`;
   const res = await fetch(url);
 

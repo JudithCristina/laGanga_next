@@ -9,6 +9,11 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { styleCardPromotion } from "./style";
 import ActiveLink from "../ActiveLink";
+const eU = encodeURI('?') // '?'
+const eUC = encodeURIComponent('?') // '%3F'
+decodeURI(eU) // '?'
+decodeURI(eUC) // '%3F'
+
 const CardPromotion = ({
   products,
   product,
@@ -225,17 +230,18 @@ const CardPromotion = ({
             // href={`/promotion/[title]`}
             // as={`/promotion/${product.promocion._id}`}
 
-            href={`/promotion/[title]?id=${product.promocion._id}`}
-            as={
-            	product.promocion.nombre.charAt(product.promocion.nombre.length - 1) === "?"
-					? `/promotion/${product.promocion.nombre.replace("?", "")}-?id=${product.promocion._id}`
-					: `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
-            }
+            // href={`/promotion/[title]?id=${product.promocion._id}`}
+            // as={
+            // 	product.promocion.nombre.charAt(product.promocion.nombre.length - 1) === "?"
+			// 		? `/promotion/${product.promocion.nombre.replace("?", "")}-?id=${product.promocion._id}`
+			// 		: `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
+            // }
 
-			// href={{
-			// 	pathname: `/promotion/[title]/${product.promocion._id}`,
-			// 	query: { title: `${product.promocion.nombre}` },
-			// }}
+			href={{
+				pathname: `/promotion/[title]/id=${product.promocion._id}`,
+				query: { title: `${product.promocion.nombre}` },
+			}}
+			passHref
         >
             <a className="link body-card">
               <div className="group-time-item">

@@ -98,15 +98,17 @@ export const styleCardPromotion = css`
   }
 
   :global(.btn-like) {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
     color: #8c8c8c;
+    font-size:20px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
   }
 
   :global(.btn-like:hover),
   :global(.btn-like:focus) {
     color: #f31454;
     cursor: pointer;
+    font-size: 25px;
   }
 
 
