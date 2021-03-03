@@ -23,22 +23,22 @@ const MenuMobile = () => {
   return (
     <>
       <nav className="navbar fixed-bottom navbar-light bg-light menu-mobile">
-        <ActiveLink href="/" activeClassName="homeOn">
+        <ActiveLink href="/" activeclassname="homeOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
           <a>
             <div className="home"></div>
           </a>
         </ActiveLink>
-        <div onClick={handleShowFilterCategory} activeClassName="categoryOn">
+        <div onClick={handleShowFilterCategory} activeclassname="categoryOn">
           <div className="category"></div>
         </div>
-        <ActiveLink href="/Interest" activeClassName="heartOn">
+        <ActiveLink href="/Interest" activeclassname="heartOn">
           {/* <img src={heart} alt="" className="menu-off" /> */}
           <a>
             <div className="heart"></div>
           </a>
         </ActiveLink>
-        <ActiveLink href="/ganga-de-la-ganga" activeClassName="fireOn">
+        <ActiveLink href="/ganga-de-la-ganga" activeclassname="fireOn">
           {/* <img src={fire} alt="" className="menu-off" /> */}
           <a>
             <div className="fire"></div>

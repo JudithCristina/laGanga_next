@@ -103,11 +103,12 @@ export const styleCardPromotion = css`
     color: #8c8c8c;
   }
 
-  .btn-like:hover,
-  .btn-like:focus {
+  :global(.btn-like:hover),
+  :global(.btn-like:focus) {
     color: #f31454;
     cursor: pointer;
   }
+
 
   .group-time-item {
     display: flex;

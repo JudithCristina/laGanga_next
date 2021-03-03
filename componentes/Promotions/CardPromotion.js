@@ -7,8 +7,16 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import {styleCardPromotion} from './style'
-const CardPromotion = ({ products, product, addInterest, deleteInterest, height, width }) => {
+import { styleCardPromotion } from "./style";
+import ActiveLink from "../ActiveLink";
+const CardPromotion = ({
+  products,
+  product,
+  addInterest,
+  deleteInterest,
+  height,
+  width,
+}) => {
   const [timeDays, setTimeDays] = useState(0);
   const [timeHours, setTimeHours] = useState(0);
   const [timeMinutes, setTimeMinutes] = useState(0);
@@ -187,20 +195,20 @@ const CardPromotion = ({ products, product, addInterest, deleteInterest, height,
           )}
 
           <div className="group-btn-like">
-            <a>
-              <FontAwesomeIcon
-                icon={faHeart}
-                className={
-                  product.promocion.liked ? "btn-like-active" : "btn-like"
-                }
-                // onClick={() => addInterest(products, product)}
-                onClick={() => {
-                  product.promocion.liked
-                    ? deleteAlertInterest(products, product)
-                    : addAlertInterest(products, product);
-                }}
-              />
-            </a>
+				<a>
+				<FontAwesomeIcon
+					icon={faHeart}
+					className={
+					product.promocion.liked ? "btn-like-active" : "btn-like"
+					}
+					// onClick={() => addInterest(products, product)}
+					onClick={() => {
+					product.promocion.liked
+						? deleteAlertInterest(products, product)
+						: addAlertInterest(products, product);
+					}}
+				/>
+				</a>
           </div>
           <div className="box-img-item">
             <Card.Img
@@ -213,21 +221,22 @@ const CardPromotion = ({ products, product, addInterest, deleteInterest, height,
             />
           </div>
 
-          <Link
+        <Link
             // href={`/promotion/[title]`}
             // as={`/promotion/${product.promocion._id}`}
+
             href={`/promotion/[title]?id=${product.promocion._id}`}
             as={
-              product.promocion.nombre.charAt(
-                product.promocion.nombre.length - 1
-              ) === "?"
-                ? `/promotion/${product.promocion.nombre.replace(
-                    "?",
-                    ""
-                  )}-?id=${product.promocion._id}`
-                : `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
+            	product.promocion.nombre.charAt(product.promocion.nombre.length - 1) === "?"
+					? `/promotion/${product.promocion.nombre.replace("?", "")}-?id=${product.promocion._id}`
+					: `/promotion/${product.promocion.nombre}?id=${product.promocion._id}`
             }
-          >
+
+			// href={{
+			// 	pathname: `/promotion/[title]/${product.promocion._id}`,
+			// 	query: { title: `${product.promocion.nombre}` },
+			// }}
+        >
             <a className="link body-card">
               <div className="group-time-item">
                 <FontAwesomeIcon icon={faClock} />
@@ -251,7 +260,7 @@ const CardPromotion = ({ products, product, addInterest, deleteInterest, height,
                 </div>
               </Card.Body>
             </a>
-          </Link>
+    		</Link>
         </Card>
       </div>
       <style jsx>{styleCardPromotion}</style>
